@@ -7,14 +7,18 @@
  */
 
 /**
- * Description of Usuario_model
+ * Description of Idioma_model
  *
  * @author Aluno
  */
-class Exemplo_model extends MY_Model {
-    protected $table = 'usuario';
-    protected $pk = 'idusuario';
-    protected $model = 'Usuario_model';
+class Idioma_model extends MY_Model{
+    //put your code here
+    protected $table = 'idioma';
+    protected $pk = 'ididioma';
+    protected $model = 'Idioma_model';
+    
+    public $ididioma;
+    public $nome_idioma;
     
     public function __construct() {
         parent::__construct();
