@@ -15,7 +15,6 @@ class Candidatar_model extends MY_Model{
     //put your code here
     protected $table = 'candidatar';
     protected $pk = '';
-    protected $model = 'Candidatar_model';
     
     public $candidato_usuario_idusuario;
     public $vaga_idvaga;

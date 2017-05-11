@@ -15,7 +15,6 @@ class Idioma_model extends MY_Model{
     //put your code here
     protected $table = 'idioma';
     protected $pk = 'ididioma';
-    protected $model = 'Idioma_model';
     
     public $ididioma;
     public $nome_idioma;

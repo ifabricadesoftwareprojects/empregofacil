@@ -15,7 +15,6 @@ class Contato_model extends MY_Model{
     //put your code here
     protected $table = 'contato';
     protected $pk = 'idcontato';
-    protected $model = 'Contato_model';
     
     public $idcontato;
     public $tipo;

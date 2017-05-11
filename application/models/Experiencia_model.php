@@ -15,7 +15,6 @@ class Experiencia_model extends MY_Model{
     //put your code here
     protected $table = 'experiencia';
     protected $pk = 'idexperiencia';
-    protected $model = 'Experiencia_model';
     
     public $idexperiencia;
     public $cargo;

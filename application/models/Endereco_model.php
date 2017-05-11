@@ -15,7 +15,6 @@ class Endereco_model extends MY_Model{
     //put your code here
     protected $table = 'endereco';
     protected $pk = 'idendereco';
-    protected $model = 'Endereco_model';
     
     public $idendereco;
     public $rua;

@@ -15,7 +15,6 @@ class Candidato_model extends MY_Model{
     //put your code here
     protected $table = 'candidato';
     protected $pk = 'usuario_idusuario';
-    protected $model = 'Candidato_model';
     
     public $usuario_idusuario;
     public $nome_social;

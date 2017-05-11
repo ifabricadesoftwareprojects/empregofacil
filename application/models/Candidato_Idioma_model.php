@@ -15,7 +15,6 @@ class Candidato_Idioma_model extends MY_Model{
     //put your code here
     protected $table = 'candidato_idioma';
     protected $pk = '';
-    protected $model = 'Candidato_Idioma_model';
     
     public $idioma_ididioma;
     public $candidato_usuario_idusuario;

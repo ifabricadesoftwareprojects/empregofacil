@@ -15,7 +15,6 @@ class Usuario_model extends MY_Model{
     //put your code here
     protected $table = 'usuario';
     protected $pk = 'idusuario';
-    protected $model = 'Usuario_model';
     
     public $idusuario;
     public $nome;

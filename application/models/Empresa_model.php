@@ -15,7 +15,6 @@ class Empresa_model extends MY_Model{
     //put your code here
     protected $table = 'empresa';
     protected $pk = 'usuario_idusuario';
-    protected $model = 'Empresa_model';
     
     public $usuario_idusuario;
     public $razao_social;

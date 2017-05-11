@@ -15,7 +15,6 @@ class Vaga_model extends MY_Model{
     //put your code here
     protected $table = 'vaga';
     protected $pk = 'idvaga';
-    protected $model = 'Vaga_model';
     
     public $idvaga;
     public $titulo;

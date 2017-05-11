@@ -15,7 +15,6 @@ class Curso_model extends MY_Model{
     //put your code here
     protected $table = 'curso';
     protected $pk = 'idcurso';
-    protected $model = 'Curso_model';
     
     public $idcurso;
     public $descricao_curso;
