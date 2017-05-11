@@ -46,8 +46,8 @@
         </div>
         <div class="navbar-collapse collapse navbar-right">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#" data-toggle="modal" data-target="#myModal">ENTRAR</a></li>
-            <li><a href="#">CADASTRAR-SE</a></li>
+            <li class="active"><a href="#" data-toggle="modal" data-target="#modalEntrar">ENTRAR</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#modalCadastrar">CADASTRAR-SE</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -56,7 +56,7 @@
 	<!-- *****************************************************************************************************************
 	 HEADERWRAP
 	 ***************************************************************************************************************** -->
-            <div id="headerwrap" style="background-image: url('<?php echo base_url() ?>assets/img/business.jpg');">
+            <div id="headerwrap" style="background-image: url('<?php echo base_url() ?>assets/img/business.jpg'); background-position: center;">
 	    <div class="container">
 			<div class="row">
                             <div class="col-lg-8 col-lg-offset-2">
@@ -79,9 +79,9 @@
 	 	<div class="container">
 		 	<div class="row">
 		 		<div class="col-lg-4">
-		 			<h4>About</h4>
+		 			<h4>Sobre</h4>
 		 			<div class="hline-w"></div>
-		 			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                                        <p>O Emprego Fácil é um projeto desenvolvido pelo grupo de extensão {IF}ábrica de Software do IFSP Câmpus Capivari.</p>
 		 		</div>
 		 		<div class="col-lg-4">
 		 			<h4>Social Links</h4>
@@ -141,6 +141,40 @@
               <button type="button" class="btn btn-success btn-lg">Entrar</button>
               <br />
               <a href="#">Esqueci a senha</a>
+          </form>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+ <!-- FIM MODAL DE LOGIN -->  
+ 
+ <!-- MODAL DE CADASTRO -->       
+ <div id="modalCadastrar" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Formulário de Cadastro</h4>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div class="form-group">
+                <label for="txtNome">Nome</label>
+                <input type="text" name="nome" class="form-control" id="txtNome" placeholder="Nome">
+              </div>
+              <div class="form-group">
+                <label for="txtEmail">Email</label>
+                <input type="email" name="email" class="form-control" id="txtEmail" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="txtSenha">Senha</label>
+                <input type="password" name="senha" class="form-control" id="txtSenha" placeholder="Senha">
+              </div>
+              <div class="form-group">
+                <label for="txtConfirmarSenha">Confirmar Senha</label>
+                <input type="password" name="confirmar_senha" class="form-control" id="txtConfirmarSenha" placeholder="Confirmar Senha">
+              </div>
+              <button type="button" class="btn btn-success btn-lg">Cadastrar</button>
           </form>
       </div>
     </div><!-- /.modal-content -->
