@@ -120,6 +120,11 @@ a:focus {
 	border-color: transparent;
 }
 
+.modal-header{
+	background: #384452;
+	color: white;
+}
+
 .dropdown-menu {
 	background: #384452;
 }

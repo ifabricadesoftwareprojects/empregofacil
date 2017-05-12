@@ -46,7 +46,7 @@
                 </div>
                 <div class="navbar-collapse collapse navbar-right">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#" data-toggle="modal" data-target="#modalEntrar">ENTRAR</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#modalEntrar">ENTRAR</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#modalCadastrar">CADASTRAR-SE</a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -87,21 +87,19 @@
                         <h4>Social Links</h4>
                         <div class="hline-w"></div>
                         <p>
-                            <a href="#"><i class="fa fa-dribbble"></i></a>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-tumblr"></i></a>
+                            <a target="blank" href="http://www.ifspcapivari.com.br/"><i class="fa fa-dribbble"></i></a>
+                            <a target="blank" href="https://www.facebook.com/ifspcapivari/"><i class="fa fa-facebook"></i></a>
+                            <a target="blank" href="https://www.instagram.com/explore/locations/354443833/ifsp-campus-capivari/"><i class="fa fa-instagram"></i></a>
+                            
                         </p>
                     </div>
                     <div class="col-lg-4">
-                        <h4>Our Bunker</h4>
+                        <h4>Endereço</h4>
                         <div class="hline-w"></div>
                         <p>
-                            Some Ave, 987,<br/>
-                            23890, New York,<br/>
-                            United States.<br/>
-                            <a href="#" data-toggle="modal" data-target="#modalEsquecerSenha">Esqueci a senha</a>
+                            Avenida Ênio Pires de Camargo, 2971,<br/>
+                            São João Batista, CEP 13360-000 - Capivari/SP,<br/>
+                            Brazil.<br/>
                         </p>
                     </div>
 
@@ -139,13 +137,13 @@
                                 <label for="exampleInputPassword1">Senha</label>
                                 <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                             </div>
-                            <button type="button" class="btn btn-success btn-lg">Entrar</button>
-                            <br />
-                            
-                            <a href="#" data-toggle="modal" data-target="#modalEsquecerSenha">Esqueci a senha</a>
-                            
+                            <button type="button" class="btn btn-success btn-lg">Entrar</button> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modalEsquecerSenha">Esqueceu a senha?</a>
+                                      
                         </form>
                     </div>
+                    <div class="modal-footer">
+                            <p class="text-center"> Não possui uma conta ainda? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#modalCadastrar" >Cadastrar-se</a></p>
+                    </div> 
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
@@ -177,8 +175,11 @@
                                 <label for="txtConfirmarSenha">Confirmar Senha</label>
                                 <input type="password" name="confirmar_senha" class="form-control" id="txtConfirmarSenha" placeholder="Confirmar Senha">
                             </div>
-                            <button type="button" class="btn btn-success btn-lg">Cadastrar</button>
+                            <button type="button" class="btn btn-success btn-lg">Cadastrar</button>          
                         </form>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center"> Já possui uma conta? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#modalEntrar" >Entrar</a></p>
                     </div>
                 </div><!-- /.modal-content -->
             </div><!-- /.modal-dialog -->
