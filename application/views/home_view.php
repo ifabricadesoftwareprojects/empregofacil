@@ -158,7 +158,7 @@
                         <h4 class="modal-title">Formulário de Cadastro</h4>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form method="post" action="<?php echo base_url('cadastrar/candidato') ?>">
                             <div class="form-group">
                                 <label for="txtNome">Nome</label>
                                 <input type="text" name="nome" class="form-control" id="txtNome" placeholder="Nome">
@@ -175,7 +175,7 @@
                                 <label for="txtConfirmarSenha">Confirmar Senha</label>
                                 <input type="password" name="confirmar_senha" class="form-control" id="txtConfirmarSenha" placeholder="Confirmar Senha">
                             </div>
-                            <button type="button" class="btn btn-success btn-lg">Cadastrar</button>          
+                            <button type="submit" class="btn btn-success btn-lg">Cadastrar</button>          
                         </form>
                     </div>
                     <div class="modal-footer">

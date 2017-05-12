@@ -26,7 +26,7 @@ class Candidato_model extends MY_Model{
     public $portador_deficiencia;
     public $descricao_deficiencia;
     public $foto;
-    public $tipo_habilitado;
+    public $tipo_habilitacao;
     public $veiculo_proprio;
     public $disponibilidade_viajar;
     public $disponibilidade_mudar_residencia;

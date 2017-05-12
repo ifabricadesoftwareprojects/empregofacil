@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 12/05/2017 às 00:13
+-- Tempo de geração: 12/05/2017 às 23:22
 -- Versão do servidor: 10.1.13-MariaDB
 -- Versão do PHP: 5.6.21
 
@@ -40,16 +40,20 @@ CREATE TABLE `candidatar` (
 
 CREATE TABLE `candidato` (
   `usuario_idusuario` int(11) NOT NULL,
-  `data_nascimento` char(10) NOT NULL,
-  `genero` varchar(20) NOT NULL,
-  `estado_civil` varchar(20) NOT NULL,
+  `nome_social` varchar(75) DEFAULT NULL,
+  `data_nascimento` char(10) DEFAULT NULL,
+  `sexo` varchar(20) DEFAULT NULL,
+  `genero` varchar(20) DEFAULT NULL,
+  `estado_civil` varchar(20) DEFAULT NULL,
   `cpf` char(11) DEFAULT NULL,
-  `portador_deficiência` char(3) NOT NULL,
+  `portador_deficiencia` char(3) DEFAULT NULL,
+  `descricao_deficiencia` varchar(75) DEFAULT NULL,
   `foto` varchar(150) DEFAULT NULL,
   `tipo_habilitacao` char(1) DEFAULT NULL,
-  `veiculo_proprio` varchar(20) DEFAULT NULL,
+  `veiculo_proprio` varchar(75) DEFAULT NULL,
   `disponibilidade_viajar` char(3) DEFAULT NULL,
-  `disponibilidade_mudar_residencia` char(3) DEFAULT NULL
+  `disponibilidade_mudar_residencia` char(3) DEFAULT NULL,
+  `outras_informacoes` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -123,6 +127,7 @@ CREATE TABLE `endereco` (
   `numero` char(10) NOT NULL,
   `complemento` varchar(45) DEFAULT NULL,
   `bairro` varchar(45) NOT NULL,
+  `cep` char(10) DEFAULT NULL,
   `cidade` varchar(45) NOT NULL,
   `estado` char(2) NOT NULL,
   `usuario_idusuario` int(11) NOT NULL
@@ -142,7 +147,8 @@ CREATE TABLE `experiencia` (
   `mes_ano_inicio` char(7) DEFAULT NULL,
   `mes_ano_termino` char(7) DEFAULT NULL,
   `emprego_atual` char(3) DEFAULT NULL,
-  `candidato_usuario_idusuario` int(11) NOT NULL
+  `candidato_usuario_idusuario` int(11) NOT NULL,
+  `atividade_desempenhada` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -299,7 +305,7 @@ ALTER TABLE `idioma`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de tabela `vaga`
 --
