@@ -19,8 +19,8 @@ class Cadastrar extends MY_Controller {
             try{
                 $this->usuario_model->insert_candidato();
                 $this->session->set_flashdata('resposta_titulo', 'Cadastro Efetuado!');
-                $this->session->set_flashdata('resposta_msg', "Prezado(a) <strong>$this->usuario_model->nome</strong>. "
-                        . "Seu cadastro foi efetuado com sucesso. Faça o login agora mesmo e preencha seu currículo.");
+                $this->session->set_flashdata('resposta_msg', 'Prezado(a) <strong>' . $this->usuario_model->nome . '</strong>. '
+                        . 'Seu cadastro foi efetuado com sucesso. Faça o login agora mesmo e preencha seu currículo.');
                 redirect('cadastrar/resposta');
             } catch (Exception $ex) {
                 echo 'nao salvou<br />';
