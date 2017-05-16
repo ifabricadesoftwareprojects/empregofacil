@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * Description of Home
+ * Description of Login
  *
  * @author Rafael W. Pinheiro
  */
-class Home extends MY_Controller {
+class Sair extends MY_Controller {
     
     public function __construct() {
         parent::__construct();
@@ -13,7 +13,8 @@ class Home extends MY_Controller {
     
     public function index()
     {
-        $dados['msg'] = $this->session->flashdata('resposta_msg');
-        $this->view('home', $dados);
+        $userdata = array('token', 'nome');
+        $this->session->unset_userdata($userdata);
+        redirect('');
     }
 }

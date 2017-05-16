@@ -54,4 +54,37 @@ class Usuario_model extends MY_Model{
             echo $ex->getMessage();
         }
     }
+    
+    public function autenticar()
+    {
+        if(empty($this->email) || empty($this->senha)){
+            return false;
+        }
+        //Criptografa a senha
+        $this->senha = md5($this->senha);
+        $usuario =  $this->db
+                ->select('nome, token, perfil')
+                ->from('usuario u')
+                ->where('email', $this->email)
+                ->where('senha', $this->senha)
+                ->get()
+                ->row(0, $this->model);
+        if(!is_object($usuario)){
+            return false;
+        }
+        
+        $this->nome = $usuario->nome;
+        $this->token = $usuario->token;
+        $this->perfil = $usuario->perfil;
+        return true;
+    }
+    
+    public function get_id_by_token($token)
+    {
+        $usuario = $this->findBy('token', $token, 'idusuario');
+        if(count($usuario) == 0){
+            return false;
+        }
+        return $usuario[0]->idusuario;
+    }
 }

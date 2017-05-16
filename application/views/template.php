@@ -111,7 +111,7 @@
                         <h4 class="modal-title">Entrar</h4>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form method="post" action="<?php echo base_url('entrar') ?>">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
@@ -120,7 +120,7 @@
                                 <label for="exampleInputPassword1">Senha</label>
                                 <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                             </div>
-                            <button type="button" class="btn btn-success btn-lg">Entrar</button> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modalEsquecerSenha">Esqueceu a senha?</a>
+                            <button type="submit" class="btn btn-success btn-lg">Entrar</button> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modalEsquecerSenha">Esqueceu a senha?</a>
                                       
                         </form>
                     </div>

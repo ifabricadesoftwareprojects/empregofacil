@@ -47,7 +47,7 @@
                 <div class="navbar-collapse collapse navbar-right">
                     <ul class="nav navbar-nav">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário: RAFAEL <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário: <?php echo strtoupper($this->session->nome) ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                               <li><a href="">Meus Dados</a></li>
                               <li><a href="<?php echo base_url('sair') ?>">Sair</a></li>
