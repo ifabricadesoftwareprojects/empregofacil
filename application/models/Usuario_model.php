@@ -46,11 +46,11 @@ class Usuario_model extends MY_Model{
             $CI =& get_instance();
             $CI->load->model('candidato_model');
             $candidato_model = $CI->candidato_model;
-            $candidato_model->usuario_idusuario = $this->db->insert_id();
+            $candidato_model->usuario_idusuario = $this->db->insert_id(); //insert_id() pega o ultimo id AUTO INC inserido no banco de dados MySQL
             $candidato_model->insert();
             $this->db->trans_commit();
         } catch (Exception $ex) {
-            $this->db->trans_rollback();
+            $this->db->trans_rollback();//Desfaz as querys no banco!!!
             echo $ex->getMessage();
         }
     }
