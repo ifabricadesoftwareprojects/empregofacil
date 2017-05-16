@@ -364,32 +364,42 @@
                 <h4 class="modal-title">Adiciomar Curso</h4>
             </div>
             <div class="modal-body">
-                <form method="post">
+                <form method="post" action="<?php echo base_url('candidato/cadastrar_curso') ?>">
                     <div class="form-group">
                         <label for="txtDescricao">Descriçao:</label>
-                        <textarea class="form-control" rows="3" name="descricao"></textarea>
+                        <textarea class="form-control" rows="3" name="descricao_curso" placeholder="Descrição do curso"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="txtInstituicao">Instituição:</label>
-                        <input type="text" name="instituicao" class="form-control" id="txtInstituicao" placeholder="Descrição do curso">
+                        <input type="text" name="instituicao" class="form-control" id="txtInstituicao" placeholder="Instituição">
                     </div>
                     <div class="form-group">
-                        <label for="txtNivel">Nível:</label>
-                        <input type="text" name="nivel" class="form-control" id="txtNivel" placeholder="Nível do curso">
+                        <label for="cmbNivel">Nível:</label>
+                        <select name="nivel" class="form-control" id="cmbNivel">
+                            <option value="Técnico">Técnico</option>
+                            <option value="Superior">Superior</option>
+                            <option value="Pós-graduação">Pós-graduação</option>
+                            <option value="Mestrado">Mestrado</option>
+                            <option value="Doutorado">Doutorado</option>
+                            <option value="Outro">Outro</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="txtInicio">Início:</label>
-                        <input type="text" name="inicioMes" class="form-control" id="txtInicioMes" placeholder="Mês inicial">
-                        <input type="text" name="inicioAno" class="form-control" id="txtInicioAno" placeholder="Ano inicial">
+                        <label for="txtMesAnoInicio">Mês/Ano de Início:</label>
+                        <input type="text" name="mes_ano_inicio" class="form-control" id="txtMesAnoInicio" placeholder="Ex: 01/1990">
                     </div>
                     <div class="form-group">
-                        <label for="txtTermino">Término:</label>
-                        <input type="text" name="terminoMes" class="form-control" id="txtTerminoMes" placeholder="Mês de termino">
-                        <input type="text" name="terminoAno" class="form-control" id="txtTerminoAno" placeholder="Ano de termino">
+                        <label for="txtMesAnoFim">Mês/Ano de Término:</label>
+                        <input type="text" name="mes_ano_fim" class="form-control" id="txtMesAnoFim" placeholder="Ex: 12/1994">
                     </div>
                     <div class="form-group">
-                        <label for="txtStatus">Status:</label>
-                        <input type="text" name="status" class="form-control" id="txtStatus" placeholder="Status do curso">
+                        <label for="cmbStatus">Status:</label>
+                        <select name="status_curso" class="form-control" id="cmbStatus">
+                            <option value="Em Andamento">Em Andamento</option>
+                            <option value="Concluído">Concluído</option>
+                            <option value="Desistência">Desistência</option>
+                            <option value="Trancado">Trancado</option>
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary ">Adicionar Curso</button>          
                 </form>
