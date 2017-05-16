@@ -17,12 +17,24 @@
 
                         <!-- Tab panes -->
                         <div class="tab-content">
-                          <div role="tabpanel" class="tab-pane active" id="inicio">Inicio</div>
-                          <div role="tabpanel" class="tab-pane" id="meus_dados">Meus Dados</div>
-                          <div role="tabpanel" class="tab-pane" id="experiencias">Experiências</div>
-                          <div role="tabpanel" class="tab-pane" id="cursos">Cursos</div>
-                          <div role="tabpanel" class="tab-pane" id="idiomas">Idiomas</div>
-                          <div role="tabpanel" class="tab-pane" id="ver_curriculo">Ver Currículo</div>
+                          <div role="tabpanel" class="tab-pane active" id="inicio">
+                              Inicio
+                          </div>
+                          <div role="tabpanel" class="tab-pane" id="meus_dados">
+                              Meus Dados
+                          </div>
+                          <div role="tabpanel" class="tab-pane" id="experiencias">
+                              Experiências
+                          </div>
+                          <div role="tabpanel" class="tab-pane" id="cursos">
+                              Cursos
+                          </div>
+                          <div role="tabpanel" class="tab-pane" id="idiomas">
+                              Idiomas
+                          </div>
+                          <div role="tabpanel" class="tab-pane" id="ver_curriculo">
+                              Ver Currículo
+                          </div>
                         </div>
 
                     </div>
