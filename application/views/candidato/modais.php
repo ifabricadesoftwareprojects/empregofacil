@@ -3,22 +3,24 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ref="formCurso"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Adiciomar Curso</h4>
             </div>
             <div class="modal-body">
-                <form method="post" action="<?php echo base_url('candidato/cadastrar_curso') ?>">
+                <form id="formCurso" method="post" action="<?php echo base_url('candidato/cadastrar_curso') ?>">
+                    <input type="hidden" name="id" id="id" />
+                    <input type="hidden" name="acao" id="acao" value="salvar" />
                     <div class="form-group">
-                        <label for="txtDescricao">Descriçao:</label>
-                        <textarea class="form-control" rows="3" name="descricao_curso" placeholder="Descrição do curso"></textarea>
+                        <label for="descricao_curso">Descriçao:</label>
+                        <textarea class="form-control" rows="3" name="descricao_curso" placeholder="Descrição do curso" id="descricao_curso"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="txtInstituicao">Instituição:</label>
-                        <input type="text" name="instituicao" class="form-control" id="txtInstituicao" placeholder="Instituição">
+                        <label for="instituicao">Instituição:</label>
+                        <input type="text" name="instituicao" class="form-control" id="instituicao" placeholder="Instituição">
                     </div>
                     <div class="form-group">
-                        <label for="cmbNivel">Nível:</label>
-                        <select name="nivel" class="form-control" id="cmbNivel">
+                        <label for="nivel">Nível:</label>
+                        <select name="nivel" class="form-control" id="nivel">
                             <option value="Técnico">Técnico</option>
                             <option value="Superior">Superior</option>
                             <option value="Pós-graduação">Pós-graduação</option>
@@ -28,16 +30,16 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="txtMesAnoInicio">Mês/Ano de Início:</label>
-                        <input type="text" name="mes_ano_inicio" class="form-control" id="txtMesAnoInicio" placeholder="Ex: 01/1990">
+                        <label for="mes_ano_inicio">Mês/Ano de Início:</label>
+                        <input type="text" name="mes_ano_inicio" class="form-control" id="mes_ano_inicio" placeholder="Ex: 01/1990">
                     </div>
                     <div class="form-group">
-                        <label for="txtMesAnoFim">Mês/Ano de Término:</label>
-                        <input type="text" name="mes_ano_fim" class="form-control" id="txtMesAnoFim" placeholder="Ex: 12/1994">
+                        <label for="mes_ano_fim">Mês/Ano de Término:</label>
+                        <input type="text" name="mes_ano_fim" class="form-control" id="mes_ano_fim" placeholder="Ex: 12/1994">
                     </div>
                     <div class="form-group">
-                        <label for="cmbStatus">Status:</label>
-                        <select name="status_curso" class="form-control" id="cmbStatus">
+                        <label for="status_curso">Status:</label>
+                        <select name="status_curso" class="form-control" id="status_curso">
                             <option value="Em Andamento">Em Andamento</option>
                             <option value="Concluído">Concluído</option>
                             <option value="Desistência">Desistência</option>

@@ -107,14 +107,9 @@
         <script src="<?php echo base_url() ?>assets/js/jquery.prettyPhoto.js"></script>
         <script src="<?php echo base_url() ?>assets/js/jquery.isotope.min.js"></script>
         <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/candidato.js"></script>
         <script type="text/javascript">
-            $(document).ready(function(){
-                $('.editar_curso').click(function(){
-                    var dados = $.parseJSON($(this).attr('data'));
-                    console.log(dados);
-                    alert(dados.descricao_curso);
-                });
-            });
+            
         </script>
     </body>
 </html>

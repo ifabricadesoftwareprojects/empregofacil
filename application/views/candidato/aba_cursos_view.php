@@ -23,7 +23,7 @@
                     <td><?php echo $curso->mes_ano_inicio ?></td>
                     <td><?php echo $curso->mes_ano_fim ?></td>
                     <td><?php echo $curso->status_curso ?></td>
-                    <td><a href="#" data='<?php echo json_encode($curso) ?>' class="btn btn-primary editar_curso">Editar</a></td>
+                    <td><a href="#" data='<?php echo json_encode($curso) ?>' class="btn btn-primary btn_editar_curso">Editar</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
