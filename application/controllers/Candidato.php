@@ -12,6 +12,7 @@ class Candidato extends MY_Controller{
         
         $this->load->model('usuario_model');
         $this->load->model('curso_model');
+        $this->load->model('experiencia_model');
     }
     
     public function index()
@@ -24,6 +25,7 @@ class Candidato extends MY_Controller{
         
         //Lista de cursos do candidato_usuario
         $dados['cursos'] = $this->curso_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
+        $dados['experiencias'] = $this->experiencia_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         
         //Define qual a aba deve vir exibida
         $dados['active'] = $this->session->flashdata('active');
