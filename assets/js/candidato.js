@@ -19,4 +19,20 @@ $(document).ready(function(){
         
         $('#modalCurso').modal();
     });
+    
+    //Carregar os dados do curso no modal para editar
+    $('.btn_editar_experiencia').click(function(){
+        var dados = $.parseJSON($(this).attr('data'));
+        
+        $('#id').val(dados.idexperiencia);
+        $('#cargo').val(dados.cargo);
+        $('#atividade_desempenhada').val(dados.atividade_desempenhada);
+        $('#nivel_hierarquico').val(dados.nivel_hierarquico).change();
+        $('#area').val(dados.area);
+        $('#mes_ano_inicio').val(dados.mes_ano_inicio);
+        $('#mes_ano_termino').val(dados.mes_ano_termino);
+        $('#emprego_atual').val(dados.emprego_atual).change();
+        
+        $('#modalExperiencia').modal();
+    });
 });
