@@ -6,6 +6,11 @@ $(document).ready(function(){
        $('#' + $(this).attr('ref') + ' input[name="acao"]').val('');
     });
     
+    //Fechar o alerta automaticamente
+    $(".alert").fadeTo(2000, 500).fadeOut(750, function(){
+        $(".alert").alert('close');
+    });
+    
     //Carregar os dados do curso no modal para editar
     $('.btn_editar_curso').click(function(){
         var dados = $.parseJSON($(this).attr('data'));
