@@ -34,7 +34,7 @@ $(document).ready(function(){
         $('#formExperiencia input[name="mes_ano_inicio"').val(dados.mes_ano_inicio);
         $('#formExperiencia input[name="mes_ano_termino"').val(dados.mes_ano_termino);
         $('#formExperiencia select[name="emprego_atual"').val(dados.emprego_atual).change();
-        $('#formCurso input[name="acao"]').val('editar');
+        $('#formExperiencia input[name="acao"]').val('editar');
         
         $('#modalExperiencia').modal();
     });

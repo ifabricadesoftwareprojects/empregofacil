@@ -25,7 +25,7 @@
             </div>
             
             <div class="form-group" align="left" >
-                <label for="nome">Sexo:</label>
+                <label for="nome">Sexo:</label><br>
                 <label class="radio-inline">
                     <input type="radio" name="sexo" value="m" />Masculino 
                 </label>
@@ -35,7 +35,7 @@
             </div>
             
             <div class="form-group" align="left">
-                <label for="nome">Gênero:</label>
+                <label for="nome">Gênero:</label><br>
                 <label class="radio-inline">
                     <input type="radio" name="genero" value="mhete" />Heterossexual     
                 </label>
@@ -51,7 +51,7 @@
             </div>
             
             <div class="form-group" align="left">
-                <label for="nome">Estado Civil:</label>
+                <label for="nome">Estado Civil:</label><br>
                 <label class="radio-inline">
                     <input type="radio" name="ec" value="solteiro" />Solteiro(a)             
                 </label>
@@ -76,7 +76,7 @@
             </div>
             
             <div class="form-group" align="left" >
-                <label for="nome">Possui deficiência?:</label>
+                <label for="nome">Possui deficiência?:</label><br>
                 <label class="radio-inline">
                     <input type="radio" name="deficiência" value="s" />SIM             
                 </label>
@@ -89,7 +89,7 @@
             </div>
                      
             <div class="form-group" align="left">
-                <label for="nome">Possui veículo?:</label>
+                <label for="nome">Possui veículo?:</label><br>
                 <label class="radio-inline">
                     <input type="radio" name="veiculo" value="s" />SIM             
                 </label>
@@ -97,8 +97,9 @@
                     <input type="radio" name="veiculo" value="n" />NÃO
                 </label>
             </div>
+            
             <div class="form-group" align="left">
-                <label for="nome">Tipo de CNH:</label>
+                <label for="nome">Tipo de CNH:</label><br>
                 <label class="radio-inline">
                     <input type="radio" name="tipoCNH" value="a" />A             
                 </label>
@@ -120,7 +121,7 @@
                 
             </div>
             <div class="form-group" align="left">
-                <label for="nome">Possui disponibilidade para viajar?:</label>
+                <label for="nome">Possui disponibilidade para viajar?:</label><br>
                 <label class="radio-inline">
                     <input type="radio" name="viajar" value="s" />SIM             
                 </label>
@@ -128,8 +129,8 @@
                     <input type="radio" name="viajar" value="n" />NÃO
                 </label>
             </div>
-            <div class="form-group" align="left" >
-                <label for="nome">Possui disponibilidade para mudar de residência?:</label>
+            <div class="form-group" align="left">
+                <label for="nome">Possui disponibilidade para mudar de residência?:</label><br>
                 <label class="radio-inline">
                     <input type="radio" name="residencia" value="s" />SIM             
                 </label>
@@ -137,10 +138,7 @@
                     <input type="radio" name="residencia" value="n" />NÃO
                 </label>
             </div>
-            
-
         </fieldset>
-        <br />
         <!-- ENDEREÇO -->
         <fieldset>
             <legend  align="left">Dados de Endereço</legend>

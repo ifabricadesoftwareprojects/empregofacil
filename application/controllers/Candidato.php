@@ -67,4 +67,35 @@ class Candidato extends MY_Controller{
         $this->session->set_flashdata('active', 'cursos');
         redirect('candidato');
     }
+    public function cadastrar_experiencia()
+    {
+        if($this->input->post()){
+            if($this->input->post('acao') == 'editar'){
+                //Atualiza
+                $this->experiencia_model = $this->experiencia_model->find($this->input->post('id'));
+                $this->experiencia_model->post_to($this->input->post(), $this->experiencia_model);
+                
+                try{
+                    $this->experiencia_model->update('idexperiencia', $this->experiencia_model->idexperiencia);
+                    $this->session->set_flashdata(array('msg' => 'Experiencia atualizado com sucesso', 'msg_status' => 'success'));
+                } catch (Exception $ex) {
+                    $this->session->set_flashdata(array('msg' => 'Erro ao atualizar Experiencia: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+                }
+            }
+            else{
+                //Salva novo
+                $this->experiencia_model->post_to($this->input->post(), $this->experiencia_model);
+                $this->experiencia_model->candidato_usuario_idusuario = $this->usuario_model->get_id_by_token($this->session->token);
+                try{
+                    $this->experiencia_model->insert();
+                    $this->session->set_flashdata(array('msg' => 'Experiencia adicionado com sucesso', 'msg_status' => 'success'));
+                } catch (Exception $ex) {
+                    $this->session->set_flashdata(array('msg' => 'Erro ao adicionar experiencia: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+                }
+            }
+        }
+        $this->session->set_flashdata('active', 'experiencias');
+        redirect('candidato');
+    }
 }
+

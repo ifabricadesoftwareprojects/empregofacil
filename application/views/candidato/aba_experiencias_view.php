@@ -20,9 +20,9 @@
                     <td><?php echo $experiencia->area ?></td>
                     <td><?php echo $experiencia->cargo ?></td>
                     <td><?php echo $experiencia->emprego_atual ?></td>
-                    <td><?php echo $experiencia->nivel_herarquico ?></td>
+                    <td><?php echo $experiencia->nivel_hierarquico ?></td>
                     <td><?php echo $experiencia->mes_ano_inicio ?></td>
-                    <td><?php echo $experiencia->mes_ano_fim ?></td>
+                    <td><?php echo $experiencia->mes_ano_termino ?></td>
                     <td><?php echo $experiencia->atividade_desempenhada ?></td>
                     <td><a href="#" data='<?php echo json_encode($experiencia) ?>' class="btn btn-primary btn_editar_experiencia">Editar</a></td>
                 </tr>

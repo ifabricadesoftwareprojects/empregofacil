@@ -76,11 +76,15 @@
                     </div>
                     <div class="form-group">
                         <label for="emprego_atual">Emprego atual:</label>
-                        <input type="text" name="emprego_atual" class="form-control" placeholder="Emprego atual">
+                        <select name="emprego_atual" class="form-control" >
+                            <option value="sim">Sim</option>
+                            <option value="nao">Não</option>
+                        </select>                     
                     </div>
+                    
                     <div class="form-group">
-                        <label for="nivel_herarquico">Nível herarquico:</label>
-                        <select name="nivel_herarquico" class="form-control" >
+                        <label for="nivel_hierarquico">Nível hierarquico:</label>
+                        <select name="nivel_hierarquico" class="form-control" >
                             <option value="Presidente">Presidente</option>
                             <option value="Gerente">Gerente</option>
                             <option value="Diretor">Diretor</option>
@@ -95,8 +99,8 @@
                         <input type="text" name="mes_ano_inicio" class="form-control" placeholder="Ex: 01/1990">
                     </div>
                     <div class="form-group">
-                        <label for="mes_ano_fim">Mês/Ano de Término:</label>
-                        <input type="text" name="mes_ano_fim" class="form-control" placeholder="Ex: 12/1994">
+                        <label for="mes_ano_termino">Mês/Ano de Término:</label>
+                        <input type="text" name="mes_ano_termino" class="form-control" placeholder="Ex: 12/1994">
                     </div>
                     <div class="form-group">
                         <label for="atividade_desempenhada">Atividade desempenhada:</label>

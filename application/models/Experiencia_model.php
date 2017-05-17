@@ -19,7 +19,7 @@ class Experiencia_model extends MY_Model{
     public $idexperiencia;
     public $cargo;
     public $atividade_desempenhada;
-    public $nivel_herarquico;
+    public $nivel_hierarquico;
     public $area;
     public $mes_ano_inicio;
     public $mes_ano_termino;
