@@ -52,6 +52,18 @@ class MY_Model extends CI_Model {
         return $res;
     }
     
+    public function update($field, $value)
+    {
+        $res = $this->db->update($this->table, $this, array($field => $value));
+        
+        if(!$res){
+            $this->erro = $this->db->error();
+            throw new Exception($this->erro['message']);
+        }
+        
+        return $res;
+    }
+    
     public function find($pk, $fields = '*')
     {
         return $this->db
