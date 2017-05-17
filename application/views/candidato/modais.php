@@ -1,26 +1,26 @@
 <!-- MODAL DE CURSO -->       
-<div id="modalCurso" class="modal fade" tabindex="-1" role="dialog">
+<div id="modalCurso" class="modal fade" tabindex="-1" role="dialog" ref="formCurso">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ref="formCurso"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Adicionar Curso</h4>
             </div>
             <div class="modal-body">
-                <form id="formCurso" method="post" action="<?php echo base_url('candidato/cadastrar_curso') ?>">
-                    <input type="hidden" name="id" id="id" />
-                    <input type="hidden" name="acao" id="acao" value="salvar" />
+                <form name="formCurso" id="formCurso" method="post" action="<?php echo base_url('candidato/cadastrar_curso') ?>">
+                    <input type="hidden" name="id" />
+                    <input type="hidden" name="acao" value="" />
                     <div class="form-group">
                         <label for="descricao_curso">Descriçao:</label>
-                        <textarea class="form-control" rows="3" name="descricao_curso" placeholder="Descrição do curso" id="descricao_curso"></textarea>
+                        <textarea class="form-control" rows="3" name="descricao_curso" placeholder="Descrição do curso" ></textarea>
                     </div>
                     <div class="form-group">
                         <label for="instituicao">Instituição:</label>
-                        <input type="text" name="instituicao" class="form-control" id="instituicao" placeholder="Instituição">
+                        <input type="text" name="instituicao" class="form-control" placeholder="Instituição">
                     </div>
                     <div class="form-group">
                         <label for="nivel">Nível:</label>
-                        <select name="nivel" class="form-control" id="nivel">
+                        <select name="nivel" class="form-control" >
                             <option value="Técnico">Técnico</option>
                             <option value="Superior">Superior</option>
                             <option value="Pós-graduação">Pós-graduação</option>
@@ -31,15 +31,15 @@
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_inicio">Mês/Ano de Início:</label>
-                        <input type="text" name="mes_ano_inicio" class="form-control" id="mes_ano_inicio" placeholder="Ex: 01/1990">
+                        <input type="text" name="mes_ano_inicio" class="form-control" placeholder="Ex: 01/1990">
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_fim">Mês/Ano de Término:</label>
-                        <input type="text" name="mes_ano_fim" class="form-control" id="mes_ano_fim" placeholder="Ex: 12/1994">
+                        <input type="text" name="mes_ano_fim" class="form-control" placeholder="Ex: 12/1994">
                     </div>
                     <div class="form-group">
                         <label for="status_curso">Status:</label>
-                        <select name="status_curso" class="form-control" id="status_curso">
+                        <select name="status_curso" class="form-control" >
                             <option value="Em Andamento">Em Andamento</option>
                             <option value="Concluído">Concluído</option>
                             <option value="Desistência">Desistência</option>
@@ -55,32 +55,32 @@
 <!-- FIM MODAL DE CURSO -->
 
 <!-- MODAL DE EXPERIENCIA -->       
-<div id="modalExperiencia" class="modal fade" tabindex="-1" role="dialog">
+<div id="modalExperiencia" class="modal fade" tabindex="-1" role="dialog" ref="formExperiencia">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ref="formExperiencia"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Adicionar Experiência</h4>
             </div>
             <div class="modal-body">
-                <form id="formCurso" method="post" action="<?php echo base_url('candidato/cadastrar_experiencia') ?>">
-                    <input type="hidden" name="id" id="id" />
-                    <input type="hidden" name="acao" id="acao" value="salvar" />
+                <form id="formExperiencia" method="post" action="<?php echo base_url('candidato/cadastrar_experiencia') ?>">
+                    <input type="hidden" name="id" />
+                    <input type="hidden" name="acao" value="" />
                     <div class="form-group">
                         <label for="area">Area:</label>
-                        <input type="text" name="area" class="form-control" id="area" placeholder="Area onde trabalhou">
+                        <input type="text" name="area" class="form-control" placeholder="Area onde trabalhou">
                     </div>
                     <div class="form-group">
                         <label for="cargo">Cargo:</label>
-                        <input type="text" name="cargo" class="form-control" id="cargo" placeholder="Cargo em que trabalhou">
+                        <input type="text" name="cargo" class="form-control" placeholder="Cargo em que trabalhou">
                     </div>
                     <div class="form-group">
                         <label for="emprego_atual">Emprego atual:</label>
-                        <input type="text" name="emprego_atual" class="form-control" id="emprego_atual" placeholder="Emprego atual">
+                        <input type="text" name="emprego_atual" class="form-control" placeholder="Emprego atual">
                     </div>
                     <div class="form-group">
                         <label for="nivel_herarquico">Nível herarquico:</label>
-                        <select name="nivel_herarquico" class="form-control" id="nivel_herarquico">
+                        <select name="nivel_herarquico" class="form-control" >
                             <option value="Presidente">Presidente</option>
                             <option value="Gerente">Gerente</option>
                             <option value="Diretor">Diretor</option>
@@ -88,19 +88,19 @@
                             <option value="Encarregado">Encarregado</option>
                             <option value="Outro">Outro</option>
                         </select>
-                        <input type="text" name="outro" class="form-control" id="outro" placeholder="Outro nível herarquico">
+                        <input type="text" name="outro" class="form-control" placeholder="Outro nível herarquico">
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_inicio">Mês/Ano de Início:</label>
-                        <input type="text" name="mes_ano_inicio" class="form-control" id="mes_ano_inicio" placeholder="Ex: 01/1990">
+                        <input type="text" name="mes_ano_inicio" class="form-control" placeholder="Ex: 01/1990">
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_fim">Mês/Ano de Término:</label>
-                        <input type="text" name="mes_ano_fim" class="form-control" id="mes_ano_fim" placeholder="Ex: 12/1994">
+                        <input type="text" name="mes_ano_fim" class="form-control" placeholder="Ex: 12/1994">
                     </div>
                     <div class="form-group">
                         <label for="atividade_desempenhada">Atividade desempenhada:</label>
-                        <textarea class="form-control" rows="3" name="atividade_desempenhada" placeholder="Atividade que exerce discorra" id="atividade_desempenhada"></textarea>
+                        <textarea class="form-control" rows="3" name="atividade_desempenhada" placeholder="Atividade que exerce discorra" ></textarea>
                     </div>
                      <button type="submit" class="btn btn-primary ">Adicionar Experiência</button>          
                 </form>
@@ -111,7 +111,7 @@
 <!-- FIM MODAL DE EXPERIENCIA -->
 
 <!-- MODAL DE IDIOMA -->       
-<div id="modalIdioma" class="modal fade" tabindex="-1" role="dialog">
+<div id="modalIdioma" class="modal fade" tabindex="-1" role="dialog" ref="formIdioma">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -119,7 +119,7 @@
                 <h4 class="modal-title">Adiciomar Idioma</h4>
             </div>
             <div class="modal-body">
-                <form method="post">
+                <form id="formIdioma" method="post" action="<?php echo base_url('candidato/cadastrar_idioma') ?>">
                     <div class="form-group">
                         <label for="txtNome">Nome:</label>
                         <input type="text" name="nome" class="form-control" id="txtNome" placeholder="Nome do idioma">
