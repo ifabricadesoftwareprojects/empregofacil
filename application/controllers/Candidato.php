@@ -50,4 +50,22 @@ class Candidato extends MY_Controller{
         $this->session->set_flashdata('active', 'cursos');
         redirect('candidato');
     }
+    
+    public function editar_curso($idcurso = null)
+    {
+        if($this->input->post()){
+            //Edita os dados
+        }
+        //Configura o load dinamico das abas
+        $dados['template_folder'] = $this->_template_folder;
+        $dados['prefixo'] = 'aba_';
+        $dados['sufixo'] = '_view';
+        $dados['abas'] = array('inicio', 'meus_dados', 'experiencias', 'cursos', 'idiomas', 'ver_curriculo');
+        $dados['msg'] = '';
+        $dados['curso'] = $this->curso_model->find($idcurso);
+        $dados['cursos'] = $this->curso_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
+        $dados['active'] = 'cursos';
+        $dados['modal_cursos'] = true;
+        $this->view('home', $dados);
+    }
 }

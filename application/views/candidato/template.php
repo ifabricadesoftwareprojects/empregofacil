@@ -107,98 +107,14 @@
         <script src="<?php echo base_url() ?>assets/js/jquery.prettyPhoto.js"></script>
         <script src="<?php echo base_url() ?>assets/js/jquery.isotope.min.js"></script>
         <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
-
-        <!-- MODAL DE LOGIN -->       
-        <div id="modalEntrar" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Entrar</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Senha</label>
-                                <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
-                            </div>
-                            <button type="button" class="btn btn-success btn-lg">Entrar</button> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modalEsquecerSenha">Esqueceu a senha?</a>
-                                      
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                            <p class="text-center"> Não possui uma conta ainda? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#modalCadastrar" >Cadastrar-se</a></p>
-                    </div> 
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        <!-- FIM MODAL DE LOGIN -->  
-
-        <!-- MODAL DE CADASTRO -->       
-        <div id="modalCadastrar" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Formulário de Cadastro</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" action="<?php echo base_url('cadastrar/candidato') ?>">
-                            <div class="form-group">
-                                <label for="txtNome">Nome</label>
-                                <input type="text" name="nome" class="form-control" id="txtNome" placeholder="Nome">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtEmail">Email</label>
-                                <input type="email" name="email" class="form-control" id="txtEmail" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtSenha">Senha</label>
-                                <input type="password" name="senha" class="form-control" id="txtSenha" placeholder="Senha">
-                            </div>
-                            <div class="form-group">
-                                <label for="txtConfirmarSenha">Confirmar Senha</label>
-                                <input type="password" name="confirmar_senha" class="form-control" id="txtConfirmarSenha" placeholder="Confirmar Senha">
-                            </div>
-                            <button type="submit" class="btn btn-success btn-lg">Cadastrar</button>          
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <p class="text-center"> Já possui uma conta? <a href="#" data-toggle="modal" data-dismiss="modal" data-target="#modalEntrar" >Entrar</a></p>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        <!-- FIM MODAL DE CADASTRO --> 
-        
-        <!-- MODAL DE ESQUECER SENHA -->       
-        <div id="modalEsquecerSenha" class="modal fade" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title">Esqueceu sua senha de acesso?</h3>
-                        <h4 class="modal-title">Nós a renviaremos para seu e-mail!</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <p>Se você esqueceu sua senha para acesso ao site, não se preocupe.
-                                    Apenas informe no campo a seguir o endereço de e-mail de cadastro que você possui no site e reenviaremos sua senha para o
-                                    e-mail informado.</p>
-                                <label for="txtEmail">Email</label>
-                                <input type="email" name="email" class="form-control" id="txtEmail" placeholder="Email">
-                            </div>
-                            <button type="button" class="btn btn-success btn-lg">Enviar</button>
-                        </form>
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-        <!-- FIM MODAL DE ESQUECER SENHA -->  
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.editar_curso').click(function(){
+                    var dados = $.parseJSON($(this).attr('data'));
+                    console.log(dados);
+                    alert(dados.descricao_curso);
+                });
+            });
+        </script>
     </body>
 </html>
