@@ -50,7 +50,7 @@ class MY_Controller extends CI_Controller {
         $template = ($this->_template_folder == '' ? '' : $this->_template_folder . DIRECTORY_SEPARATOR) . $template_file;
         $template_path = APPPATH . $this->_views_folder . DIRECTORY_SEPARATOR . $template . '.php';
         $view = ($this->_template_folder == '' ? '' : $this->_template_folder . DIRECTORY_SEPARATOR) . $name . $this->_sufix_view;
-        
+
         if(!file_exists(APPPATH . $this->_views_folder . '/' . $view . '.php')){
             $view = $this->_template_folder . '/' . $name;
         }
