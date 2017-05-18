@@ -13,6 +13,8 @@ class Candidato extends MY_Controller{
         $this->load->model('usuario_model');
         $this->load->model('curso_model');
         $this->load->model('experiencia_model');
+        $this->load->model('idioma_model');
+        //$this->load->model('candidato_idioma_model');
     }
     
     public function index()
@@ -26,6 +28,8 @@ class Candidato extends MY_Controller{
         //Lista de cursos do candidato_usuario
         $dados['cursos'] = $this->curso_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         $dados['experiencias'] = $this->experiencia_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
+        $dados['idiomas'] = $this->idioma_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
+        //$dados['candidato_idiomas'] = $this->candidato_idioma_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         
         //Define qual a aba deve vir exibida
         $dados['active'] = $this->session->flashdata('active');
@@ -95,6 +99,37 @@ class Candidato extends MY_Controller{
             }
         }
         $this->session->set_flashdata('active', 'experiencias');
+        redirect('candidato');
+    }
+    
+    public function cadastrar_idioma()
+    {
+        if($this->input->post()){
+            if($this->input->post('acao') == 'editar'){
+                //Atualiza
+                $this->idioma_model = $this->idioma_model->find($this->input->post('id'));
+                $this->idioma_model->post_to($this->input->post(), $this->idioma_model);
+                
+                try{
+                    $this->idioma_model->update('ididioma', $this->idioma_model->ididioma);
+                    $this->session->set_flashdata(array('msg' => 'Idioma atualizado com sucesso', 'msg_status' => 'success'));
+                } catch (Exception $ex) {
+                    $this->session->set_flashdata(array('msg' => 'Erro ao atualizar Idioma: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+                }
+            }
+            else{
+                //Salva novo
+                $this->idioma_model->post_to($this->input->post(), $this->idioma_model);
+                $this->idioma_model->candidato_usuario_idusuario = $this->usuario_model->get_id_by_token($this->session->token);
+                try{
+                    $this->idioma_model->insert();
+                    $this->session->set_flashdata(array('msg' => 'Idioma adicionado com sucesso', 'msg_status' => 'success'));
+                } catch (Exception $ex) {
+                    $this->session->set_flashdata(array('msg' => 'Erro ao adicionar idioma: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+                }
+            }
+        }
+        $this->session->set_flashdata('active', 'idiomas');
         redirect('candidato');
     }
 }

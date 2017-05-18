@@ -11,15 +11,17 @@
                 </tr>
             </thead>
             <tbody>
+               <?php foreach ($idiomas as $idioma) : ?>
                 <tr>
-
+                    <td><?php echo $idioma->ididoma ?></td>
+                    <td><?php echo $idioma->nome_idioma ?></td>
+                    <td><?php echo $idioma->entende ?></td>
+                    <td><?php echo $idioma->escreve ?></td>
+                    <td><?php echo $idioma->fala ?></td>
+                    <td><?php echo $idioma->le ?></td>
+                    <td><a href="#" data='<?php echo json_encode($idioma) ?>' class="btn btn-primary btn_editar_idioma">Editar</a></td>
                 </tr>
-                <tr>
-
-                </tr>
-                <tr>
-
-                </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>

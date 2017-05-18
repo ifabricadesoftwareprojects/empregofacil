@@ -43,4 +43,18 @@ $(document).ready(function(){
         
         $('#modalExperiencia').modal();
     });
+    
+    $('.btn_editar_idioma').click(function(){
+        var dados = $.parseJSON($(this).attr('data'));
+        
+        $('#formIdioma input[name="id"').val(dados.ididoma);
+        $('#formIdioma input[name="nome_idioma"').val(dados.nome_idioma).change();
+        $('#formIdioma input[name="entende"').val(dados.entende);
+        $('#formIdioma input[name="escreve"').val(dados.escreve);
+        $('#formIdoma input[name="fala"').val(dados.fala);
+        $('#formIdioma input[name="le"').val(dados.le);
+        $('#formIdioma input[name="acao"]').val('editar');
+        
+        $('#modalIdioma').modal();
+    });
 });

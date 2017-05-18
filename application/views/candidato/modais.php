@@ -124,12 +124,22 @@
             </div>
             <div class="modal-body">
                 <form id="formIdioma" method="post" action="<?php echo base_url('candidato/cadastrar_idioma') ?>">
+                    
                     <div class="form-group">
-                        <label for="txtNome">Nome:</label>
-                        <input type="text" name="nome" class="form-control" id="txtNome" placeholder="Nome do idioma">
+                        <label for="nome_idioma">Nome:</label>
+                        <select name="nome_idioma" class="form-control" >
+                            <option value="ingles"> Inglês</option>
+                            <option value="espanhol"> Espanhol</option>
+                            <option value="mandarim"> Mandarim</option>
+                            <option value="portugues"> Português</option>
+                            <option value="japones"> Japonês</option>
+                            <option value="alemao"> Alemão</option>
+                            <option value="outro"> Outro</option>
+                        </select>
+                        <input type="text" name="outro" class="form-control" placeholder="Outro idioma">
                     </div>
                     <div class="form-group" align="left">
-                        <label for="txtEntende">Entende: </label></br>
+                        <label for="entende">Entende: </label></br>
 
                         <label class="radio-inline">
                             <input type="radio" name="entende" value="basico" />Básico             
@@ -142,7 +152,7 @@
                         </label>
                     </div>
                     <div class="form-group" align="left">
-                        <label for="txtEscreve">Escreve:</label></br>
+                        <label for="escreve">Escreve:</label></br>
 
                         <label class="radio-inline">
                             <input type="radio" name="escreve" value="basico" />Básico             
@@ -155,7 +165,7 @@
                         </label>
                     </div>
                     <div class="form-group" align="left">
-                        <label for="txtFala">Fala:</label></br>
+                        <label for="fala">Fala:</label></br>
 
                         <label class="radio-inline">
                         <input type="radio" name="fala" value="basico" />Básico             
@@ -168,7 +178,7 @@
                         </label>
                     </div>
                     <div class="form-group" align="left">
-                        <label for="txtLe">Lê:</label></br>
+                        <label for="le">Lê:</label></br>
 
                         <label class="radio-inline">
                             <input type="radio" name="le" value="basico" />Básico             
