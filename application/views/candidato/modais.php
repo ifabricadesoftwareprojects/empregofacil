@@ -124,17 +124,18 @@
             </div>
             <div class="modal-body">
                 <form id="formIdioma" method="post" action="<?php echo base_url('candidato/cadastrar_idioma') ?>">
-                    
+                    <input type="hidden" name="id" />
+                    <input type="hidden" name="acao" value="" />
                     <div class="form-group">
-                        <label for="nome_idioma">Nome:</label>
-                        <select name="nome_idioma" class="form-control" >
-                            <option value="ingles"> Inglês</option>
-                            <option value="espanhol"> Espanhol</option>
-                            <option value="mandarim"> Mandarim</option>
-                            <option value="portugues"> Português</option>
-                            <option value="japones"> Japonês</option>
-                            <option value="alemao"> Alemão</option>
-                            <option value="outro"> Outro</option>
+                        <label for="descricao_idioma">Nome:</label>
+                        <select name="descricao_idioma" class="form-control" >
+                            <option value="Inglês">Inglês</option>
+                            <option value="Espanhol">Espanhol</option>
+                            <option value="Mandarim">Mandarim</option>
+                            <option value="Português">Português</option>
+                            <option value="Japonês">Japonês</option>
+                            <option value="Alemão">Alemão</option>
+                            <option value="Outro">Outro</option>
                         </select>
                         <input type="text" name="outro" class="form-control" placeholder="Outro idioma">
                     </div>
@@ -142,52 +143,52 @@
                         <label for="entende">Entende: </label></br>
 
                         <label class="radio-inline">
-                            <input type="radio" name="entende" value="basico" />Básico             
+                            <input type="radio" name="entende" value="Básico" />Básico             
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="entende" value="intermediario" />Intermédiario
+                            <input type="radio" name="entende" value="Intermediário" />Intermédiario
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="entende" value="avancado" />Avançado
+                            <input type="radio" name="entende" value="Avançado" />Avançado
                         </label>
                     </div>
                     <div class="form-group" align="left">
                         <label for="escreve">Escreve:</label></br>
 
                         <label class="radio-inline">
-                            <input type="radio" name="escreve" value="basico" />Básico             
+                            <input type="radio" name="escreve" value="Básico" />Básico             
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="escreve" value="intermediario" />Intermédiario
+                            <input type="radio" name="escreve" value="Intermediário" />Intermédiario
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="escreve" value="avancado" />Avançado
+                            <input type="radio" name="escreve" value="Avançado" />Avançado
                         </label>
                     </div>
                     <div class="form-group" align="left">
                         <label for="fala">Fala:</label></br>
 
                         <label class="radio-inline">
-                        <input type="radio" name="fala" value="basico" />Básico             
+                        <input type="radio" name="fala" value="Básico" />Básico             
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="fala" value="intermediario" />Intermédiario
+                            <input type="radio" name="fala" value="Intermediário" />Intermédiario
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="fala" value="avancado" />Avançado
+                            <input type="radio" name="fala" value="Avançado" />Avançado
                         </label>
                     </div>
                     <div class="form-group" align="left">
                         <label for="le">Lê:</label></br>
 
                         <label class="radio-inline">
-                            <input type="radio" name="le" value="basico" />Básico             
+                            <input type="radio" name="le" value="Básico" />Básico             
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="le" value="intermediario" />Intermédiario
+                            <input type="radio" name="le" value="Intermediário" />Intermédiario
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="le" value="avancado" />Avançado
+                            <input type="radio" name="le" value="Avançado" />Avançado
                         </label>
                     </div>
                    

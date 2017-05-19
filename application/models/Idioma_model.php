@@ -17,7 +17,12 @@ class Idioma_model extends MY_Model{
     protected $pk = 'ididioma';
     
     public $ididioma;
-    public $nome_idioma;
+    public $descricao_idioma;
+    public $le;
+    public $escreve;
+    public $fala;
+    public $entende;
+    public $candidato_usuario_idusuario;
     
     public function __construct() {
         parent::__construct();

@@ -1,4 +1,5 @@
     <div role="tabpanel" class="tab-pane<?php echo ($active == 'idiomas' ? ' active' : '') ?>" id="idiomas" align="left"></br>
+        <?php echo $msg ?>
         <button type="button" class="btn btn-primary " href="#" data-toggle="modal" data-target="#modalIdioma">Adicionar Idioma</button></br>
         <table class="table table-hover">
             <thead thead-default>
@@ -13,8 +14,7 @@
             <tbody>
                <?php foreach ($idiomas as $idioma) : ?>
                 <tr>
-                    <td><?php echo $idioma->ididoma ?></td>
-                    <td><?php echo $idioma->nome_idioma ?></td>
+                    <td><?php echo $idioma->descricao_idioma ?></td>
                     <td><?php echo $idioma->entende ?></td>
                     <td><?php echo $idioma->escreve ?></td>
                     <td><?php echo $idioma->fala ?></td>
