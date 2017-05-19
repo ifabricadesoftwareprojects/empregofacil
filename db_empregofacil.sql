@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.5.2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: 19-Maio-2017 às 01:25
--- Versão do servidor: 5.7.14
--- PHP Version: 5.6.25
+-- Host: localhost
+-- Tempo de geração: 19/05/2017 às 18:18
+-- Versão do servidor: 10.1.13-MariaDB
+-- Versão do PHP: 5.6.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `empregofacil`
+-- Banco de dados: `empregofacil`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `candidatar`
+-- Estrutura para tabela `candidatar`
 --
 
 CREATE TABLE `candidatar` (
@@ -35,7 +35,7 @@ CREATE TABLE `candidatar` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `candidato`
+-- Estrutura para tabela `candidato`
 --
 
 CREATE TABLE `candidato` (
@@ -59,7 +59,7 @@ CREATE TABLE `candidato` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `contato`
+-- Estrutura para tabela `contato`
 --
 
 CREATE TABLE `contato` (
@@ -72,7 +72,7 @@ CREATE TABLE `contato` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `curso`
+-- Estrutura para tabela `curso`
 --
 
 CREATE TABLE `curso` (
@@ -89,7 +89,7 @@ CREATE TABLE `curso` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `empresa`
+-- Estrutura para tabela `empresa`
 --
 
 CREATE TABLE `empresa` (
@@ -103,7 +103,7 @@ CREATE TABLE `empresa` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `endereco`
+-- Estrutura para tabela `endereco`
 --
 
 CREATE TABLE `endereco` (
@@ -121,7 +121,7 @@ CREATE TABLE `endereco` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `experiencia`
+-- Estrutura para tabela `experiencia`
 --
 
 CREATE TABLE `experiencia` (
@@ -139,11 +139,11 @@ CREATE TABLE `experiencia` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `idioma`
+-- Estrutura para tabela `idioma`
 --
 
 CREATE TABLE `idioma` (
-  `ididioma` INT NOT NULL AUTO_INCREMENT ,
+  `ididioma` int(11) NOT NULL,
   `descricao_idioma` varchar(25) NOT NULL,
   `le` char(15) DEFAULT NULL,
   `escreve` char(15) DEFAULT NULL,
@@ -155,7 +155,7 @@ CREATE TABLE `idioma` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `usuario`
+-- Estrutura para tabela `usuario`
 --
 
 CREATE TABLE `usuario` (
@@ -171,7 +171,7 @@ CREATE TABLE `usuario` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `vaga`
+-- Estrutura para tabela `vaga`
 --
 
 CREATE TABLE `vaga` (
@@ -190,160 +190,165 @@ CREATE TABLE `vaga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Índices de tabelas apagadas
 --
 
 --
--- Indexes for table `candidatar`
+-- Índices de tabela `candidatar`
 --
 ALTER TABLE `candidatar`
   ADD PRIMARY KEY (`candidato_usuario_idusuario`,`vaga_idvaga`),
   ADD KEY `fk_candidatar_vaga1_idx` (`vaga_idvaga`);
 
 --
--- Indexes for table `candidato`
+-- Índices de tabela `candidato`
 --
 ALTER TABLE `candidato`
   ADD PRIMARY KEY (`usuario_idusuario`);
 
 --
--- Indexes for table `contato`
+-- Índices de tabela `contato`
 --
 ALTER TABLE `contato`
   ADD PRIMARY KEY (`idcontato`),
   ADD KEY `fk_contato_usuario1_idx` (`usuario_idusuario`);
 
 --
--- Indexes for table `curso`
+-- Índices de tabela `curso`
 --
 ALTER TABLE `curso`
   ADD PRIMARY KEY (`idcurso`),
   ADD KEY `fk_curso_candidato1_idx` (`candidato_usuario_idusuario`);
 
 --
--- Indexes for table `empresa`
+-- Índices de tabela `empresa`
 --
 ALTER TABLE `empresa`
   ADD PRIMARY KEY (`usuario_idusuario`);
 
 --
--- Indexes for table `endereco`
+-- Índices de tabela `endereco`
 --
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`idendereco`),
   ADD KEY `fk_endereco_usuario1_idx` (`usuario_idusuario`);
 
 --
--- Indexes for table `experiencia`
+-- Índices de tabela `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD PRIMARY KEY (`idexperiencia`),
   ADD KEY `fk_experiencia_candidato1_idx` (`candidato_usuario_idusuario`);
 
 --
--- Indexes for table `idioma`
+-- Índices de tabela `idioma`
 --
 ALTER TABLE `idioma`
   ADD PRIMARY KEY (`ididioma`),
   ADD KEY `fk_idioma_has_candidato_candidato1_idx` (`candidato_usuario_idusuario`);
 
 --
--- Indexes for table `usuario`
+-- Índices de tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idusuario`);
 
 --
--- Indexes for table `vaga`
+-- Índices de tabela `vaga`
 --
 ALTER TABLE `vaga`
   ADD PRIMARY KEY (`idvaga`),
   ADD KEY `fk_vaga_empresa1_idx` (`empresa_usuario_idusuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas apagadas
 --
 
 --
--- AUTO_INCREMENT for table `contato`
+-- AUTO_INCREMENT de tabela `contato`
 --
 ALTER TABLE `contato`
   MODIFY `idcontato` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `curso`
+-- AUTO_INCREMENT de tabela `curso`
 --
 ALTER TABLE `curso`
   MODIFY `idcurso` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `experiencia`
+-- AUTO_INCREMENT de tabela `experiencia`
 --
 ALTER TABLE `experiencia`
   MODIFY `idexperiencia` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de tabela `idioma`
+--
+ALTER TABLE `idioma`
+  MODIFY `ididioma` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `vaga`
+-- AUTO_INCREMENT de tabela `vaga`
 --
 ALTER TABLE `vaga`
   MODIFY `idvaga` int(11) NOT NULL AUTO_INCREMENT;
 --
--- Constraints for dumped tables
+-- Restrições para dumps de tabelas
 --
 
 --
--- Limitadores para a tabela `candidatar`
+-- Restrições para tabelas `candidatar`
 --
 ALTER TABLE `candidatar`
   ADD CONSTRAINT `fk_candidatar_candidato1` FOREIGN KEY (`candidato_usuario_idusuario`) REFERENCES `candidato` (`usuario_idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_candidatar_vaga1` FOREIGN KEY (`vaga_idvaga`) REFERENCES `vaga` (`idvaga`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `candidato`
+-- Restrições para tabelas `candidato`
 --
 ALTER TABLE `candidato`
   ADD CONSTRAINT `fk_candidato_usuario` FOREIGN KEY (`usuario_idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `contato`
+-- Restrições para tabelas `contato`
 --
 ALTER TABLE `contato`
   ADD CONSTRAINT `fk_contato_usuario1` FOREIGN KEY (`usuario_idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `curso`
+-- Restrições para tabelas `curso`
 --
 ALTER TABLE `curso`
   ADD CONSTRAINT `fk_curso_candidato1` FOREIGN KEY (`candidato_usuario_idusuario`) REFERENCES `candidato` (`usuario_idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `empresa`
+-- Restrições para tabelas `empresa`
 --
 ALTER TABLE `empresa`
   ADD CONSTRAINT `fk_empresa_usuario1` FOREIGN KEY (`usuario_idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `endereco`
+-- Restrições para tabelas `endereco`
 --
 ALTER TABLE `endereco`
   ADD CONSTRAINT `fk_endereco_usuario1` FOREIGN KEY (`usuario_idusuario`) REFERENCES `usuario` (`idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `experiencia`
+-- Restrições para tabelas `experiencia`
 --
 ALTER TABLE `experiencia`
   ADD CONSTRAINT `fk_experiencia_candidato1` FOREIGN KEY (`candidato_usuario_idusuario`) REFERENCES `candidato` (`usuario_idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `idioma`
+-- Restrições para tabelas `idioma`
 --
 ALTER TABLE `idioma`
   ADD CONSTRAINT `fk_idioma_has_candidato_candidato1` FOREIGN KEY (`candidato_usuario_idusuario`) REFERENCES `candidato` (`usuario_idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `vaga`
+-- Restrições para tabelas `vaga`
 --
 ALTER TABLE `vaga`
   ADD CONSTRAINT `fk_vaga_empresa1` FOREIGN KEY (`empresa_usuario_idusuario`) REFERENCES `empresa` (`usuario_idusuario`) ON DELETE NO ACTION ON UPDATE NO ACTION;
