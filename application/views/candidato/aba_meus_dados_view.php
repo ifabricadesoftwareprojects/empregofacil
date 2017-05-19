@@ -8,133 +8,135 @@
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control"  placeholder="Nome" name="nome">
             </div>
-            
+
             <div class="form-group" align="left">
                 <label for="nome">Sobrenome:</label>
                 <input type="text" class="form-control"  placeholder="Sobrenome" name="sobrenome">
             </div>
-            
+
             <div class="form-group" align="left">
                 <label for="nome">Nascimento:</label>
-                <input type="text" name="nascimento" value="" class="form-control" placeholder="Ex: 01/01/2001"> 
+                <input type="date" name="nascimento" value="" class="form-control" placeholder="Ex: 01/01/2001"> 
             </div>
-            
+
             <div class="form-group" align="left">
                 <label for="nome">CPF:</label>
                 <input type="text" class="form-control"  placeholder="CPF" name="cpf">
             </div>
-            
-            <div class="form-group" align="left" >
-                <label for="nome">Sexo:</label><br>
-                <label class="radio-inline">
-                    <input type="radio" name="sexo" value="m" />Masculino 
+
+
+
+            <div class="form-group" data-toggle="buttons" align="left">
+                <label for="sexo">Sexo:</label><br>
+                <label class="btn btn-primary active">
+                    <input type="radio" name="sexo" value="m" checked> Masculino
                 </label>
-                <label class="radio-inline">
-                    <input type="radio" name="sexo" value="f" />Feminino
+                <label class="btn btn-primary">
+                    <input type="radio" name="sexo" value="f"> Feminino
                 </label>
             </div>
-            
-            <div class="form-group" align="left">
+
+
+            <div class="form-group" data-toggle="buttons" align="left">
                 <label for="nome">Gênero:</label><br>
-                <label class="radio-inline">
-                    <input type="radio" name="genero" value="mhete" />Heterossexual     
+                <label class="btn btn-primary active">
+                    <input type="radio" name="genero" value="hete" />Heterossexual     
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="genero" value="homo" />Homossexual
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="genero" value="bi" />Bissexial
                 </label>  
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="genero" value="outros" />Outros
                 </label>  
             </div>
-            
-            <div class="form-group" align="left">
+
+            <div class="form-group" data-toggle="buttons" align="left">
                 <label for="nome">Estado Civil:</label><br>
-                <label class="radio-inline">
+                <label class="btn btn-primary active">
                     <input type="radio" name="ec" value="solteiro" />Solteiro(a)             
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="ec" value="casado" />Casado(a)
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="ec" value="viuvo" />Viúvo(a)
                 </label>
-                <label class="radio-inline">
-                    <input type="radio" name="ec" value="divorciado" />Divorciado
+                <label class="btn btn-primary">
+                    <input type="radio" name="ec" value="divorciado" />Divorciado(a)
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="ec" value="outros" />Outros
                 </label>
             </div>
-            
+
             <div class="form-group" align="left">
                 <label for="nome">Foto:</label>
-                <label for="imagem">Imagem de perfil:</label>
-                <input type="file" name="imagem" >
+                <input type="file" class="btn btn-default btn-file" name="imagem" >
             </div>
-            
-            <div class="form-group" align="left" >
+
+            <div class="form-group" data-toggle="buttons" align="left" >
                 <label for="nome">Possui deficiência?:</label><br>
-                <label class="radio-inline">
+                <label class="btn btn-primary active">
                     <input type="radio" name="deficiência" value="s" />SIM             
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="deficiência" value="n" />NÃO
                 </label>
                 <label class="form-group">
-                    <input type="text" disabled="disabled" name="descricao" placeholder="Descrição da deficiência"/>
+                    <input type="text" disabled="disabled" class="form-control"  placeholder="Descrição da deficiência" name="descricao">
                 </label>
             </div>
-                     
-            <div class="form-group" align="left">
+
+            <div class="form-group" data-toggle="buttons" align="left">
                 <label for="nome">Possui veículo?:</label><br>
-                <label class="radio-inline">
+                <label class="btn btn-primary active">
                     <input type="radio" name="veiculo" value="s" />SIM             
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="veiculo" value="n" />NÃO
                 </label>
             </div>
-            
-            <div class="form-group" align="left">
+
+            <div class="form-group" data-toggle="buttons" align="left">
                 <label for="nome">Tipo de CNH:</label><br>
-                <label class="radio-inline">
+                <label class="btn btn-primary active">
                     <input type="radio" name="tipoCNH" value="a" />A             
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="tipoCNH" value="b" />B
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="tipoCNH" value="c" />C             
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="tipoCNH" value="d" />D
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="tipoCNH" value="e" />E             
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="tipoCNH" value="n" />NÃO POSSUI             
                 </label>
-                
+
             </div>
-            <div class="form-group" align="left">
+            <div class="form-group" data-toggle="buttons" align="left">
                 <label for="nome">Possui disponibilidade para viajar?:</label><br>
-                <label class="radio-inline">
+                <label class="btn btn-primary active">
                     <input type="radio" name="viajar" value="s" />SIM             
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="viajar" value="n" />NÃO
                 </label>
             </div>
-            <div class="form-group" align="left">
+            <div class="form-group" data-toggle="buttons" align="left">
                 <label for="nome">Possui disponibilidade para mudar de residência?:</label><br>
-                <label class="radio-inline">
+                <label class="btn btn-primary active">
                     <input type="radio" name="residencia" value="s" />SIM             
                 </label>
-                <label class="radio-inline">
+                <label class="btn btn-primary">
                     <input type="radio" name="residencia" value="n" />NÃO
                 </label>
             </div>
@@ -155,10 +157,7 @@
                 <label for="bairro">Bairro:</label>
                 <input type="text" class="form-control"  placeholder="Bairro" name="bairro">
             </div>
-            <div class="form-group" align="left">
-                <label for="numero">Numero:</label>
-                <input type="text" class="form-control"  placeholder="Numero" name="numero">
-            </div>
+
             <div class="form-group" align="left">
                 <label for="estado">Estado:</label>
                 <select name="estado" class="form-control"> 
@@ -224,7 +223,7 @@
         <fieldset>
             <legend  align="left">Outras Informações</legend>
             <div class="form-group" align="left">
-                <textarea class="form-control" rows="3" name="outras"></textarea>
+                <textarea class="form-control" rows="5" name="outras"></textarea>
             </div>
         </fieldset></br>
     </form>

@@ -15,6 +15,7 @@
 
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>assets/css/magic-check.css" rel="stylesheet">
         <link href="<?php echo base_url() ?>assets/css/font-awesome.min.css" rel="stylesheet">
 
 
