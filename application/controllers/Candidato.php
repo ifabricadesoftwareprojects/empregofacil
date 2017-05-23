@@ -151,5 +151,46 @@ class Candidato extends MY_Controller{
         $this->session->set_flashdata('active', 'idiomas');
         redirect('candidato');
     }
+    
+    public function foto()
+    {
+        if($this->input->post()){
+            $config["upload_path"] = "assets/fotos/";
+            $config["allowed_types"] = "gif|jpg|png";
+            $config["overwrite"] = TRUE;
+            $this->load->library("upload", $config);
+            //em caso de sucesso no upload
+            if ($this->upload->do_upload('foto')) {
+                //renomeia a foto
+                $nomeorig = $config["upload_path"] . "/" . $this->upload->file_name;
+                $nomedestino = $config["upload_path"] . "/" . $this->session->token .  $this->upload->file_ext;
+                rename($nomeorig, $nomedestino);
+
+                //define opções de crop
+                $config["image_library"] = "gd2";
+                $config["source_image"] = $nomedestino;
+                $config["width"] = 140;
+                $config["height"] = 140;
+                $this->load->library("image_lib", $config); 
+                $this->image_lib->resize();
+                
+                //Atualizar no model
+                $this->candidato_model = $this->candidato_model->find($this->usuario_model->get_id_by_token($this->session->token));
+                $this->candidato_model->foto = $this->session->token .  $this->upload->file_ext;
+                
+                try{
+                $this->candidato_model->update('usuario_idusuario', $this->candidato_model->usuario_idusuario);
+                    $this->session->set_flashdata(array('msg' => 'Foto atualizada com sucesso', 'msg_status' => 'success'));
+                } catch (Exception $ex) {
+                    $this->session->set_flashdata(array('msg' => 'Erro ao atualizar dados: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+                }
+            }
+            else{
+                $this->session->set_flashdata(array('msg' => $this->upload->display_errors(), 'msg_status' => 'danger'));
+            }
+        }
+        $this->session->set_flashdata('active', 'meus_dados');
+        redirect('candidato');
+    }
 }
 

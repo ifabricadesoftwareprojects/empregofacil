@@ -210,14 +210,17 @@
                 <h4 class="modal-title">Foto do Perfil</h4>
             </div>
             <div class="modal-body">
-                <form id="formFoto" method="post" action="<?php echo base_url('candidato/foto') ?>">
-                    <input type="hidden" name="id" />
-                    <input type="hidden" name="acao" value="" />
+                <form id="formFoto" method="post" action="<?php echo base_url('candidato/foto') ?>" enctype="multipart/form-data">
+                    <input type="hidden" name="acao" value="upload" />
                     <div class="form-group">
+                        <img src="<?php echo get_src_foto_candidato($candidato->foto) ?>" alt="#" class="img-rounded">
+                    </div>
+                    <div class="form-group">                        
                         <label for="foto">Carregar Nova Foto:</label>
                         <input type="file" name="foto" class="form-control">
                     </div>
-                     <button type="submit" class="btn btn-primary ">Atualizar Foto</button>          
+                     <button type="submit" class="btn btn-primary ">Atualizar Foto</button>
+                     <button type="button" class="btn" data-dismiss="modal">Cancelar</button>
                 </form>
             </div>
         </div><!-- /.modal-content -->

@@ -9,7 +9,7 @@
                     <fieldset>
                         <legend>Dados Pessoais</legend>
                         <div class="form-group">
-                            <img src="<?php echo base_url() ?>assets/img/semImg.png" alt="#" class="img-rounded">
+                            <img src="<?php echo get_src_foto_candidato($candidato->foto) ?>" alt="#" class="img-rounded">
                             <button type="button" class="btn btn-primary" href="#" data-toggle="modal" data-target="#modalFoto">Alterar Foto</button>
                         </div>
                         
