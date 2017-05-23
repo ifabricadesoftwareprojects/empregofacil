@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nivel">Nível:</label>
-                        <select name="nivel" class="form-control" >
+                        <select name="nivel" class="form-control campoextra" campoextra="outro" compara="Outro" >
                             <option value="Técnico">Técnico</option>
                             <option value="Superior">Superior</option>
                             <option value="Pós-graduação">Pós-graduação</option>
@@ -28,6 +28,7 @@
                             <option value="Doutorado">Doutorado</option>
                             <option value="Outro">Outro</option>
                         </select>
+                        <input type="text" id="outro" name="outro" class="form-control" placeholder="Outro nível" disabled>
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_inicio">Mês/Ano de Início:</label>
@@ -84,7 +85,7 @@
                     
                     <div class="form-group">
                         <label for="nivel_hierarquico">Nível hierarquico:</label>
-                        <select name="nivel_hierarquico" class="form-control" >
+                        <select name="nivel_hierarquico" class="form-control campoextra" campoextra="outroNivel" compara="Outro">
                             <option value="Presidente">Presidente</option>
                             <option value="Gerente">Gerente</option>
                             <option value="Diretor">Diretor</option>
@@ -92,7 +93,7 @@
                             <option value="Encarregado">Encarregado</option>
                             <option value="Outro">Outro</option>
                         </select>
-                        <input type="text" name="outro" class="form-control" placeholder="Outro nível herarquico">
+                        <input type="text" id="outroNivel" name="outroNivel" class="form-control" placeholder="Outro nível herarquico" disabled>
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_inicio">Mês/Ano de Início:</label>
@@ -128,7 +129,7 @@
                     <input type="hidden" name="acao" value="" />
                     <div class="form-group">
                         <label for="descricao_idioma">Nome:</label>
-                        <select name="descricao_idioma" class="form-control" >
+                        <select name="descricao_idioma" class="form-control campoextra" campoextra="outroIdioma" compara="Outro">
                             <option value="Inglês">Inglês</option>
                             <option value="Espanhol">Espanhol</option>
                             <option value="Mandarim">Mandarim</option>
@@ -137,7 +138,7 @@
                             <option value="Alemão">Alemão</option>
                             <option value="Outro">Outro</option>
                         </select>
-                        <input type="text" name="outro" class="form-control" placeholder="Outro idioma">
+                        <input type="text" id="outroIdioma" name="outroIdioma" class="form-control" placeholder="Outro idioma" disabled>
                     </div>
                     <div class="form-group" align="left">
                         <label for="entende">Entende: </label></br>

@@ -8,6 +8,8 @@
                     <!-- DADOS PESSOAIS-->
                     <fieldset>
                         <legend  align="left">Dados Pessoais</legend>
+                        <img src="<?php echo base_url() ?>assets/img/semImg.png" alt="#" align="left" class="img-rounded">
+                       <br><br><br><input type="file" class="btn btn-default btn-file" name="imagem" ><br><br><br><br>
                         <div class="form-group" align="left">
                             <label for="nome">Nome:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome" value="<?php echo $candidato->nome ?>">
@@ -17,7 +19,10 @@
                             <label for="nome_social">Como deseja ser chamado?:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Como deseja ser chamado?" name="nome_social" value="<?php echo $candidato->nome_social ?>">
                         </div>
-
+                        <div class="form-group" align="left">
+                            <label for="cpf">CPF:</label>
+                            <input type="text" class="form-control input-lg"  placeholder="Ex: 111.111.111-11" name="cpf" value="<?php echo $candidato->cpf ?>">
+                        </div>
                         <div class="form-group" align="left">
                             <label for="email">Email:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Email" name="email" value="<?php echo $candidato->email ?>">
@@ -42,6 +47,9 @@
                                 <option value="Heterossexual"<?php echo $candidato->genero == 'Heterossexual' ? ' selected' : '' ?>>Heterossexual</option>
                                 <option value="Homossexual"<?php echo $candidato->genero == 'Homossexual' ? ' selected' : '' ?>>Homossexual</option>
                                 <option value="Bissexual"<?php echo $candidato->genero == 'Bissexual' ? ' selected' : '' ?>>Bissexual</option>
+                                <option value="Travesti"<?php echo $candidato->genero == 'Travesti' ? ' selected' : '' ?>>Travesti</option>
+                                <option value="Transexual "<?php echo $candidato->genero == 'Transexual' ? ' selected' : '' ?>>Transexual</option>
+                                <option value="Transgênero "<?php echo $candidato->genero == 'Transgênero' ? ' selected' : '' ?>>Transgênero</option>
                                 <option value="Outro"<?php echo $candidato->genero == 'Outro' ? ' selected' : '' ?>>Outro</option>
                             </select>
                         </div>
@@ -57,19 +65,16 @@
                             </select>
                         </div>
 
-                        <div class="form-group" align="left">
-                            <label for="nome">Foto:</label>
-                            <input type="file" class="btn btn-default btn-file" name="imagem" >
-                        </div>
+                        
                         
                         <div class="form-group" align="left">
                             <label for="portador_deficiencia">Possui algum tipo de deficiência?:</label>
-                            <select name="portador_deficiencia" class="form-control input-lg">
+                            <select id="portador_deficiencia" name="portador_deficiencia" class="form-control input-lg campoextra" campoextra="descricao_deficiencia" compara="Sim">
                                 <option value="Sim"<?php echo $candidato->portador_deficiencia == 'Sim' ? ' selected' : '' ?>>Sim</option>
-                                <option value="Nao"<?php echo $candidato->portador_deficiencia == 'Nao' ? ' selected' : '' ?>>Não</option>
+                                <option value="Nao"<?php echo $candidato->portador_deficiencia == 'Nao' ? ' selected' : '' ?> selected="selected">Não</option>
                             </select>
                             <label class="form-group">
-                                <input type="text" disabled="disabled" class="form-control"  placeholder="Descrição da deficiência" name="descricao_deficiencia">
+                                <input type="text" disabled="disabled" class="form-control"  placeholder="Descrição da deficiência" id="descricao_deficiencia" name="descricao_deficiencia">
                             </label>
                         </div>
                         
@@ -102,7 +107,7 @@
                         </div>
                         
                         <div class="form-group" align="left">
-                            <label for="disponibilidade_mudar_residencia">Possui disponibilidade para viajar?:</label>
+                            <label for="disponibilidade_mudar_residencia">Possui disponibilidade de mudar de residencia?:</label>
                             <select name="disponibilidade_mudar_residencia" class="form-control input-lg">
                                 <option value="Sim"<?php echo $candidato->disponibilidade_mudar_residencia == 'Sim' ? ' selected' : '' ?>>Sim</option>
                                 <option value="Nao"<?php echo $candidato->disponibilidade_mudar_residencia == 'Nao' ? ' selected' : '' ?>>Não</option>

@@ -57,5 +57,26 @@ $(document).ready(function(){
         $('#formIdioma input[name="acao"]').val('editar');
         
         $('#modalIdioma').modal();
+    });  
+    
+    $('.campoextra').change(function(){
+        
+       var valor = $(this).val();
+       
+       var campo = '#' + $(this).attr('campoextra');
+       var compara = $(this).attr('compara');
+       
+       
+       if(valor === compara){
+           
+           
+           $(campo).attr("disabled", false);
+       }
+       else{
+           $(campo).val("");
+           $(campo).attr("disabled", true);
+       }
     });
 });
+
+    
