@@ -4,36 +4,39 @@
     <form method="post" action="<?php echo base_url('candidato/atualizar_dados') ?>">
         <div class="container">   
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8" style="text-align: left;">
                     <!-- DADOS PESSOAIS-->
                     <fieldset>
-                        <legend  align="left">Dados Pessoais</legend>
-                        <img src="<?php echo base_url() ?>assets/img/semImg.png" alt="#" align="left" class="img-rounded">
-                       <br><br><br><input type="file" class="btn btn-default btn-file" name="imagem" ><br><br><br><br>
-                        <div class="form-group" align="left">
+                        <legend>Dados Pessoais</legend>
+                        <div class="form-group">
+                            <img src="<?php echo base_url() ?>assets/img/semImg.png" alt="#" class="img-rounded">
+                            <button type="button" class="btn btn-primary" href="#" data-toggle="modal" data-target="#modalFoto">Alterar Foto</button>
+                        </div>
+                        
+                        <div class="form-group">
                             <label for="nome">Nome:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome" value="<?php echo $candidato->nome ?>">
                         </div>
 
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="nome_social">Como deseja ser chamado?:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Como deseja ser chamado?" name="nome_social" value="<?php echo $candidato->nome_social ?>">
                         </div>
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="cpf">CPF:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Ex: 111.111.111-11" name="cpf" value="<?php echo $candidato->cpf ?>">
                         </div>
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Email" name="email" value="<?php echo $candidato->email ?>">
                         </div>
 
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="data_nascimento">Nascimento:</label>
                             <input type="date" name="data_nascimento" value="<?php echo $candidato->data_nascimento ?>" class="form-control input-lg" placeholder="Ex: 01/01/2001"> 
                         </div>
 
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="sexo">Sexo:</label>
                             <select name="sexo" class="form-control input-lg">
                                 <option value="Masculino"<?php echo $candidato->sexo == 'Masculino' ? ' selected' : '' ?>>Masculino</option>
@@ -41,7 +44,7 @@
                             </select>
                         </div>
                         
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="genero">Gênero:</label>
                             <select name="genero" class="form-control input-lg">
                                 <option value="Heterossexual"<?php echo $candidato->genero == 'Heterossexual' ? ' selected' : '' ?>>Heterossexual</option>
@@ -54,7 +57,7 @@
                             </select>
                         </div>
                         
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="estado_civil">Estado Civil:</label>
                             <select name="estado_civil" class="form-control input-lg">
                                 <option value="Solteiro"<?php echo $candidato->estado_civil == 'Solteiro' ? ' selected' : '' ?>>Solteiro(a)</option>
@@ -67,7 +70,7 @@
 
                         
                         
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="portador_deficiencia">Possui algum tipo de deficiência?:</label>
                             <select id="portador_deficiencia" name="portador_deficiencia" class="form-control input-lg campoextra" campoextra="descricao_deficiencia" compara="Sim">
                                 <option value="Sim"<?php echo $candidato->portador_deficiencia == 'Sim' ? ' selected' : '' ?>>Sim</option>
@@ -78,7 +81,7 @@
                             </label>
                         </div>
                         
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="tipo_habilitacao">Tipo Habilitação (CNH): </label>
                             <select name="tipo_habilitacao" class="form-control input-lg">
                                 <option value="N"<?php echo $candidato->tipo_habilitacao == 'N' ? ' selected' : '' ?>>Não possuo habilitação</option>
@@ -90,7 +93,7 @@
                             </select>
                         </div>
                         
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="veiculo_proprio">Possui veículo próprio?:</label>
                             <select name="veiculo_proprio" class="form-control input-lg">
                                 <option value="Sim"<?php echo $candidato->veiculo_proprio == 'Sim' ? ' selected' : '' ?>>Sim</option>
@@ -98,7 +101,7 @@
                             </select>
                         </div>
                         
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="disponibilidade_viajar">Possui disponibilidade para viajar?:</label>
                             <select name="disponibilidade_viajar" class="form-control input-lg">
                                 <option value="Sim"<?php echo $candidato->disponibilidade_viajar == 'Sim' ? ' selected' : '' ?>>Sim</option>
@@ -106,7 +109,7 @@
                             </select>
                         </div>
                         
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="disponibilidade_mudar_residencia">Possui disponibilidade de mudar de residencia?:</label>
                             <select name="disponibilidade_mudar_residencia" class="form-control input-lg">
                                 <option value="Sim"<?php echo $candidato->disponibilidade_mudar_residencia == 'Sim' ? ' selected' : '' ?>>Sim</option>
@@ -117,21 +120,21 @@
                     <!-- ENDEREÇO -->
                     <!-- Contato -->
                     <fieldset>
-                        <legend  align="left">Dados de Contato</legend>
+                        <legend>Dados de Contato</legend>
 
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="telefone">Telefone:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Telefone" name="telefone">
                         </div>
-                        <div class="form-group" align="left">
+                        <div class="form-group">
                             <label for="celular">Celular:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Celular" name="celular">
                         </div>
 
                     </fieldset></br>
                     <fieldset>
-                        <legend  align="left">Outras Informações</legend>
-                        <div class="form-group" align="left">
+                        <legend>Outras Informações</legend>
+                        <div class="form-group">
                             <textarea class="form-control input-lg" rows="5" name="outras_informacoes"><?php echo $candidato->outras_informacoes ?></textarea>
                         </div>
                     </fieldset></br>

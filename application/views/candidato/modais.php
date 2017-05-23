@@ -201,3 +201,27 @@
 </div><!-- /.modal -->
 <!-- FIM MODAL DE IDIOMA --> 
 
+<!-- MODAL DE FOTO -->       
+<div id="modalFoto" class="modal fade" tabindex="-1" role="dialog" ref="formFoto">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Foto do Perfil</h4>
+            </div>
+            <div class="modal-body">
+                <form id="formFoto" method="post" action="<?php echo base_url('candidato/foto') ?>">
+                    <input type="hidden" name="id" />
+                    <input type="hidden" name="acao" value="" />
+                    <div class="form-group">
+                        <label for="foto">Carregar Nova Foto:</label>
+                        <input type="file" name="foto" class="form-control">
+                    </div>
+                     <button type="submit" class="btn btn-primary ">Atualizar Foto</button>          
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- FIM MODAL DE EXPERIENCIA -->
+
