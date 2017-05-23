@@ -11,6 +11,7 @@ class Candidato extends MY_Controller{
         parent::__construct();
         
         $this->load->model('usuario_model');
+        $this->load->model('candidato_model');
         $this->load->model('curso_model');
         $this->load->model('experiencia_model');
         $this->load->model('idioma_model');
@@ -25,6 +26,7 @@ class Candidato extends MY_Controller{
         $dados['sufixo'] = '_view';
         $dados['abas'] = array('inicio', 'meus_dados', 'experiencias', 'cursos', 'idiomas', 'ver_curriculo');
         
+        $dados['candidato'] = $this->candidato_model->get_candidato_by_token($this->session->token);
         //Lista de cursos do candidato_usuario
         $dados['cursos'] = $this->curso_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         $dados['experiencias'] = $this->experiencia_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
@@ -39,6 +41,23 @@ class Candidato extends MY_Controller{
         $dados['msg'] = get_alert_code($this->session->flashdata('msg'), $this->session->flashdata('msg_status'));
         
         $this->view('home', $dados);
+    }
+    
+    public function atualizar_dados()
+    {
+        if($this->input->post()){
+            $this->candidato_model = $this->candidato_model->find($this->usuario_model->get_id_by_token($this->session->token));
+            $this->candidato_model->post_to($this->input->post(), $this->candidato_model);
+            
+            try{
+                $this->candidato_model->update('usuario_idusuario', $this->candidato_model->usuario_idusuario);
+                $this->session->set_flashdata(array('msg' => 'Dados atualizado com sucesso', 'msg_status' => 'success'));
+            } catch (Exception $ex) {
+                $this->session->set_flashdata(array('msg' => 'Erro ao atualizar dados: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+            }
+        }
+        $this->session->set_flashdata('active', 'meus_dados');
+        redirect('candidato');
     }
     
     public function cadastrar_curso()

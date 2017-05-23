@@ -1,5 +1,5 @@
-    <div role="tabpanel" class="tab-pane<?php echo ($active == 'experiencias' ? ' active' : '') ?>" id="experiencias">
-        <div role="tabpanel" class="tab-pane" id="experiencias" align="left"></br>
+    <div role="tabpanel" class="tab-pane<?php echo ($active == 'experiencias' ? ' active' : '') ?>" id="experiencias" align="left">
+        </br>
         <?php echo $msg ?>
         <button type="button" class="btn btn-primary" href="#" data-toggle="modal" data-target="#modalExperiencia">Adicionar Experiência</button></br>
         <table class="table table-hover">
@@ -29,5 +29,4 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-    </div>
     </div>

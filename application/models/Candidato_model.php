@@ -35,4 +35,14 @@ class Candidato_model extends MY_Model{
     public function __construct() {
         parent::__construct();
     }
+    
+    public function get_candidato_by_token($token)
+    {
+        return  $this->db
+                ->from('usuario u')
+                ->join('candidato c', 'u.idusuario = c.usuario_idusuario')
+                ->where('u.token', $token)
+                ->get()
+                ->row(0, $this->model);
+    }
 }

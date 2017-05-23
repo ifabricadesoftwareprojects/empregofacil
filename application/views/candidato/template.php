@@ -109,7 +109,13 @@
         <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
         <script src="<?php echo base_url() ?>assets/js/candidato.js"></script>
         <script type="text/javascript">
-            
+            $(document).ready(function(){
+            $('#myAffix').affix({
+                offset: {
+                  bottom: $('#footerwrap').outerHeight(true)
+                }
+              }); 
+            });
         </script>
     </body>
 </html>
