@@ -1,7 +1,7 @@
     <div role="tabpanel" class="tab-pane<?php echo ($active == 'ver_curriculo' ? ' active' : '') ?>" id="ver_curriculo">
         <br />
         <?php echo $msg ?>
-        <div class="container">   
+        <div class="container" style="min-height: 500px;">   
             <div class="row">
                 <div class="col-lg-8" style="text-align: left;">
                     <h2>Dados Pessoais</h2>
@@ -53,8 +53,8 @@
                     </div>
                     <?php endif; ?>
                 </div>
-                <div id="myAffix" style="position: fixed; bottom: 36%; display: block; width: 10%; right: 25%;" data-spy="affix" data-offset-bottom="230" > <!--data-spy="affix" data-offset-top="197"-->
-                    <button href="#" class="btn btn-success btn-lg btn-block">Gerar PDF</button>  
+                <div id="myAffix" style="position: fixed; bottom: 45%; display: block; width: 10%; right: 25%;" data-spy="affix" data-offset-bottom="230" > <!--data-spy="affix" data-offset-top="197"-->
+                    <a href="<?php echo base_url('candidato/pdf') ?>" class="btn btn-success btn-lg btn-block" target="blank">Gerar PDF</a>  
                 </div>
             </div>
         </div>
