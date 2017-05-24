@@ -25,16 +25,16 @@
                     <div class="info_curriculo" style="margin-left: 30px;">
                         <ul>
                         <?php foreach ($experiencias as $experiencia) : ?>
-                        <li>
-                            <?php echo '<span class="titulo">' . $experiencia->empresa . "</span>"  ?>
-                            <br />
-                            <span class="corpo"><strong>Cargo: </strong><?php echo $experiencia->cargo ?></span>
-                            <br />
-                            <span class="corpo">De <?php echo $experiencia->mes_ano_inicio . " à " . ($experiencia->mes_ano_termino == '' ? '-' : $experiencia->mes_ano_termino) . ($experiencia->emprego_atual == 'sim' ? ' (Emprego Atual)' : '') ?></span>
-                            <br />
-                            <span class="corpo">Atividades Desempenhadas: <?php echo $experiencia->atividade_desempenhada ?></span>
-                        </li>                       
-                    <?php endforeach; ?>
+                            <li>
+                                <?php echo '<span class="titulo">' . $experiencia->empresa . "</span>"  ?>
+                                <br />
+                                <span class="corpo"><strong>Cargo: </strong><?php echo $experiencia->cargo ?></span>
+                                <br />
+                                <span class="corpo">De <?php echo $experiencia->mes_ano_inicio . " à " . ($experiencia->mes_ano_termino == '' ? '-' : $experiencia->mes_ano_termino) . ($experiencia->emprego_atual == 'sim' ? ' (Emprego Atual)' : '') ?></span>
+                                <br />
+                                <span class="corpo">Atividades Desempenhadas: <?php echo $experiencia->atividade_desempenhada ?></span>
+                            </li>                       
+                        <?php endforeach; ?>
                         </ul>
                     </div>
                     <?php endif; ?>
@@ -52,6 +52,9 @@
                         </ul>
                     </div>
                     <?php endif; ?>
+                </div>
+                <div id="myAffix" style="position: fixed; bottom: 36%; display: block; width: 10%; right: 25%;" data-spy="affix" data-offset-bottom="230" > <!--data-spy="affix" data-offset-top="197"-->
+                    <button href="#" class="btn btn-success btn-lg btn-block">Gerar PDF</button>  
                 </div>
             </div>
         </div>
