@@ -139,8 +139,8 @@
                         </div>
                     </fieldset></br>
                 </div>
-                <div id="myAffix" style="position: fixed; bottom: 0px; display: block; width: 768px;" data-spy="affix" data-offset-bottom="230"> <!--data-spy="affix" data-offset-top="197"-->
-                    <button type="submit" class="btn btn-success btn-lg btn-block">Atualizar Dados</button>  
+                <div id="myAffix" style="position: fixed; bottom: 40%; display: block; width: 10%; right: 25%;" data-spy="affix" data-offset-bottom="230" > <!--data-spy="affix" data-offset-top="197"-->
+                    <button type="submit" aling="right" class="btn btn-success btn-lg btn-block">Atualizar Dados</button>  
                 </div>
             </div>
         </div>
