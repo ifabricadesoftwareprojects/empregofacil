@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Tempo de geração: 19/05/2017 às 18:18
+-- Tempo de geração: 25/05/2017 às 00:15
 -- Versão do servidor: 10.1.13-MariaDB
 -- Versão do PHP: 5.6.21
 
@@ -129,6 +129,7 @@ CREATE TABLE `experiencia` (
   `cargo` varchar(50) DEFAULT NULL,
   `nivel_hierarquico` varchar(30) DEFAULT NULL,
   `area` varchar(50) DEFAULT NULL,
+  `empresa` varchar(45) DEFAULT NULL,
   `mes_ano_inicio` char(7) DEFAULT NULL,
   `mes_ano_termino` char(7) DEFAULT NULL,
   `emprego_atual` char(3) DEFAULT NULL,
