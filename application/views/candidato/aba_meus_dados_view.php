@@ -124,7 +124,7 @@
 
                         <div class="form-group">
                             <label for="telefone">Telefone:</label>
-                            <input type="text" class="form-control input-lg"  placeholder="Telefone" name="telefone" id="">
+                            <input type="text" class="form-control input-lg"  placeholder="Telefone" name="telefone" >
                         </div>
                         <div class="form-group">
                             <label for="celular">Celular:</label>
