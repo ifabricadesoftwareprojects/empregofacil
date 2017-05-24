@@ -124,7 +124,7 @@
 
                         <div class="form-group">
                             <label for="telefone">Telefone:</label>
-                            <input type="text" class="form-control input-lg"  placeholder="Telefone" name="telefone">
+                            <input type="text" class="form-control input-lg"  placeholder="Telefone" name="telefone" >
                         </div>
                         <div class="form-group">
                             <label for="celular">Celular:</label>
@@ -139,8 +139,8 @@
                         </div>
                     </fieldset></br>
                 </div>
-                <div id="myAffix" style="position: fixed; bottom: 0px; display: block; width: 768px;" data-spy="affix" data-offset-bottom="230"> <!--data-spy="affix" data-offset-top="197"-->
-                    <button type="submit" class="btn btn-success btn-lg btn-block">Atualizar Dados</button>  
+                <div id="myAffix" style="position: fixed; bottom: 40%; display: block; width: 10%; right: 25%;" data-spy="affix" data-offset-bottom="230" > <!--data-spy="affix" data-offset-top="197"-->
+                    <button type="submit"  class="btn btn-success btn-lg btn-block">Atualizar Dados</button>  
                 </div>
             </div>
         </div>
