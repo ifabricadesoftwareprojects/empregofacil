@@ -20,18 +20,38 @@
                         <p><strong>Tem disponibilidade para viajar?</strong> <?php echo $candidato->disponibilidade_viajar ?></p>
                         <p><strong>Tem disponibilidade para mudar de cidade?</strong> <?php echo $candidato->disponibilidade_mudar_residencia ?></p>
                     </div>
+                    <?php if(count($experiencias) > 0) : ?>
                     <h2>Experiências Profissionais</h2>
                     <div class="info_curriculo" style="margin-left: 30px;">
-                    <?php foreach ($experiencias as $experiencia) : ?>
-                        <p><strong>Descrição:</strong> <?php echo $experiencia->atividade_desempenhada ?></p>
-                        <p><strong>Cargo:</strong> <?php echo $experiencia->cargo ?>
-                        <p><strong>Área:</strong> <?php echo $experiencia->area ?>
-                        <p><strong>Nível Hierárquico:</strong> <?php echo $experiencia->nivel_hierarquico ?>
-                        <p><strong>Emprego Atual?</strong> <?php echo $experiencia->emprego_atual ?>
-                        <p><strong>Início:</strong> <?php echo $experiencia->mes_ano_inicio ?>
-                        <p><strong>Fim:</strong> <?php echo $experiencia->mes_ano_termino ?>                            
+                        <ul>
+                        <?php foreach ($experiencias as $experiencia) : ?>
+                        <li>
+                            <?php echo '<span class="titulo">' . $experiencia->empresa . "</span>"  ?>
+                            <br />
+                            <span class="corpo"><strong>Cargo: </strong><?php echo $experiencia->cargo ?></span>
+                            <br />
+                            <span class="corpo">De <?php echo $experiencia->mes_ano_inicio . " à " . ($experiencia->mes_ano_termino == '' ? '-' : $experiencia->mes_ano_termino) . ($experiencia->emprego_atual == 'sim' ? ' (Emprego Atual)' : '') ?></span>
+                            <br />
+                            <span class="corpo">Atividades Desempenhadas: <?php echo $experiencia->atividade_desempenhada ?></span>
+                        </li>                       
                     <?php endforeach; ?>
+                        </ul>
                     </div>
+                    <?php endif; ?>
+                    <?php if(count($cursos) > 0) : ?>
+                    <h2>Formação Acadêmica</h2>
+                    <div class="info_curriculo" style="">
+                        <ul>
+                        <?php foreach ($cursos as $curso) : ?>
+                        <li>
+                            <?php echo "<strong>" . $curso->nivel . " em " . $curso->descricao_curso . "</strong>, " . $curso->instituicao ?>
+                            <br />
+                            De <?php echo $curso->mes_ano_inicio . " à " . $curso->mes_ano_fim . " (" . $curso->status_curso . ")" ?>
+                        </li>  
+                    <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

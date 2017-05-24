@@ -7,6 +7,7 @@
                 <tr>
                     <th>Area</th>
                     <th>Cargo</th>
+                    <th>Empresa</th>
                     <th>Emprego atual</th>
                     <th>Nível herarquico</th>
                     <th>Início</th>
@@ -19,6 +20,7 @@
                 <tr>
                     <td><?php echo $experiencia->area ?></td>
                     <td><?php echo $experiencia->cargo ?></td>
+                    <td><?php echo $experiencia->empresa ?></td>
                     <td><?php echo $experiencia->emprego_atual ?></td>
                     <td><?php echo $experiencia->nivel_hierarquico ?></td>
                     <td><?php echo $experiencia->mes_ano_inicio ?></td>

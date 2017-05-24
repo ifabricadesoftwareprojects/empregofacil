@@ -72,6 +72,10 @@
                         <input type="text" name="area" class="form-control" placeholder="Area onde trabalhou">
                     </div>
                     <div class="form-group">
+                        <label for="empresa">Empresa/Organização/Instituição:</label>
+                        <input type="text" name="empresa" class="form-control" placeholder="Nome da empresa/organização/instituição onde trabalhou">
+                    </div>
+                    <div class="form-group">
                         <label for="cargo">Cargo:</label>
                         <input type="text" name="cargo" class="form-control" placeholder="Cargo em que trabalhou">
                     </div>

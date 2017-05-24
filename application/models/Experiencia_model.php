@@ -21,6 +21,7 @@ class Experiencia_model extends MY_Model{
     public $atividade_desempenhada;
     public $nivel_hierarquico;
     public $area;
+    public $empresa;
     public $mes_ano_inicio;
     public $mes_ano_termino;
     public $emprego_atual;

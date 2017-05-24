@@ -37,6 +37,7 @@ $(document).ready(function(){
         $('#formExperiencia textarea[name="atividade_desempenhada"').val(dados.atividade_desempenhada);
         $('#formExperiencia select[name="nivel_hierarquico"').val(dados.nivel_hierarquico).change();
         $('#formExperiencia input[name="area"').val(dados.area);
+        $('#formExperiencia input[name="empresa"').val(dados.empresa);
         $('#formExperiencia input[name="mes_ano_inicio"').val(dados.mes_ano_inicio);
         $('#formExperiencia input[name="mes_ano_termino"').val(dados.mes_ano_termino);
         $('#formExperiencia select[name="emprego_atual"').val(dados.emprego_atual).change();

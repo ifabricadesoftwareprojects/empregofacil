@@ -16,6 +16,7 @@
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
         <link href="<?php echo base_url() ?>assets/css/font-awesome.min.css" rel="stylesheet">
+        <link href="<?php echo base_url() ?>assets/css/empregofacil.css" rel="stylesheet">
 
 
         <!-- Just for debugging purposes. Don't actually copy this line! -->

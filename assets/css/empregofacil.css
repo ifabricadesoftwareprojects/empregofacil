@@ -1,0 +1,33 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/05/2017, 12:23:53
+    Author     : IFSP
+*/
+
+.info_curriculo {
+    margin-left: 30px;
+}
+
+.info_curriculo li, .info_curriculo p {font-size: 16px;}
+
+.info_curriculo li{padding-top: 5px;}
+
+.info_curriculo p {
+    padding-top: 5px;
+    margin-top: 5px;
+    line-height: 14px;
+}
+
+.info_curriculo .titulo{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.info_curriculo .corpo{
+    margin-left: 20px;
+}
+
