@@ -8,7 +8,9 @@
                     <div class="info_curriculo" style="margin-left: 30px;">
                         <p><strong>Nome:</strong> <?php echo $candidato->nome ?></p>
                         <p><strong>Email:</strong> <?php echo $candidato->email ?></p>
-                        <p><strong>Data de Nascimento:</strong> <?php echo $candidato->data_nascimento ?></p>
+                        <p><strong>CPF:</strong> <?php echo $candidato->cpf ?></p>
+                        <p><strong>Estado Civil:</strong> <?php echo $candidato->estado_civil ?></p>
+                        <p><strong>Data de Nascimento:</strong> <?php echo converte_data($candidato->data_nascimento) ?></p>
                         <p><strong>Sexo:</strong> <?php echo $candidato->sexo ?></p>
                         <p><strong>Gênero:</strong> <?php echo $candidato->genero ?></p>
                         <p><strong>Possui algum tipo de deficiência?</strong> <?php echo $candidato->portador_deficiencia ?></p>
@@ -38,6 +40,7 @@
                         </ul>
                     </div>
                     <?php endif; ?>
+                    
                     <?php if(count($cursos) > 0) : ?>
                     <h2>Formação Acadêmica</h2>
                     <div class="info_curriculo" style="">
@@ -52,7 +55,29 @@
                         </ul>
                     </div>
                     <?php endif; ?>
-                </div>
+                    
+                    <?php if(count($idiomas) > 0) : ?>
+                    <h2>Idiomas</h2>
+                    <div class="info_curriculo" style="">
+                        <ul>
+                        <?php foreach ($idiomas as $idioma) : ?>
+                        <li>
+                            <p><strong>Nome:</strong> <?php echo $idioma->descricao_idioma ?></p>
+                            <p><strong>Lê:</strong> <?php echo $idioma->le ?></p>
+                            <p><strong>Escreve:</strong> <?php echo $idioma->escreve ?></p>
+                            <p><strong>Fala:</strong> <?php echo $idioma->fala ?></p>
+                            <p><strong>Entende:</strong> <?php echo $idioma->entende ?></p>
+                        </li>  
+                    <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
+                    <h2>Informações Adicionais</h2>
+                    <div class="info_curriculo" style="margin-left: 30px;">
+                        <p> <?php echo $candidato->outras_informacoes ?></p>
+                        
+                    </div>
+                </div>               
                 <div id="myAffix" style="position: fixed; bottom: 45%; display: block; width: 10%; right: 25%;" data-spy="affix" data-offset-bottom="230" > <!--data-spy="affix" data-offset-top="197"-->
                     <a href="<?php echo base_url('candidato/pdf') ?>" class="btn btn-success btn-lg btn-block" target="blank">Gerar PDF</a>  
                 </div>
