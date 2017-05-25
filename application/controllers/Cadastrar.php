@@ -23,8 +23,10 @@ class Cadastrar extends MY_Controller {
                         . 'Seu cadastro foi efetuado com sucesso. Faça o login agora mesmo e preencha seu currículo.');
                 redirect('cadastrar/resposta');
             } catch (Exception $ex) {
-                echo 'nao salvou<br />';
-                echo $ex->getMessage();
+                $this->session->set_flashdata('abrircadastrar', true);
+                $this->session->set_flashdata('erros', $this->usuario_model->get_erro());
+                $this->session->set_flashdata('dadoscandidato', $this->input->post());
+                redirect('home');
             }
         }
     }

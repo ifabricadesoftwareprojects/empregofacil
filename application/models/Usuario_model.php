@@ -30,8 +30,6 @@ class Usuario_model extends MY_Model{
     
     public function insert_candidato()
     {
-        //Criptografa a senha
-        $this->senha = md5($this->senha);
         //Gera um token
         $this->token = md5(date('YmdHis'));
         $this->status = "Ativo";
@@ -40,6 +38,10 @@ class Usuario_model extends MY_Model{
         //Inicia-se uma transação. Ou insere nas 2 tabelas (usuario e candidato) ou não insere em nenhuma!
         $this->db->trans_begin();
         try{
+            //Valida os dados
+            $this->validar_dados();
+            //Criptografa a senha
+            $this->senha = md5($this->senha);   
             //Insere o usuario
             $this->insert();
             //Insere o candidato
@@ -51,7 +53,23 @@ class Usuario_model extends MY_Model{
             $this->db->trans_commit();
         } catch (Exception $ex) {
             $this->db->trans_rollback();//Desfaz as querys no banco!!!
-            echo $ex->getMessage();
+            throw new Exception();
+        }
+    }
+    
+    public function validar_dados()
+    {
+        $CI =& get_instance();
+        $CI->load->library('data_validator');
+        $validate = $CI->data_validator;
+        
+        $validate->set('nome', $this->nome)->is_required()->min_length(5)->max_length(75)->is_alpha_num()
+                ->set('email', $this->email)->is_required()->is_email()
+                ->set('senha', $this->senha)->min_length(8);
+        
+        if($validate->validate() === false){
+            $this->erro = $validate->get_errors();
+            throw new Exception('Erro ao validar os dados');
         }
     }
     

@@ -107,8 +107,10 @@
         <script src="<?php echo base_url() ?>assets/js/jquery.hoverex.min.js"></script>
         <script src="<?php echo base_url() ?>assets/js/jquery.prettyPhoto.js"></script>
         <script src="<?php echo base_url() ?>assets/js/jquery.isotope.min.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/jquery.mask.min.js"></script>
         <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
         <script src="<?php echo base_url() ?>assets/js/candidato.js"></script>
+        <script src="<?php echo base_url() ?>assets/js/mascaras.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
             $('#myAffix').affix({

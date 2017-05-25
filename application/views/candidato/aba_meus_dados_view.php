@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cpf">CPF:</label>
-                            <input type="text" class="form-control input-lg"  placeholder="Ex: 111.111.111-11" name="cpf" value="<?php echo $candidato->cpf ?>">
+                            <input type="text" class="form-control input-lg cpf"  placeholder="Ex: 111.111.111-11" name="cpf" value="<?php echo $candidato->cpf ?>">
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
@@ -123,12 +123,12 @@
                         <legend>Dados de Contato</legend>
 
                         <div class="form-group">
-                            <label for="telefone">Telefone:</label>
-                            <input type="text" class="form-control input-lg"  placeholder="Telefone" name="telefone" >
+                            <label for="telefone">Telefone (com DDD):</label>
+                            <input type="text" class="form-control input-lg telefone"  placeholder="Ex: (19)3333-4444" name="telefone" >
                         </div>
                         <div class="form-group">
-                            <label for="celular">Celular:</label>
-                            <input type="text" class="form-control input-lg"  placeholder="Celular" name="celular">
+                            <label for="celular">Celular (com DDD):</label>
+                            <input type="text" class="form-control input-lg celular"  placeholder="Ex: (19)99999-8888" name="celular">
                         </div>
 
                     </fieldset></br>

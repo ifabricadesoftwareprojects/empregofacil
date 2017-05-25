@@ -32,11 +32,11 @@
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_inicio">Mês/Ano de Início:</label>
-                        <input type="text" name="mes_ano_inicio" class="form-control" placeholder="Ex: 01/1990">
+                        <input type="text" name="mes_ano_inicio" class="form-control mes_ano" placeholder="Ex: 01/1990">
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_fim">Mês/Ano de Término:</label>
-                        <input type="text" name="mes_ano_fim" class="form-control" placeholder="Ex: 12/1994">
+                        <input type="text" name="mes_ano_fim" class="form-control mes_ano" placeholder="Ex: 12/1994">
                     </div>
                     <div class="form-group">
                         <label for="status_curso">Status:</label>
@@ -101,11 +101,11 @@
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_inicio">Mês/Ano de Início:</label>
-                        <input type="text" name="mes_ano_inicio" class="form-control" placeholder="Ex: 01/1990">
+                        <input type="text" name="mes_ano_inicio" class="form-control mes_ano" placeholder="Ex: 01/1990">
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_termino">Mês/Ano de Término:</label>
-                        <input type="text" name="mes_ano_termino" class="form-control" placeholder="Ex: 12/1994">
+                        <input type="text" name="mes_ano_termino" class="form-control mes_ano" placeholder="Ex: 12/1994">
                     </div>
                     <div class="form-group">
                         <label for="atividade_desempenhada">Atividade desempenhada:</label>

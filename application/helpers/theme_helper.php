@@ -21,3 +21,21 @@ function get_src_foto_candidato($img)
     return base_url($dir_fotos . $img);
 }
 
+function display_erros($erro)
+{
+    if(is_null($erro)){
+        return '';
+    }
+    if(!is_array($erro)){
+        return '<span style="font-size: 10px; color: red; font-style: italic;">'.$erro.'</span>';
+    }
+    else{
+        $todos_erros = '';
+        foreach ($erro as $err){
+            $todos_erros .= '<span style="font-size: 10px; color: red; font-style: italic;">'.$err.'</span><br />';
+        }
+        return $todos_erros;
+    }
+    return '';
+}
+

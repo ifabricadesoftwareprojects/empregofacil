@@ -102,7 +102,13 @@
         <script src="<?php echo base_url() ?>assets/js/jquery.prettyPhoto.js"></script>
         <script src="<?php echo base_url() ?>assets/js/jquery.isotope.min.js"></script>
         <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
-
+        <?php if($abrir_cadastrar == true) : ?>
+        <script type="text/javascript">
+            $(document).ready(function(){
+               $('#modalCadastrar').modal(); 
+            });
+        </script>
+        <?php endif; ?>
         <!-- MODAL DE LOGIN -->       
         <div id="modalEntrar" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -146,14 +152,17 @@
                             <div class="form-group">
                                 <label for="txtNome">Nome</label>
                                 <input type="text" name="nome" class="form-control" id="txtNome" placeholder="Nome">
+                                <?php echo display_erros(isset($erros['nome']) ? $erros['nome'] : null) ?>
                             </div>
                             <div class="form-group">
                                 <label for="txtEmail">Email</label>
                                 <input type="email" name="email" class="form-control" id="txtEmail" placeholder="Email">
+                                <?php echo display_erros(isset($erros['email']) ? $erros['email'] : null) ?>
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>
                                 <input type="password" name="senha" class="form-control" id="txtSenha" placeholder="Senha">
+                                <?php echo display_erros(isset($erros['senha']) ? $erros['senha'] : null) ?>
                             </div>
                             <div class="form-group">
                                 <label for="txtConfirmarSenha">Confirmar Senha</label>
