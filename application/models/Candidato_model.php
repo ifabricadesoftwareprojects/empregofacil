@@ -11,11 +11,11 @@
  *
  * @author Aluno
  */
-class Candidato_model extends MY_Model{
+class Candidato_model extends MY_Model {
+
     //put your code here
     protected $table = 'candidato';
     protected $pk = 'usuario_idusuario';
-    
     public $usuario_idusuario;
     public $nome_social;
     public $data_nascimento;
@@ -31,19 +31,18 @@ class Candidato_model extends MY_Model{
     public $disponibilidade_viajar;
     public $disponibilidade_mudar_residencia;
     public $outras_informacoes;
-    
+
     public function __construct() {
         parent::__construct();
     }
-    
-    public function get_candidato_by_token($token)
-    {
-        return  $this->db
-                ->from('usuario u')
-                ->join('candidato c', 'u.idusuario = c.usuario_idusuario')
-                ->where('u.token', $token)
-                ->get()
-                ->row(0, $this->model);
+
+    public function get_candidato_by_token($token) {
+        return $this->db
+                        ->from('usuario u')
+                        ->join('candidato c', 'u.idusuario = c.usuario_idusuario')
+                        ->where('u.token', $token)
+                        ->get()
+                        ->row(0, $this->model);
     }
     public function validar_dados() {
         $CI = & get_instance();
