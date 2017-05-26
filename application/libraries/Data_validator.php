@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @version 1.0
  * @link https://github.com/rafaelwendel/DataValidator/
  */
-class Data_Validator {
+class Data_validator {
     protected $_data     = array();
     protected $_errors   = array();
     protected $_pattern  = array();
