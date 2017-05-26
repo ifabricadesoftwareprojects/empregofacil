@@ -27,4 +27,32 @@ class Idioma_model extends MY_Model{
     public function __construct() {
         parent::__construct();
     }
+    
+    public function insert() {
+        try {
+            $this->validar_dados();
+            parent::insert();
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
+
+        public function validar_dados()
+    {
+        $CI =& get_instance();
+        $CI->load->library('data_validator');
+        $validate = $CI->data_validator;
+        
+        $validate->set('descricao_idioma', $this->descricao_idioma)->is_required();
+        $validate->set_message('is_required', 'Selecione uma opção para o campo %s');
+        $validate->set('le', $this->le)->is_required()
+                ->set('escreve', $this->escreve)->is_required()
+                ->set('fala', $this->fala)->is_required()
+                ->set('entende', $this->entende)->is_required();
+        
+        if($validate->validate() === false){
+            $this->erro = $validate->get_errors();
+            throw new Exception('Erro ao validar os dados');
+        }
+    }
 }

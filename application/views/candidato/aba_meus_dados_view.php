@@ -16,6 +16,7 @@
                         <div class="form-group">
                             <label for="nome">Nome:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome" value="<?php echo $candidato->nome ?>">
+                            <?php echo display_erros(isset($erros['nome']) ? $erros['nome'] : null) ?>
                         </div>
 
                         <div class="form-group">
@@ -25,15 +26,18 @@
                         <div class="form-group">
                             <label for="cpf">CPF:</label>
                             <input type="text" class="form-control input-lg cpf"  placeholder="Ex: 111.111.111-11" name="cpf" value="<?php echo $candidato->cpf ?>">
+                            <?php echo display_erros(isset($erros['cpf']) ? $erros['cpf'] : null) ?>
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Email" name="email" value="<?php echo $candidato->email ?>">
+                            <?php echo display_erros(isset($erros['email']) ? $erros['email'] : null) ?>
                         </div>
 
                         <div class="form-group">
                             <label for="data_nascimento">Nascimento:</label>
                             <input type="date" name="data_nascimento" value="<?php echo $candidato->data_nascimento ?>" class="form-control input-lg" placeholder="Ex: 01/01/2001"> 
+                            <?php echo display_erros(isset($erros['data_nascimento']) ? $erros['data_nascimento'] : null) ?>
                         </div>
 
                         <div class="form-group">

@@ -28,4 +28,29 @@ class Curso_model extends MY_Model{
     public function __construct() {
         parent::__construct();
     }
+     public function insert() {
+        try {
+            $this->validar_dados();
+            parent::insert();
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
+    public function validar_dados()
+    {
+        $CI =& get_instance();
+        $CI->load->library('data_validator');
+        $validate = $CI->data_validator;
+        
+        
+        $validate->set('descricao_curso', $this->descricao_curso)->is_required()
+                ->set('instituicao', $this->instituicao)->is_required()
+                ->set('nivel', $this->nivel)->is_required()
+                ->set('mes_ano_inicio', $this->mes_ano_inicio)->is_required();
+        
+        if($validate->validate() === false){
+            $this->erro = $validate->get_errors();
+            throw new Exception('Erro ao validar os dados');
+        }
+    }
 }

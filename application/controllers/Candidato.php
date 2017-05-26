@@ -42,7 +42,11 @@ class Candidato extends MY_Controller {
         //$dados['candidato_idiomas'] = $this->candidato_idioma_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         //Define qual a aba deve vir exibida
         $dados['active'] = $this->session->flashdata('active');
-
+        
+        $dados['erros'] = $this->session->flashdata('erros');
+        $dados['dados'] = $this->session->flashdata('dados');
+        $dados['abrir'] = $this->session->flashdata('abrir');
+        
         //Alerta de mensagem
         $dados['msg'] = get_alert_code($this->session->flashdata('msg'), $this->session->flashdata('msg_status'));
 
@@ -71,7 +75,7 @@ class Candidato extends MY_Controller {
                 //Atualiza
                 $this->curso_model = $this->curso_model->find($this->input->post('id'));
                 $this->curso_model->post_to($this->input->post(), $this->curso_model);
-
+                $this->curso_model->nivel = ($this->curso_model->nivel == 'Outro' ? $this->input->post('outro') : $this->curso_model->nivel);
                 try {
                     $this->curso_model->update('idcurso', $this->curso_model->idcurso);
                     $this->session->set_flashdata(array('msg' => 'Curso atualizado com sucesso', 'msg_status' => 'success'));
@@ -82,6 +86,7 @@ class Candidato extends MY_Controller {
                 //Salva novo
                 $this->curso_model->post_to($this->input->post(), $this->curso_model);
                 $this->curso_model->candidato_usuario_idusuario = $this->usuario_model->get_id_by_token($this->session->token);
+                $this->curso_model->nivel = ($this->curso_model->nivel == 'Outro' ? $this->input->post('outro') : $this->curso_model->nivel);
                 try {
                     $this->curso_model->insert();
                     $this->session->set_flashdata(array('msg' => 'Curso adicionado com sucesso', 'msg_status' => 'success'));
@@ -100,6 +105,7 @@ class Candidato extends MY_Controller {
                 //Atualiza
                 $this->experiencia_model = $this->experiencia_model->find($this->input->post('id'));
                 $this->experiencia_model->post_to($this->input->post(), $this->experiencia_model);
+                $this->experiencia_model->nivel_hierarquico = ($this->experiencia_model->nivel_hierarquico == 'Outro' ? $this->input->post('outro_nivel') : $this->experiencia_model->nivel_hierarquico);
 
                 try {
                     $this->experiencia_model->update('idexperiencia', $this->experiencia_model->idexperiencia);
@@ -110,11 +116,15 @@ class Candidato extends MY_Controller {
             } else {
                 //Salva novo
                 $this->experiencia_model->post_to($this->input->post(), $this->experiencia_model);
+                $this->experiencia_model->nivel_hierarquico = ($this->experiencia_model->nivel_hierarquico == 'Outro' ? $this->input->post('outro_nivel') : $this->experiencia_model->nivel_hierarquico);
                 $this->experiencia_model->candidato_usuario_idusuario = $this->usuario_model->get_id_by_token($this->session->token);
                 try {
                     $this->experiencia_model->insert();
                     $this->session->set_flashdata(array('msg' => 'Experiencia adicionado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
+                    $this->session->set_flashdata('abrir', 'Experiencia');
+                    $this->session->set_flashdata('erros', $this->experiencia_model->get_erro());
+                    $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao adicionar experiencia: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             }
@@ -129,21 +139,25 @@ class Candidato extends MY_Controller {
                 //Atualiza
                 $this->idioma_model = $this->idioma_model->find($this->input->post('id'));
                 $this->idioma_model->post_to($this->input->post(), $this->idioma_model);
-
+                $this->idioma_model->descricao_idioma = ($this->idioma_model->descricao_idioma == 'Outro' ? $this->input->post('outro_idioma') : $this->idioma_model->descricao_idioma);
                 try {
                     $this->idioma_model->update('ididioma', $this->idioma_model->ididioma);
                     $this->session->set_flashdata(array('msg' => 'Idioma atualizado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
-                    $this->session->set_flashdata(array('msg' => 'Erro ao atualizar Idioma: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+                    $this->session->set_flashdata(array('msg' => 'Erro ao atualizar Experiencia: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             } else {
                 //Salva novo
                 $this->idioma_model->post_to($this->input->post(), $this->idioma_model);
+                $this->idioma_model->descricao_idioma = ($this->idioma_model->descricao_idioma == 'Outro' ? $this->input->post('outro_idioma') : $this->idioma_model->descricao_idioma);
                 $this->idioma_model->candidato_usuario_idusuario = $this->usuario_model->get_id_by_token($this->session->token);
                 try {
                     $this->idioma_model->insert();
                     $this->session->set_flashdata(array('msg' => 'Idioma adicionado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
+                    $this->session->set_flashdata('abrir', 'Idioma');
+                    $this->session->set_flashdata('erros', $this->idioma_model->get_erro());
+                    $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao adicionar idioma: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             }

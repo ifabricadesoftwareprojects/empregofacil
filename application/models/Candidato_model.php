@@ -45,4 +45,22 @@ class Candidato_model extends MY_Model{
                 ->get()
                 ->row(0, $this->model);
     }
+    public function validar_dados() {
+        $CI = & get_instance();
+        $CI->load->library('data_validator');
+        $validate = $CI->data_validator;
+
+        $validate->set('nome', $this->nome)->is_required()->min_length(5)->max_length(75)->is_alpha_num()
+                ->set('email', $this->email)->is_required()->is_email()
+                ->set('data_nascimento', $this->data_nascimento)->is_date()
+                ->set('cpf', $this->cpf)->is_cpf();
+        if($this->portador_deficiencia == 'Sim'){
+            $validate->set('descricao_deficiencia', $this->descricao_deficiencia)->is_required()->min_length(3);
+        }
+
+        if ($validate->validate() === false) {
+            $this->erro = $validate->get_errors();
+            throw new Exception('Erro ao validar os dados');
+        }
+    }
 }

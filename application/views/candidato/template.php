@@ -113,11 +113,14 @@
         <script src="<?php echo base_url() ?>assets/js/mascaras.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
-            $('#myAffix').affix({
-                offset: {
-                  bottom: $('#footerwrap').outerHeight(true)
-                }
-              }); 
+                $('#myAffix').affix({
+                    offset: {
+                      bottom: $('#footerwrap').outerHeight(true)
+                    }
+                  }); 
+                <?php if(!is_null($abrir)) : ?>
+                $('#modal<?php echo $abrir ?>').modal();
+                <?php endif; ?>
             });
         </script>
     </body>

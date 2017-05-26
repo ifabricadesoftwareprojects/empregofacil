@@ -13,10 +13,12 @@
                     <div class="form-group">
                         <label for="descricao_curso">Descriçao:</label>
                         <textarea class="form-control" rows="3" name="descricao_curso" placeholder="Descrição do curso" ></textarea>
+                        <?php echo display_erros(isset($erros['descricao_curso']) ? $erros['descricao_curso'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="instituicao">Instituição:</label>
                         <input type="text" name="instituicao" class="form-control" placeholder="Instituição">
+                        <?php echo display_erros(isset($erros['instituicao']) ? $erros['instituicao'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="nivel">Nível:</label>
@@ -29,10 +31,12 @@
                             <option value="Outro">Outro</option>
                         </select>
                         <input type="text" id="outro" name="outro" class="form-control" placeholder="Outro nível" disabled>
+                        <?php echo display_erros(isset($erros['nivel']) ? $erros['nivel'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_inicio">Mês/Ano de Início:</label>
                         <input type="text" name="mes_ano_inicio" class="form-control mes_ano" placeholder="Ex: 01/1990">
+                        <?php echo display_erros(isset($erros['mes_ano_inicio']) ? $erros['mes_ano_inicio'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_fim">Mês/Ano de Término:</label>
@@ -46,6 +50,7 @@
                             <option value="Desistência">Desistência</option>
                             <option value="Trancado">Trancado</option>
                         </select>
+                        
                     </div>
                     <button type="submit" class="btn btn-primary ">Adicionar Curso</button>          
                 </form>
@@ -62,6 +67,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Adicionar Experiência</h4>
+                
             </div>
             <div class="modal-body">
                 <form id="formExperiencia" method="post" action="<?php echo base_url('candidato/cadastrar_experiencia') ?>">
@@ -70,14 +76,17 @@
                     <div class="form-group">
                         <label for="area">Area:</label>
                         <input type="text" name="area" class="form-control" placeholder="Area onde trabalhou">
+                        <?php echo display_erros(isset($erros['area']) ? $erros['area'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="empresa">Empresa/Organização/Instituição:</label>
                         <input type="text" name="empresa" class="form-control" placeholder="Nome da empresa/organização/instituição onde trabalhou">
+                        <?php echo display_erros(isset($erros['empresa']) ? $erros['empresa'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="cargo">Cargo:</label>
                         <input type="text" name="cargo" class="form-control" placeholder="Cargo em que trabalhou">
+                        <?php echo display_erros(isset($erros['cargo']) ? $erros['cargo'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="emprego_atual">Emprego atual:</label>
@@ -85,11 +94,12 @@
                             <option value="sim">Sim</option>
                             <option value="nao">Não</option>
                         </select>                     
+                        <?php echo display_erros(isset($erros['emprego_atual']) ? $erros['emprego_atual'] : null) ?>
                     </div>
                     
                     <div class="form-group">
                         <label for="nivel_hierarquico">Nível hierarquico:</label>
-                        <select name="nivel_hierarquico" class="form-control campoextra" campoextra="outroNivel" compara="Outro">
+                        <select name="nivel_hierarquico" class="form-control campoextra" campoextra="outro_nivel" compara="Outro">
                             <option value="Presidente">Presidente</option>
                             <option value="Gerente">Gerente</option>
                             <option value="Diretor">Diretor</option>
@@ -97,19 +107,23 @@
                             <option value="Encarregado">Encarregado</option>
                             <option value="Outro">Outro</option>
                         </select>
-                        <input type="text" id="outroNivel" name="outroNivel" class="form-control" placeholder="Outro nível herarquico" disabled>
+                        <input type="text" id="outro_nivel" name="outro_nivel" class="form-control" placeholder="Outro nível herarquico" disabled>
+                        <?php echo display_erros(isset($erros['nivel_hierarquico']) ? $erros['nivel_hierarquico'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_inicio">Mês/Ano de Início:</label>
                         <input type="text" name="mes_ano_inicio" class="form-control mes_ano" placeholder="Ex: 01/1990">
+                        <?php echo display_erros(isset($erros['mes_ano_inicio']) ? $erros['mes_ano_inicio'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="mes_ano_termino">Mês/Ano de Término:</label>
                         <input type="text" name="mes_ano_termino" class="form-control mes_ano" placeholder="Ex: 12/1994">
+                        <?php echo display_erros(isset($erros['mes_ano_termino']) ? $erros['mes_ano_termino'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="atividade_desempenhada">Atividade desempenhada:</label>
                         <textarea class="form-control" rows="3" name="atividade_desempenhada" placeholder="Atividade que exerce discorra" ></textarea>
+                        <?php echo display_erros(isset($erros['atividade_desempenhada']) ? $erros['atividade_desempenhada'] : null) ?>
                     </div>
                      <button type="submit" class="btn btn-primary ">Adicionar Experiência</button>          
                 </form>
@@ -133,7 +147,7 @@
                     <input type="hidden" name="acao" value="" />
                     <div class="form-group">
                         <label for="descricao_idioma">Nome:</label>
-                        <select name="descricao_idioma" class="form-control campoextra" campoextra="outroIdioma" compara="Outro">
+                        <select name="descricao_idioma" class="form-control campoextra" campoextra="outro_idioma" compara="Outro">
                             <option value="Inglês">Inglês</option>
                             <option value="Espanhol">Espanhol</option>
                             <option value="Mandarim">Mandarim</option>
@@ -142,7 +156,8 @@
                             <option value="Alemão">Alemão</option>
                             <option value="Outro">Outro</option>
                         </select>
-                        <input type="text" id="outroIdioma" name="outroIdioma" class="form-control" placeholder="Outro idioma" disabled>
+                        <input type="text" id="outro_idioma" name="outro_idioma" class="form-control" placeholder="Outro idioma" disabled>
+                        <?php echo display_erros(isset($erros['descricao_idioma']) ? $erros['descricao_idioma'] : null) ?>
                     </div>
                     <div class="form-group" align="left">
                         <label for="entende">Entende: </label></br>
@@ -156,6 +171,7 @@
                         <label class="radio-inline">
                             <input type="radio" name="entende" value="Avançado" />Avançado
                         </label>
+                        <?php echo display_erros(isset($erros['entende']) ? $erros['entende'] : null) ?>
                     </div>
                     <div class="form-group" align="left">
                         <label for="escreve">Escreve:</label></br>
@@ -169,6 +185,7 @@
                         <label class="radio-inline">
                             <input type="radio" name="escreve" value="Avançado" />Avançado
                         </label>
+                        <?php echo display_erros(isset($erros['escreve']) ? $erros['escreve'] : null) ?>
                     </div>
                     <div class="form-group" align="left">
                         <label for="fala">Fala:</label></br>
@@ -182,6 +199,7 @@
                         <label class="radio-inline">
                             <input type="radio" name="fala" value="Avançado" />Avançado
                         </label>
+                        <?php echo display_erros(isset($erros['fala']) ? $erros['fala'] : null) ?>
                     </div>
                     <div class="form-group" align="left">
                         <label for="le">Lê:</label></br>
@@ -195,6 +213,7 @@
                         <label class="radio-inline">
                             <input type="radio" name="le" value="Avançado" />Avançado
                         </label>
+                        <?php echo display_erros(isset($erros['le']) ? $erros['le'] : null) ?>
                     </div>
                    
                     <button type="submit" class="btn btn-primary ">Adicionar Idioma</button>          
