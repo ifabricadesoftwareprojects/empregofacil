@@ -24,10 +24,10 @@ $(document).ready(function () {
         $('#formVaga input[name="faixa_salarial_fim"').val(dados.faixa_salarial_fim);
         $('#formVaga textarea[name="pre_requisitos"]').val(dados.pre_requisitos);
         $('#formVaga input[name="tipo_contrato"').val(dados.tipo_contrato);
-        $('#formVaga textarea[name="benefecios"]').val(dados.benefecios);
+        $('#formVaga textarea[name="beneficios"]').val(dados.benefecios);
         $('#formVaga input[name="status_vaga"').val(dados.status_vaga);
         $('#formVaga input[name="data_publicacao"').val(dados.data_publicacao);
-        //$('#formVaga input[name="visualizacoes"').val(dados.visualizacoes);
+        $('#formVaga input[name="visualizacoes"').val(dados.visualizacoes);
         $('#formVaga input[name="acao"]').val('editar');
 
         $('#modalVaga').modal();

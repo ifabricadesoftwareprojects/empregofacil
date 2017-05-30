@@ -1,4 +1,4 @@
-    <div role="tabpanel" class="tab-pane<?php echo ($active == 'vagas' ? ' active' : '') ?>" id="cursos" align="left">
+    <div role="tabpanel" class="tab-pane<?php echo ($active == 'vagas' ? ' active' : '') ?>" id="vagas" align="left">
         <br />
         <?php echo $msg ?>
         <button type="button" class="btn btn-primary" href="#" data-toggle="modal" data-target="#modalVaga">Adicionar Vaga</button></br>
@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($cursos as $curso) : ?>
+                <?php foreach ($vagas as $vaga) : ?>
                 <tr>
                     <td><?php echo $vaga->titulo ?></td>
                     <td><?php echo $vaga->descricao ?></td>
@@ -27,7 +27,7 @@
                     <td><?php echo $vaga->faixa_salarial_fim ?></td>
                     <td><?php echo $vaga->pre_requisitos ?></td>
                     <td><?php echo $vaga->tipo_contrato ?></td>
-                    <td><?php echo $vaga->benefícios ?></td>
+                    <td><?php echo $vaga->beneficios ?></td>
                     <td><?php echo $vaga->status_vaga ?></td>
                     <td><?php echo $vaga->data_publicacao ?></td>
                     <td><?php echo $vaga->visualizacoes ?></td>
