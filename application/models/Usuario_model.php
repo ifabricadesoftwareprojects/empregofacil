@@ -28,14 +28,13 @@ class Usuario_model extends MY_Model{
         parent::__construct();
     }
     
-    public function insert_candidato()
+    public function insert()
     {
         //Gera um token
         $this->token = md5(date('YmdHis'));
         $this->status = "Ativo";
-        $this->perfil = "Candidato";
         
-        //Inicia-se uma transação. Ou insere nas 2 tabelas (usuario e candidato) ou não insere em nenhuma!
+        //Inicia-se uma transação. Ou insere nas 2 tabelas (usuario e candidato OU usuario e empresa) ou não insere em nenhuma!
         $this->db->trans_begin();
         try{
             //Valida os dados
@@ -43,13 +42,15 @@ class Usuario_model extends MY_Model{
             //Criptografa a senha
             $this->senha = md5($this->senha);   
             //Insere o usuario
-            $this->insert();
+            parent::insert();
             //Insere o candidato
             $CI =& get_instance();
-            $CI->load->model('candidato_model');
-            $candidato_model = $CI->candidato_model;
-            $candidato_model->usuario_idusuario = $this->db->insert_id(); //insert_id() pega o ultimo id AUTO INC inserido no banco de dados MySQL
-            $candidato_model->insert();
+            //A partir do perfil será carregado: candidato_model ou empresa_model
+            $rel_model_name = strtolower($this->perfil) . '_model';
+            $CI->load->model($rel_model_name);
+            $rel_model = $CI->$rel_model_name;
+            $rel_model->usuario_idusuario = $this->db->insert_id(); //insert_id() pega o ultimo id AUTO INC inserido no banco de dados MySQL
+            $rel_model->insert();
             $this->db->trans_commit();
         } catch (Exception $ex) {
             $this->db->trans_rollback();//Desfaz as querys no banco!!!

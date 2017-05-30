@@ -21,11 +21,12 @@ class Entrar extends MY_Controller {
             if($this->usuario_model->autenticar() !== false){
                 $this->session->set_userdata(
                         array(
-                            'token' => $this->usuario_model->token,
-                            'nome'  => $this->usuario_model->nome
+                            'token'  => $this->usuario_model->token,
+                            'nome'   => $this->usuario_model->nome,
+                            'perfil' => $this->usuario_model->perfil 
                         )
                     );
-                    redirect('candidato');
+                redirect(strtolower($this->usuario_model->perfil));
             }
             else{
                 $this->session->set_flashdata('msg', 'Email e/ou senha incorretos');

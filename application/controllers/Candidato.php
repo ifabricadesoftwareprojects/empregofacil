@@ -13,7 +13,7 @@ class Candidato extends MY_Controller {
         parent::__construct();
 
         //Verifica "porcamente" se o usuário está autenticado!!!=)
-        if (!isset($this->session->token)) {
+        if (!isset($this->session->token) || $this->session->perfil != 'Candidato' ) {
             redirect();
         }
 
@@ -60,7 +60,7 @@ class Candidato extends MY_Controller {
 
             try {
                 $this->candidato_model->update('usuario_idusuario', $this->candidato_model->usuario_idusuario);
-                $this->session->set_flashdata(array('msg' => 'Dados atualizado com sucesso', 'msg_status' => 'success'));
+                $this->session->set_flashdata(array('msg' => 'Dados atualizados com sucesso', 'msg_status' => 'success'));
             } catch (Exception $ex) {
                 $this->session->set_flashdata(array('msg' => 'Erro ao atualizar dados: ' + $ex->getMessage(), 'msg_status' => 'danger'));
             }

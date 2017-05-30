@@ -148,15 +148,22 @@
                         <h4 class="modal-title">Formulário de Cadastro</h4>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="<?php echo base_url('cadastrar/candidato') ?>">
+                        <form method="post" action="<?php echo base_url('cadastrar') ?>">
+                            <div class="form-group">
+                                <label for="cmbPerfil">Selecione:</label>
+                                <select name="perfil" class="form-control campoextra" campoextra="outro" compara="Outro" >
+                                    <option value="Candidato">Sou uma pessoa física e desejo cadastrar um currículo e buscar oportunidades de emprego</option>
+                                    <option value="Empresa">Sou uma empresa e desejo anunciar minhas vagas e buscar profissionais qualificados</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="txtNome">Nome</label>
-                                <input type="text" name="nome" class="form-control" id="txtNome" placeholder="Nome">
+                                <input type="text" name="nome" class="form-control" id="txtNome" placeholder="Nome" value="<?php echo (isset($usuario['nome']) ? $usuario['nome'] : '') ?>">
                                 <?php echo display_erros(isset($erros['nome']) ? $erros['nome'] : null) ?>
                             </div>
                             <div class="form-group">
                                 <label for="txtEmail">Email</label>
-                                <input type="email" name="email" class="form-control" id="txtEmail" placeholder="Email">
+                                <input type="email" name="email" class="form-control" id="txtEmail" placeholder="Email" value="<?php echo (isset($usuario['email']) ? $usuario['email'] : '') ?>">
                                 <?php echo display_erros(isset($erros['email']) ? $erros['email'] : null) ?>
                             </div>
                             <div class="form-group">

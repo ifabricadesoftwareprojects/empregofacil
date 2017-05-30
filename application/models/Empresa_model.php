@@ -26,4 +26,13 @@ class Empresa_model extends MY_Model{
     public function __construct() {
         parent::__construct();
     }
+    
+    public function get_empresa_by_token($token) {
+        return $this->db
+                        ->from('usuario u')
+                        ->join('empresa e', 'u.idusuario = e.usuario_idusuario')
+                        ->where('u.token', $token)
+                        ->get()
+                        ->row(0, $this->model);
+    }
 }
