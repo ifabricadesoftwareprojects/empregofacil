@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.4
--- https://www.phpmyadmin.net/
+-- version 4.1.14
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 30-Maio-2017 às 13:35
--- Versão do servidor: 5.7.14
--- PHP Version: 5.6.25
+-- Generation Time: 31-Maio-2017 às 19:20
+-- Versão do servidor: 5.6.17
+-- PHP Version: 5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Database: `empregofacil`
@@ -26,10 +26,12 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `candidatar`
 --
 
-CREATE TABLE `candidatar` (
+CREATE TABLE IF NOT EXISTS `candidatar` (
   `candidato_usuario_idusuario` int(11) NOT NULL,
   `vaga_idvaga` int(11) NOT NULL,
-  `mensagem` text
+  `mensagem` text,
+  PRIMARY KEY (`candidato_usuario_idusuario`,`vaga_idvaga`),
+  KEY `fk_candidatar_vaga1_idx` (`vaga_idvaga`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -38,7 +40,7 @@ CREATE TABLE `candidatar` (
 -- Estrutura da tabela `candidato`
 --
 
-CREATE TABLE `candidato` (
+CREATE TABLE IF NOT EXISTS `candidato` (
   `usuario_idusuario` int(11) NOT NULL,
   `nome_social` varchar(75) DEFAULT NULL,
   `data_nascimento` char(10) DEFAULT NULL,
@@ -53,7 +55,8 @@ CREATE TABLE `candidato` (
   `veiculo_proprio` varchar(75) DEFAULT NULL,
   `disponibilidade_viajar` char(3) DEFAULT NULL,
   `disponibilidade_mudar_residencia` char(3) DEFAULT NULL,
-  `outras_informacoes` text
+  `outras_informacoes` text,
+  PRIMARY KEY (`usuario_idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -62,12 +65,14 @@ CREATE TABLE `candidato` (
 -- Estrutura da tabela `contato`
 --
 
-CREATE TABLE `contato` (
-  `idcontato` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `contato` (
+  `idcontato` int(11) NOT NULL AUTO_INCREMENT,
   `tipo` varchar(45) NOT NULL,
   `valor` varchar(45) NOT NULL,
-  `usuario_idusuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `usuario_idusuario` int(11) NOT NULL,
+  PRIMARY KEY (`idcontato`),
+  KEY `fk_contato_usuario1_idx` (`usuario_idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -75,16 +80,18 @@ CREATE TABLE `contato` (
 -- Estrutura da tabela `curso`
 --
 
-CREATE TABLE `curso` (
-  `idcurso` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `curso` (
+  `idcurso` int(11) NOT NULL AUTO_INCREMENT,
   `descricao_curso` varchar(300) NOT NULL,
   `instituicao` varchar(75) DEFAULT NULL,
   `nivel` varchar(45) DEFAULT NULL,
   `mes_ano_inicio` char(7) DEFAULT NULL,
   `mes_ano_fim` char(7) DEFAULT NULL,
   `status_curso` varchar(20) DEFAULT NULL,
-  `candidato_usuario_idusuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `candidato_usuario_idusuario` int(11) NOT NULL,
+  PRIMARY KEY (`idcurso`),
+  KEY `fk_curso_candidato1_idx` (`candidato_usuario_idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -92,14 +99,23 @@ CREATE TABLE `curso` (
 -- Estrutura da tabela `empresa`
 --
 
-CREATE TABLE `empresa` (
+CREATE TABLE IF NOT EXISTS `empresa` (
   `usuario_idusuario` int(11) NOT NULL,
   `razao_social` varchar(75) DEFAULT NULL,
   `cnpj` char(18) DEFAULT NULL,
   `site` varchar(75) DEFAULT NULL,
   `descricao` text,
-  `ramo_atividade` varchar(45) DEFAULT NULL
+  `ramo_atividade` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`usuario_idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `empresa`
+--
+
+INSERT INTO `empresa` (`usuario_idusuario`, `razao_social`, `cnpj`, `site`, `descricao`, `ramo_atividade`) VALUES
+(1, NULL, NULL, NULL, NULL, NULL),
+(2, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -107,7 +123,7 @@ CREATE TABLE `empresa` (
 -- Estrutura da tabela `endereco`
 --
 
-CREATE TABLE `endereco` (
+CREATE TABLE IF NOT EXISTS `endereco` (
   `idendereco` int(11) NOT NULL,
   `rua` varchar(45) NOT NULL,
   `numero` char(10) NOT NULL,
@@ -116,7 +132,9 @@ CREATE TABLE `endereco` (
   `cep` char(10) DEFAULT NULL,
   `cidade` varchar(45) NOT NULL,
   `estado` char(2) NOT NULL,
-  `usuario_idusuario` int(11) NOT NULL
+  `usuario_idusuario` int(11) NOT NULL,
+  PRIMARY KEY (`idendereco`),
+  KEY `fk_endereco_usuario1_idx` (`usuario_idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -125,8 +143,8 @@ CREATE TABLE `endereco` (
 -- Estrutura da tabela `experiencia`
 --
 
-CREATE TABLE `experiencia` (
-  `idexperiencia` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `experiencia` (
+  `idexperiencia` int(11) NOT NULL AUTO_INCREMENT,
   `cargo` varchar(50) DEFAULT NULL,
   `nivel_hierarquico` varchar(30) DEFAULT NULL,
   `area` varchar(50) DEFAULT NULL,
@@ -135,8 +153,10 @@ CREATE TABLE `experiencia` (
   `mes_ano_termino` char(7) DEFAULT NULL,
   `emprego_atual` char(3) DEFAULT NULL,
   `candidato_usuario_idusuario` int(11) NOT NULL,
-  `atividade_desempenhada` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `atividade_desempenhada` text,
+  PRIMARY KEY (`idexperiencia`),
+  KEY `fk_experiencia_candidato1_idx` (`candidato_usuario_idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -144,15 +164,17 @@ CREATE TABLE `experiencia` (
 -- Estrutura da tabela `idioma`
 --
 
-CREATE TABLE `idioma` (
-  `ididioma` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `idioma` (
+  `ididioma` int(11) NOT NULL AUTO_INCREMENT,
   `descricao_idioma` varchar(25) NOT NULL,
   `le` char(15) DEFAULT NULL,
   `escreve` char(15) DEFAULT NULL,
   `fala` char(15) DEFAULT NULL,
   `entende` char(15) DEFAULT NULL,
-  `candidato_usuario_idusuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `candidato_usuario_idusuario` int(11) NOT NULL,
+  PRIMARY KEY (`ididioma`),
+  KEY `fk_idioma_has_candidato_candidato1_idx` (`candidato_usuario_idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -160,15 +182,24 @@ CREATE TABLE `idioma` (
 -- Estrutura da tabela `usuario`
 --
 
-CREATE TABLE `usuario` (
-  `idusuario` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `idusuario` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(75) NOT NULL,
   `email` varchar(75) NOT NULL,
   `senha` char(32) NOT NULL,
   `token` char(32) NOT NULL,
   `status` varchar(20) NOT NULL,
-  `perfil` varchar(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `perfil` varchar(20) NOT NULL,
+  PRIMARY KEY (`idusuario`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`idusuario`, `nome`, `email`, `senha`, `token`, `status`, `perfil`) VALUES
+(1, 'Empresa Junior', 'empresajunior@gmail.com', 'caff2749f2833128ee2d3fe5a61f8109', 'cc09da88aac5b4ed650140524b2c1834', 'Ativo', 'Empresa'),
+(2, 'Gol de classe', 'jabes@hotmail.com', '80a045956cf2094c90a35b1db8f2a612', '549ecda4fe77321d56c8deb030069ab3', 'Ativo', 'Empresa');
 
 -- --------------------------------------------------------
 
@@ -176,126 +207,23 @@ CREATE TABLE `usuario` (
 -- Estrutura da tabela `vaga`
 --
 
-CREATE TABLE `vaga` (
-  `idvaga` int(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `vaga` (
+  `idvaga` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
   `faixa_salarial_inicio` double DEFAULT NULL,
   `faixa_salarial_fim` double DEFAULT NULL,
   `pre_requisitos` text,
   `tipo_contrato` varchar(25) DEFAULT NULL,
-  `benefícios` text,
+  `beneficios` text,
   `status_vaga` varchar(20) DEFAULT NULL,
   `data_publicacao` char(10) DEFAULT NULL,
   `visualizacoes` int(11) DEFAULT NULL,
-  `empresa_usuario_idusuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `empresa_usuario_idusuario` int(11) NOT NULL,
+  PRIMARY KEY (`idvaga`),
+  KEY `fk_vaga_empresa1_idx` (`empresa_usuario_idusuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `candidatar`
---
-ALTER TABLE `candidatar`
-  ADD PRIMARY KEY (`candidato_usuario_idusuario`,`vaga_idvaga`),
-  ADD KEY `fk_candidatar_vaga1_idx` (`vaga_idvaga`);
-
---
--- Indexes for table `candidato`
---
-ALTER TABLE `candidato`
-  ADD PRIMARY KEY (`usuario_idusuario`);
-
---
--- Indexes for table `contato`
---
-ALTER TABLE `contato`
-  ADD PRIMARY KEY (`idcontato`),
-  ADD KEY `fk_contato_usuario1_idx` (`usuario_idusuario`);
-
---
--- Indexes for table `curso`
---
-ALTER TABLE `curso`
-  ADD PRIMARY KEY (`idcurso`),
-  ADD KEY `fk_curso_candidato1_idx` (`candidato_usuario_idusuario`);
-
---
--- Indexes for table `empresa`
---
-ALTER TABLE `empresa`
-  ADD PRIMARY KEY (`usuario_idusuario`);
-
---
--- Indexes for table `endereco`
---
-ALTER TABLE `endereco`
-  ADD PRIMARY KEY (`idendereco`),
-  ADD KEY `fk_endereco_usuario1_idx` (`usuario_idusuario`);
-
---
--- Indexes for table `experiencia`
---
-ALTER TABLE `experiencia`
-  ADD PRIMARY KEY (`idexperiencia`),
-  ADD KEY `fk_experiencia_candidato1_idx` (`candidato_usuario_idusuario`);
-
---
--- Indexes for table `idioma`
---
-ALTER TABLE `idioma`
-  ADD PRIMARY KEY (`ididioma`),
-  ADD KEY `fk_idioma_has_candidato_candidato1_idx` (`candidato_usuario_idusuario`);
-
---
--- Indexes for table `usuario`
---
-ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idusuario`);
-
---
--- Indexes for table `vaga`
---
-ALTER TABLE `vaga`
-  ADD PRIMARY KEY (`idvaga`),
-  ADD KEY `fk_vaga_empresa1_idx` (`empresa_usuario_idusuario`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `contato`
---
-ALTER TABLE `contato`
-  MODIFY `idcontato` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `curso`
---
-ALTER TABLE `curso`
-  MODIFY `idcurso` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `experiencia`
---
-ALTER TABLE `experiencia`
-  MODIFY `idexperiencia` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `idioma`
---
-ALTER TABLE `idioma`
-  MODIFY `ididioma` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `usuario`
---
-ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `vaga`
---
-ALTER TABLE `vaga`
-  MODIFY `idvaga` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --

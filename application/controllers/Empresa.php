@@ -90,7 +90,6 @@ class Empresa extends MY_Controller {
                     $this->session->set_flashdata('erros', $this->vaga_model->get_erro());
                     $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao adicionar vaga: ' + $ex->getMessage(), 'msg_status' => 'danger'));
-                    die(print_r($this->vaga_model->get_erro()));
                 }
             }
         }
