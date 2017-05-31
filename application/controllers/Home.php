@@ -14,10 +14,13 @@ class Home extends MY_Controller {
     
     public function index()
     {
-        $dados['msg'] = $this->session->flashdata('resposta_msg');
+        $dados['msg'] = get_alert_code($this->session->flashdata('msg'), 'danger');
         $dados['erros'] = $this->session->flashdata('erros');
         $dados['usuario'] = $this->session->flashdata('dadosusuario');
-        $dados['abrir_cadastrar'] = $this->session->flashdata('abrircadastrar');
+        $dados['abrir'] = $this->session->flashdata('abrir');
+        //die($dados['abrir']);
         $this->view('home', $dados);
     }
+    
+        
 }

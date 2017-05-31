@@ -102,12 +102,11 @@
         <script src="<?php echo base_url() ?>assets/js/jquery.prettyPhoto.js"></script>
         <script src="<?php echo base_url() ?>assets/js/jquery.isotope.min.js"></script>
         <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
-        <script src="<?php echo base_url() ?>assets/js/mascaras.js"></script>
         
-        <?php if($abrir_cadastrar == true) : ?>
+        <?php if($abrir) :  ?>
         <script type="text/javascript">
             $(document).ready(function(){
-               $('#modalCadastrar').modal(); 
+               $('#modal<?php echo $abrir ?>').modal(); 
             });
         </script>
         <?php endif; ?>
@@ -120,6 +119,7 @@
                         <h4 class="modal-title">Entrar</h4>
                     </div>
                     <div class="modal-body">
+                        <?php echo (isset($msg) ? $msg : '') ?>      
                         <form method="post" action="<?php echo base_url('entrar') ?>">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
@@ -130,7 +130,7 @@
                                 <input type="password" name="senha" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                             </div>
                             <button type="submit" class="btn btn-success btn-lg">Entrar</button> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modalEsquecerSenha">Esqueceu a senha?</a>
-                                      
+                                 
                         </form>
                     </div>
                     <div class="modal-footer">

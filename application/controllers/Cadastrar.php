@@ -26,7 +26,7 @@ class Cadastrar extends MY_Controller {
                         
                 redirect('cadastrar/resposta');
             } catch (Exception $ex) {
-                $this->session->set_flashdata('abrircadastrar', true);
+                $this->session->set_flashdata('abrir', 'Cadastrar');
                 $this->session->set_flashdata('erros', $this->usuario_model->get_erro());
                 $this->session->set_flashdata('dadosusuario', $this->input->post());
                 redirect('home');

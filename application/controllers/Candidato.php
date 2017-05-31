@@ -91,6 +91,9 @@ class Candidato extends MY_Controller {
                     $this->curso_model->insert();
                     $this->session->set_flashdata(array('msg' => 'Curso adicionado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
+                    $this->session->set_flashdata('abrir', 'Curso');
+                    $this->session->set_flashdata('erros', $this->curso_model->get_erro());
+                    $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao adicionar curso: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             }
@@ -144,6 +147,7 @@ class Candidato extends MY_Controller {
                     $this->idioma_model->update('ididioma', $this->idioma_model->ididioma);
                     $this->session->set_flashdata(array('msg' => 'Idioma atualizado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
+                    
                     $this->session->set_flashdata(array('msg' => 'Erro ao atualizar Experiencia: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             } else {

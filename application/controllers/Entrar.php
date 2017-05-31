@@ -30,6 +30,7 @@ class Entrar extends MY_Controller {
             }
             else{
                 $this->session->set_flashdata('msg', 'Email e/ou senha incorretos');
+                $this->session->set_flashdata('abrir', 'Entrar');
             }
         }
         redirect('');
