@@ -13,7 +13,7 @@ class Testes extends MY_Controller {
     public function index()
     {
         $this->load->model('usuario_model');
-        var_dump($this->usuario_model->get_id_by_token('8c44001db94bd54cfaefe10bdf4226cc'));
+        print_r($this->usuario_model->get_attr_array('email'));
     }
     
     public function pdf()

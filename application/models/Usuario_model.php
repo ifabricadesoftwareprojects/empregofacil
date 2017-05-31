@@ -63,9 +63,10 @@ class Usuario_model extends MY_Model{
         $CI =& get_instance();
         $CI->load->library('data_validator');
         $validate = $CI->data_validator;
+        $validate->set_message('not_contains', 'Já existe uma conta utilizando o email <strong>'. $this->email .'</strong>.');
         
         $validate->set('nome', $this->nome)->is_required()->min_length(5)->max_length(75)->is_alpha_num()
-                ->set('email', $this->email)->is_required()->is_email()
+                ->set('email', $this->email)->is_required()->is_email()->not_contains($this->get_attr_array('email'))
                 ->set('senha', $this->senha)->min_length(8);
         
         if($validate->validate() === false){
@@ -105,5 +106,20 @@ class Usuario_model extends MY_Model{
             return false;
         }
         return $usuario[0]->idusuario;
+    }
+    
+    public function get_attr_array($attr)
+    {
+        $res =  $this->db
+                ->select($attr)
+                ->from('usuario u')
+                ->get()
+                ->result_array();
+        
+        $retorno = array();
+        foreach ($res as $reg){
+            $retorno[] = $reg['email'];
+        }            
+        return $retorno;
     }
 }
