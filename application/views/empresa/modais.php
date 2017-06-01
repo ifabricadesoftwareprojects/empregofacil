@@ -53,17 +53,16 @@
                     <div class="form-group">
                         <label for="data_publicacao">Data de publicação:</label>
                         <input disabled type="date" name="data_publicacao" class="form-control input-lg" placeholder="Ex: 01/01/2001"> 
-                        <div class="form-group">
-                            <label for="visualizacoes">Visualizações:</label>
-                            <input disabled type="text" name="visualizacoes" class="form-control" placeholder="Visualização">
-
-                        </div>
-
+                    </div>
+                    <div class="form-group">
+                        <label for="visualizacoes">Visualizações:</label>
+                        <input disabled type="text" name="visualizacoes" class="form-control" placeholder="Visualização">
                         <button type="submit" class="btn btn-primary ">Adicionar Vaga</button>          
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- FIM MODAL DE VAGAS -->
+                    </div>
+                </form>    
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- FIM MODAL DE VAGAS -->
+</div>
 

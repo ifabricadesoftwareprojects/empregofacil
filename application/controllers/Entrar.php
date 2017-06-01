@@ -35,4 +35,22 @@ class Entrar extends MY_Controller {
         }
         redirect('');
     }
+    public function sendEmail()
+    {
+        
+        $this->load->model('usuario_model');
+        $this->usuario_model->email = $this->input->post('email');
+        $this->load->library('email');
+
+        $this->email->from('your@example.com', 'Your Name');
+        $this->email->to($this->usuario_model->email);
+        $this->email->cc('another@another-example.com');
+        $this->email->bcc('them@their-example.com');
+
+        $this->email->subject('Email Test');
+        $this->email->message('Testing the email class.');
+        
+        $this->email->send();
+        redirect('');
+    }
 }
