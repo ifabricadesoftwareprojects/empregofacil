@@ -49,13 +49,12 @@ class Vaga_model extends MY_Model{
         
         $validate->set('titulo', $this->titulo)->is_required()
                 ->set('descricao', $this->descricao)->is_required()
-                ->set('faixa_salarial_inicio', $this->faixa_salarial_inicio)->is_required()
-                ->set('faixa_salarial_fim', $this->faixa_salarial_fim)->is_required()
+                ->set('faixa_salarial_inicio', $this->faixa_salarial_inicio)->is_positive()->is_required()
+                ->set('faixa_salarial_fim', $this->faixa_salarial_fim)->is_positive()->min_value($this->faixa_salarial_inicio-1)->is_required()
                 ->set('pre_requisitos', $this->pre_requisitos)->is_required()
                 ->set('tipo_contrato', $this->tipo_contrato)->is_required()
                 ->set('beneficios', $this->beneficios)->is_required()
                 ->set('status_vaga', $this->status_vaga)->is_required();
-        
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
             throw new Exception('Erro ao validar os dados');

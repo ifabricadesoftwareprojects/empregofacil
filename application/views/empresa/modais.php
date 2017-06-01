@@ -52,7 +52,7 @@
                     </div>
                     <div class="form-group">
                         <label for="data_publicacao">Data de publicação:</label>
-                        <input disabled type="date" name="data_publicacao" class="form-control input-lg" placeholder="Ex: 01/01/2001"> 
+                        <input type="text" name="data_publicacao" class="form-control input-lg" value="<?=date('d/m/Y')?>">
                     </div>
                     <div class="form-group">
                         <label for="visualizacoes">Visualizações:</label>

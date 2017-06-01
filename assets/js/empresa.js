@@ -19,13 +19,13 @@ $(document).ready(function () {
 
         $('#formVaga input[name="id"').val(dados.idvaga);
         $('#formVaga input[name="titulo"').val(dados.titulo);
-        $('#formVaga textarea[name="descricao_vaga"]').val(dados.descricao_vaga);
+        $('#formVaga textarea[name="descricao"]').val(dados.descricao);
         $('#formVaga input[name="faixa_salarial_inicio"').val(dados.faixa_salarial_inicio);
         $('#formVaga input[name="faixa_salarial_fim"').val(dados.faixa_salarial_fim);
         $('#formVaga textarea[name="pre_requisitos"]').val(dados.pre_requisitos);
         $('#formVaga input[name="tipo_contrato"').val(dados.tipo_contrato);
-        $('#formVaga textarea[name="beneficios"]').val(dados.benefecios);
-        $('#formVaga input[name="status_vaga"').val(dados.status_vaga);
+        $('#formVaga textarea[name="beneficios"]').val(dados.beneficios);
+        $('#formVaga input[name="status_vaga"').val(dados.status_vaga).change();
         $('#formVaga input[name="data_publicacao"').val(dados.data_publicacao);
         $('#formVaga input[name="visualizacoes"').val(dados.visualizacoes);
         $('#formVaga input[name="acao"]').val('editar');
