@@ -44,9 +44,14 @@ class Candidato extends MY_Controller {
         $dados['active'] = $this->session->flashdata('active');
         
         $dados['erros'] = $this->session->flashdata('erros');
-        $dados['dados'] = $this->session->flashdata('dados');
         $dados['abrir'] = $this->session->flashdata('abrir');
-        
+        //var_dump($dados['abrir']);
+        if(!is_null($dados['abrir'])){
+            $dados['dados_' . strtolower($dados['abrir'])] = $this->session->flashdata('dados');
+        }
+        else{
+            $dados['dados'] = $this->session->flashdata('dados');
+        }           
         //Alerta de mensagem
         $dados['msg'] = get_alert_code($this->session->flashdata('msg'), $this->session->flashdata('msg_status'));
 
@@ -80,6 +85,9 @@ class Candidato extends MY_Controller {
                     $this->curso_model->update('idcurso', $this->curso_model->idcurso);
                     $this->session->set_flashdata(array('msg' => 'Curso atualizado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
+                    $this->session->set_flashdata('abrir', 'Curso');
+                    $this->session->set_flashdata('erros', $this->curso_model->get_erro());
+                    $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao atualizar curso: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             } else {
@@ -94,6 +102,7 @@ class Candidato extends MY_Controller {
                     $this->session->set_flashdata('abrir', 'Curso');
                     $this->session->set_flashdata('erros', $this->curso_model->get_erro());
                     $this->session->set_flashdata('dados', $this->input->post());
+                    //die(print_r($this->input->post()));
                     $this->session->set_flashdata(array('msg' => 'Erro ao adicionar curso: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             }

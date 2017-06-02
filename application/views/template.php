@@ -103,7 +103,7 @@
         <script src="<?php echo base_url() ?>assets/js/jquery.isotope.min.js"></script>
         <script src="<?php echo base_url() ?>assets/js/custom.js"></script>
         
-        <?php if($abrir) :  ?>
+        <?php if(isset($abrir) && !is_null($abrir)) :  ?>
         <script type="text/javascript">
             $(document).ready(function(){
                $('#modal<?php echo $abrir ?>').modal(); 
