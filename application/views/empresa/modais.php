@@ -12,42 +12,42 @@
                     <input type="hidden" name="acao" value="" />
                     <div class="form-group">
                         <label for="titulo">Título:</label>
-                        <input type="text" name="titulo" class="form-control" placeholder="Titulo">
+                        <input type="text" name="titulo" class="form-control" placeholder="Titulo" value="<?php echo (isset($dados_vaga) ? $dados_vaga['titulo'] : '') ?>">
                         <?php echo display_erros(isset($erros['titulo']) ? $erros['titulo'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descriçao:</label>
-                        <textarea class="form-control" rows="3" name="descricao" placeholder="Descrição da vaga" ></textarea>
+                        <textarea class="form-control" rows="3" name="descricao" placeholder="Descrição da vaga"><?php echo (isset($dados_vaga) ? $dados_vaga['descricao'] : '') ?></textarea>
                         <?php echo display_erros(isset($erros['descricao']) ? $erros['descricao'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="faixa_salarial_inicio">Faixa salarial inícial:</label>
-                        <input type="number" name="faixa_salarial_inicio" class="form-control" placeholder="2.000">
+                        <input type="number" name="faixa_salarial_inicio" class="form-control" placeholder="2.000" value="<?php echo (isset($dados_vaga) ? $dados_vaga['faixa_salarial_inicio'] : '') ?>">
                         <?php echo display_erros(isset($erros['faixa_salarial_inicio']) ? $erros['faixa_salarial_inicio'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="faixa_salarial_fim">Faixa salarial final:</label>
-                        <input type="number" name="faixa_salarial_fim" class="form-control" placeholder="2.000">
+                        <input type="number" name="faixa_salarial_fim" class="form-control" placeholder="2.000" value="<?php echo (isset($dados_vaga) ? $dados_vaga['faixa_salarial_fim'] : '') ?>">
                         <?php echo display_erros(isset($erros['faixa_salarial_fim']) ? $erros['faixa_salarial_fim'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="pre_requisitos">Pré requisitos:</label>
-                        <textarea class="form-control" rows="3" name="pre_requisitos" placeholder="Pré requisitos" ></textarea>
+                        <textarea class="form-control" rows="3" name="pre_requisitos" placeholder="Pré requisitos"><?php echo (isset($dados_vaga) ? $dados_vaga['pre_requisitos'] : '') ?></textarea>
                         <?php echo display_erros(isset($erros['pre_requisitos']) ? $erros['pre_requisitos'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="tipo_contrato">Contrato:</label>
-                        <input type="text" name="tipo_contrato" class="form-control" placeholder="Tipo de contrato">
+                        <input type="text" name="tipo_contrato" class="form-control" placeholder="Tipo de contrato" value="<?php echo (isset($dados_vaga) ? $dados_vaga['tipo_contrato'] : '') ?>">
                         <?php echo display_erros(isset($erros['tipo_contrato']) ? $erros['tipo_contrato'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="beneficios">Benefícios:</label>
-                        <textarea class="form-control" rows="3" name="beneficios" placeholder="Beneficios" ></textarea>
+                        <textarea class="form-control" rows="3" name="beneficios" placeholder="Benefícios"><?php echo (isset($dados_vaga) ? $dados_vaga['beneficios'] : '') ?></textarea>
                         <?php echo display_erros(isset($erros['beneficios']) ? $erros['beneficios'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="status_vaga">Status da vaga:</label>
-                        <input type="text" name="status_vaga" class="form-control" placeholder="Status da vaga">
+                        <input type="text" name="status_vaga" class="form-control" placeholder="Status da vaga" value="<?php echo (isset($dados_vaga) ? $dados_vaga['status_vaga'] : '') ?>">
                         <?php echo display_erros(isset($erros['status_vagas']) ? $erros['status_vagas'] : null) ?>
                     </div>
                     <div class="form-group">

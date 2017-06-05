@@ -40,6 +40,14 @@ class Vaga_model extends MY_Model{
             throw new Exception($ex->getMessage());
         }
     }
+     public function update($field, $value){
+        try {
+            $this->validar_dados();
+            parent::update();
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
     public function validar_dados()
     {
         $CI =& get_instance();

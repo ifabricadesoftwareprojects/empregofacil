@@ -41,6 +41,13 @@ class Empresa extends MY_Controller {
         //Define qual a aba deve vir exibida
         $dados['active'] = $this->session->flashdata('active');
         
+        if(!is_null($dados['abrir'])){
+            $dados['dados_' . strtolower($dados['abrir'])] = $this->session->flashdata('dados');
+        }
+        else{
+            $dados['dados'] = $this->session->flashdata('dados');
+        }   
+        
         //Alerta de mensagem
         $dados['msg'] = get_alert_code($this->session->flashdata('msg'), $this->session->flashdata('msg_status'));
         
@@ -75,6 +82,9 @@ class Empresa extends MY_Controller {
                     $this->vaga_model->update('idvaga', $this->vaga_model->idvaga);
                     $this->session->set_flashdata(array('msg' => 'Vaga atualizada com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
+                    $this->session->set_flashdata('abrir', 'Vaga');
+                    $this->session->set_flashdata('erros', $this->vaga_model->get_erro());
+                    $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao atualizar vaga: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             } else {
