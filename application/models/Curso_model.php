@@ -11,11 +11,11 @@
  *
  * @author Aluno
  */
-class Curso_model extends MY_Model{
+class Curso_model extends MY_Model {
+
     //put your code here
     protected $table = 'curso';
     protected $pk = 'idcurso';
-    
     public $idcurso;
     public $descricao_curso;
     public $instituicao;
@@ -24,11 +24,12 @@ class Curso_model extends MY_Model{
     public $mes_ano_fim;
     public $status_curso;
     public $candidato_usuario_idusuario;
-    
+
     public function __construct() {
         parent::__construct();
     }
-     public function insert() {
+
+    public function insert() {
         try {
             $this->validar_dados();
             parent::insert();
@@ -36,7 +37,8 @@ class Curso_model extends MY_Model{
             throw new Exception();
         }
     }
-    public function update($field, $value){
+
+    public function update($field, $value) {
         try {
             $this->validar_dados();
             parent::update();
@@ -44,21 +46,22 @@ class Curso_model extends MY_Model{
             throw new Exception();
         }
     }
-    public function validar_dados()
-    {
-        $CI =& get_instance();
+
+    public function validar_dados() {
+        $CI = & get_instance();
         $CI->load->library('data_validator');
         $validate = $CI->data_validator;
-        
-        
+
+
         $validate->set('descricao_curso', $this->descricao_curso)->is_required()
                 ->set('instituicao', $this->instituicao)->is_required()
                 ->set('nivel', $this->nivel)->is_required()
                 ->set('mes_ano_inicio', $this->mes_ano_inicio)->is_required();
-        
-        if($validate->validate() === false){
+
+        if ($validate->validate() === false) {
             $this->erro = $validate->get_errors();
             throw new Exception('Erro ao validar os dados');
         }
     }
+
 }

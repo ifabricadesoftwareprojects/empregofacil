@@ -123,6 +123,9 @@ class Candidato extends MY_Controller {
                     $this->experiencia_model->update('idexperiencia', $this->experiencia_model->idexperiencia);
                     $this->session->set_flashdata(array('msg' => 'Experiencia atualizado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
+                    $this->session->set_flashdata('abrir', 'Experiencia');
+                    $this->session->set_flashdata('erros', $this->experiencia_model->get_erro());
+                    $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao atualizar Experiencia: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             } else {
