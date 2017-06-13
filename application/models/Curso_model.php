@@ -41,7 +41,7 @@ class Curso_model extends MY_Model {
     public function update($field, $value) {
         try {
             $this->validar_dados();
-            parent::update();
+            parent::update($field, $value);
         } catch (Exception $ex) {
             throw new Exception();
         }
