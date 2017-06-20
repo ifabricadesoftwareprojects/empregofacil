@@ -67,7 +67,7 @@ class Usuario_model extends MY_Model{
         
         $validate->set('nome', $this->nome)->is_required()->min_length(5)->max_length(75)->is_alpha_num()
                 ->set('email', $this->email)->is_required()->is_email()->not_contains($this->get_attr_array('email'))
-                ->set('senha', $this->senha)->min_length(8);
+                ->set('senha', $this->senha)->min_length(7);
         
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
