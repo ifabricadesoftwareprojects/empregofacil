@@ -68,4 +68,29 @@ class Vaga_model extends MY_Model{
             throw new Exception('Erro ao validar os dados');
         }
     }
+    
+    public function get_vagas($q)
+    {
+        $query = $this->db
+                ->select('v.idvaga, u.nome, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato')
+                ->from('vaga v')
+                ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')
+                ->like('v.titulo', $q)
+                ->or_like('v.descricao', $q)
+                ->get()
+                ->result();
+        return $query;
+    }
+    
+    public function get_vaga_detalhes($idvaga)
+    {
+        return $this->db
+                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos, e.descricao as descricao_empresa')
+                ->from('vaga v')
+                ->join('empresa e', 'v.empresa_usuario_idusuario = e.usuario_idusuario')
+                ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')
+                ->where('v.idvaga', $idvaga)
+                ->get()
+                ->row(0);
+    }
 }
