@@ -47,12 +47,14 @@
                     </div>
                     <div class="form-group">
                         <label for="status_vaga">Status da vaga:</label>
-                        <input type="text" name="status_vaga" class="form-control" placeholder="Status da vaga" value="<?php echo (isset($dados_vaga) ? $dados_vaga['status_vaga'] : '') ?>">
-                        <?php echo display_erros(isset($erros['status_vagas']) ? $erros['status_vagas'] : null) ?>
+                       <select name="status_vaga" class="form-control">
+                            <option value="Ativa"<?php echo (isset($dados_vaga) && $dados_vaga['status_vaga'] == 'Ativa') ? ' selected' : '' ?>>Ativa</option>
+                            <option value="Inativa"<?php echo (isset($dados_vaga) && $dados_vaga['status_vaga'] == 'Inativa') ? ' selected' : '' ?>>Inativa</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="data_publicacao">Data de publicação:</label>
-                        <input type="text" name="data_publicacao" class="form-control input-lg" value="<?=date('d/m/Y')?>">
+                        <input type="text" name="data_publicacao" class="form-control input-lg" value="<?php echo date('d/m/Y')?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="visualizacoes">Visualizações:</label>
