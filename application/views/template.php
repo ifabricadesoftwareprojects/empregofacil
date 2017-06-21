@@ -46,10 +46,22 @@
                     <a class="navbar-brand" href="<?php echo base_url() ?>">EMPREGO FÁCIL</a>
                 </div>
                 <div class="navbar-collapse collapse navbar-right">
+                    <?php if(isset($this->session->token)) : ?>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Usuário: <?php echo strtoupper($this->session->nome) ?> <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="<?php echo base_url(strtolower($this->session->perfil)) ?>">Meus Dados</a></li>
+                                <li><a href="<?php echo base_url('sair') ?>">Sair</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <?php else : ?>
                     <ul class="nav navbar-nav">
                         <li><a href="#" data-toggle="modal" data-target="#modalEntrar">ENTRAR</a></li>
                         <li><a href="#" data-toggle="modal" data-target="#modalCadastrar">CADASTRAR-SE</a></li>
                     </ul>
+                    <?php endif; ?>
                 </div><!--/.nav-collapse -->
             </div>
         </div>
