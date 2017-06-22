@@ -106,4 +106,27 @@ class Empresa extends MY_Controller {
         $this->session->set_flashdata('active', 'vagas');
         redirect('empresa');
     }
+    
+    public function candidatos_vaga($idvaga = null)
+    {
+        if(is_null($idvaga)){
+            $this->session->set_flashdata('abrir', 'Vaga');
+            redirect('empresa');
+        }
+        
+        $this->session->set_flashdata('active', 'vagas');
+        $dados['vaga'] = $this->vaga_model->get_vaga_detalhes($idvaga, '', $this->session->token);
+        if(!$dados['vaga']){
+            $this->session->set_flashdata(array('msg' => 'A vaga informada não foi encontrada', 'msg_status' => 'danger'));
+            redirect('empresa');
+        }
+        
+        $dados['candidatos'] = $this->vaga_model->get_candidatos_by_vaga($idvaga);
+        $dados['num_candidatos'] = count($dados['candidatos']);
+        
+        //Alerta de mensagem
+        $dados['msg'] = get_alert_code($this->session->flashdata('msg'), $this->session->flashdata('msg_status'));
+        
+        $this->view('vaga_candidatos', $dados);
+    }
 }

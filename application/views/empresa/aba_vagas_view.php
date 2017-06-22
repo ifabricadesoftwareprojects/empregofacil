@@ -16,6 +16,7 @@
                     <th>Publicação</th>
                     <th>Visualizações</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +33,7 @@
                     <td><?php echo $vaga->data_publicacao ?></td>
                     <td><?php echo $vaga->visualizacoes ?></td>
                     <td><a href="#" data='<?php echo json_encode($vaga) ?>' class="btn btn-primary btn_editar_vaga">Editar</a></td>
+                    <td><a href="<?php echo base_url('empresa/candidatos_vaga/' . $vaga->idvaga) ?>" class="btn btn-primary">Candidatos</a></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>

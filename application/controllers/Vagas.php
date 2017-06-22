@@ -28,7 +28,10 @@ class Vagas extends MY_Controller {
         }
         $dados['logado'] = (isset($this->session->token) ? true : false);
         $dados['candidatado'] = $this->candidatar_model->is_candidatado($idvaga, $this->usuario_model->get_id_by_token($this->session->token));
-        $dados['vaga'] = $this->vaga_model->get_vaga_detalhes($idvaga);
+        $dados['vaga'] = $this->vaga_model->get_vaga_detalhes($idvaga, 'Ativa');
+        if(!$dados['vaga']){
+            redirect();
+        }
         $this->view('vagas_detalhes', $dados);
     }
     
@@ -55,7 +58,10 @@ class Vagas extends MY_Controller {
                 $this->session->set_flashdata(array('msg' => 'Erro ao se candidatar-se para vaga: ' + $ex->getMessage(), 'msg_status' => 'danger'));
             }
         }
-        $dados['vaga'] = $this->vaga_model->get_vaga_detalhes($idvaga);
+        $dados['vaga'] = $this->vaga_model->get_vaga_detalhes($idvaga, 'Ativa');
+        if(!$dados['vaga']){
+            redirect();
+        }
         $dados['msg'] = get_alert_code($this->session->flashdata('msg'), 'danger');
         $dados['candidatado'] = $this->candidatar_model->is_candidatado($idvaga, $this->usuario_model->get_id_by_token($this->session->token));
         $this->view('vagas_candidatar', $dados);

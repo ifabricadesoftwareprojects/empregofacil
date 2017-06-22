@@ -71,26 +71,46 @@ class Vaga_model extends MY_Model{
     
     public function get_vagas($q)
     {
-        $query = $this->db
-                ->select('v.idvaga, u.nome, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato')
+        return $this->db
+                ->select('v.idvaga, u.nome, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.status_vaga')
                 ->from('vaga v')
                 ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')
-                ->like('v.titulo', $q)
-                ->or_like('v.descricao', $q)
+                ->group_start()
+                    ->where('v.status_vaga', 'Ativa')
+                ->group_end()
+                ->group_start()
+                    ->like('v.titulo', $q)
+                    ->or_like('v.descricao', $q)
+                ->group_end()
                 ->get()
                 ->result();
-        return $query;
     }
     
-    public function get_vaga_detalhes($idvaga)
+    public function get_vaga_detalhes($idvaga, $status = 'Ativa', $token = null)
     {
-        return $this->db
+        $query =  $this->db
                 ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos, e.descricao as descricao_empresa')
                 ->from('vaga v')
                 ->join('empresa e', 'v.empresa_usuario_idusuario = e.usuario_idusuario')
                 ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')
-                ->where('v.idvaga', $idvaga)
+                ->where('v.idvaga', $idvaga);
+        if($status == 'Ativa' || $status == 'Inativa'){
+            $query->where('v.status_vaga', $status);
+        }
+        if(!is_null($token)){
+            $query->where('u.token', $token);
+        }
+        return $query->get()->row(0);
+    }
+    
+    public function get_candidatos_by_vaga($idvaga)
+    {
+        return $this->db
+                ->select('u.nome, c.mensagem')
+                ->from('candidatar c')
+                ->join('usuario u', 'c.candidato_usuario_idusuario = u.idusuario')
+                ->where('c.vaga_idvaga', $idvaga)
                 ->get()
-                ->row(0);
+                ->result();
     }
 }
