@@ -58,7 +58,23 @@ $(document).ready(function(){
         $('#formIdioma input[name="acao"]').val('editar');
         
         $('#modalIdioma').modal();
-    });  
+    });
+    
+    $('.btn_editar_endereco').click(function(){
+        var dados = $.parseJSON($(this).attr('data'));
+        
+        $('#formEndereco input[name="id"').val(dados.idendereco);
+        $('#formEndereco input[name="rua"]').val(dados.rua);
+        $('#formEndereco input[name="numero"]').val(dados.numero);
+        $('#formEndereco input[name="complemento"]').val(dados.complemento);
+        $('#formEndereco input[name="bairro"]').val(dados.bairro);
+        $('#formEndereco input[name="cep"]').val(dados.cep);
+        $('#formEndereco input[name="cidade"]').val(dados.cidade);
+        $('#formEndereco select[name="estado"]').val(dados.estado).change();
+        $('#formEndereco input[name="acao"]').val('editar');
+        
+        $('#modalEndereco').modal();
+    });
     
     $('.campoextra').change(function(){
         

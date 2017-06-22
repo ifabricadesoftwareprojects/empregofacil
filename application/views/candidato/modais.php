@@ -286,7 +286,7 @@
                     </div>
                     <div class="form-group">
                         <label for="cep">CEP:</label>
-                        <input type="text" class="form-control input-lg cpf"  placeholder="Ex: 13360-000" name="cep" value="<?php echo $candidato->cep ?>">
+                        <input type="text" class="form-control input-lg cep"  placeholder="Ex: 13360-000" name="cep" value="<?php echo (isset($dados_endereco) ? $dados_endereco['cep'] : '') ?>">
                         <?php echo display_erros(isset($erros['cep']) ? $erros['cep'] : null) ?>
                     </div>
                     <div class="form-group">

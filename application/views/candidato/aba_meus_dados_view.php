@@ -12,7 +12,7 @@
                             <img src="<?php echo get_src_foto_candidato($candidato->foto) ?>" alt="#" class="img-rounded">
                             <button type="button" class="btn btn-primary" href="#" data-toggle="modal" data-target="#modalFoto">Alterar Foto</button>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="nome">Nome:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome" value="<?php echo $candidato->nome ?>">
@@ -47,7 +47,7 @@
                                 <option value="Feminino"<?php echo $candidato->sexo == 'Feminino' ? ' selected' : '' ?>>Feminino</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="genero">Gênero:</label>
                             <select name="genero" class="form-control input-lg">
@@ -60,7 +60,7 @@
                                 <option value="Outro"<?php echo $candidato->genero == 'Outro' ? ' selected' : '' ?>>Outro</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="estado_civil">Estado Civil:</label>
                             <select name="estado_civil" class="form-control input-lg">
@@ -72,8 +72,8 @@
                             </select>
                         </div>
 
-                        
-                        
+
+
                         <div class="form-group">
                             <label for="portador_deficiencia">Possui algum tipo de deficiência?:</label>
                             <select id="portador_deficiencia" name="portador_deficiencia" class="form-control input-lg campoextra" campoextra="descricao_deficiencia" compara="Sim">
@@ -84,7 +84,7 @@
                                 <input type="text" disabled="disabled" class="form-control"  placeholder="Descrição da deficiência" id="descricao_deficiencia" name="descricao_deficiencia">
                             </label>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="tipo_habilitacao">Tipo Habilitação (CNH): </label>
                             <select name="tipo_habilitacao" class="form-control input-lg">
@@ -96,7 +96,7 @@
                                 <option value="E"<?php echo $candidato->tipo_habilitacao == 'E' ? ' selected' : '' ?>>E</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="veiculo_proprio">Possui veículo próprio?:</label>
                             <select name="veiculo_proprio" class="form-control input-lg">
@@ -104,7 +104,7 @@
                                 <option value="Nao"<?php echo $candidato->veiculo_proprio == 'Nao' ? ' selected' : '' ?>>Não</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="disponibilidade_viajar">Possui disponibilidade para viajar?:</label>
                             <select name="disponibilidade_viajar" class="form-control input-lg">
@@ -112,7 +112,7 @@
                                 <option value="Nao"<?php echo $candidato->disponibilidade_viajar == 'Nao' ? ' selected' : '' ?>>Não</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="disponibilidade_mudar_residencia">Possui disponibilidade de mudar de residencia?:</label>
                             <select name="disponibilidade_mudar_residencia" class="form-control input-lg">
@@ -122,6 +122,39 @@
                         </div>
                     </fieldset>
                     <!-- ENDEREÇO -->
+                    <div role="tabpanel" class="tab-pane<?php echo ($active == 'enderecos' ? ' active' : '') ?>" id="enderecos" align="left">
+                        </br>
+                        <?php echo $msg ?>
+                        <button type="button" class="btn btn-primary" href="#" data-toggle="modal" data-target="#modalEndereco">Adicionar Endereço</button></br>
+                        <table class="table table-hover">
+                            <thead thead-default>
+                                <tr>
+                                    <th>Rua</th>
+                                    <th>Numero</th>
+                                    <th>Complemento</th>
+                                    <th>Bairro</th>
+                                    <th>CEP</th>
+                                    <th>Cidade</th>
+                                    <th>Estado</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($enderecos as $endereco) : ?>
+                                    <tr>
+                                        <td><?php echo $endereco->rua ?></td>
+                                        <td><?php echo $endereco->numero ?></td>
+                                        <td><?php echo $endereco->complemento ?></td>
+                                        <td><?php echo $endereco->bairro ?></td>
+                                        <td><?php echo $endereco->cep ?></td>
+                                        <td><?php echo $endereco->cidade ?></td>
+                                        <td><?php echo $endereco->estado ?></td>
+                                        <td><a href="#" data='<?php echo json_encode($endereco) ?>' class="btn btn-primary btn_editar_endereco">Editar</a></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <br>
                     <!-- Contato -->
                     <fieldset>
                         <legend>Dados de Contato</legend>

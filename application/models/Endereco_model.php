@@ -21,12 +21,49 @@ class Endereco_model extends MY_Model{
     public $numero;
     public $complemento;
     public $bairro;
+    public $cep;
     public $cidade;
     public $estado;
-    public $cep;
     public $usuario_idusuario;
     
     public function __construct() {
         parent::__construct();
+    }
+    
+    public function insert() {
+        try {
+            $this->validar_dados();
+            parent::insert();
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
+    
+    public function update($field, $value){
+        try {
+            $this->validar_dados();
+            parent::update($field,$value);
+        } catch (Exception $ex) {
+            throw new Exception();
+        }
+    }
+    
+    public function validar_dados() {
+        $CI = & get_instance();
+        $CI->load->library('data_validator');
+        $validate = $CI->data_validator;
+
+
+        $validate->set('rua', $this->rua)->is_required()
+                ->set('numero', $this->numero)->is_required()
+                ->set('bairro', $this->bairro)->is_required()
+                ->set('cep', $this->cep)->is_required()
+                ->set('cidade', $this->cidade)->is_required()
+                ->set('estado', $this->estado)->is_required();
+
+        if ($validate->validate() === false) {
+            $this->erro = $validate->get_errors();
+            throw new Exception('Erro ao validar os dados');
+        }
     }
 }

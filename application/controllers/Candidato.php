@@ -13,7 +13,7 @@ class Candidato extends MY_Controller {
         parent::__construct();
 
         //Verifica "porcamente" se o usuário está autenticado!!!=)
-        if (!isset($this->session->token) || $this->session->perfil != 'Candidato' ) {
+        if (!isset($this->session->token) || $this->session->perfil != 'Candidato') {
             redirect();
         }
 
@@ -24,6 +24,7 @@ class Candidato extends MY_Controller {
         $this->load->model('curso_model');
         $this->load->model('experiencia_model');
         $this->load->model('idioma_model');
+        $this->load->model('endereco_model');
         //$this->load->model('candidato_idioma_model');
     }
 
@@ -39,19 +40,19 @@ class Candidato extends MY_Controller {
         $dados['cursos'] = $this->curso_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         $dados['experiencias'] = $this->experiencia_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         $dados['idiomas'] = $this->idioma_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
+        $dados['enderecos'] = $this->endereco_model->findBy('usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         //$dados['candidato_idiomas'] = $this->candidato_idioma_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         //Define qual a aba deve vir exibida
         $dados['active'] = $this->session->flashdata('active');
-        
+
         $dados['erros'] = $this->session->flashdata('erros');
         $dados['abrir'] = $this->session->flashdata('abrir');
         //var_dump($dados['abrir']);
-        if(!is_null($dados['abrir'])){
+        if (!is_null($dados['abrir'])) {
             $dados['dados_' . strtolower($dados['abrir'])] = $this->session->flashdata('dados');
-        }
-        else{
+        } else {
             $dados['dados'] = $this->session->flashdata('dados');
-        }           
+        }
         //Alerta de mensagem
         $dados['msg'] = get_alert_code($this->session->flashdata('msg'), $this->session->flashdata('msg_status'));
 
@@ -68,6 +69,40 @@ class Candidato extends MY_Controller {
                 $this->session->set_flashdata(array('msg' => 'Dados atualizados com sucesso', 'msg_status' => 'success'));
             } catch (Exception $ex) {
                 $this->session->set_flashdata(array('msg' => 'Erro ao atualizar dados: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+            }
+        }
+        $this->session->set_flashdata('active', 'meus_dados');
+        redirect('candidato');
+    }
+
+    public function cadastrar_endereco() {
+        if ($this->input->post()) {
+            if ($this->input->post('acao') == 'editar') {
+                //Atualiza
+                $this->endereco_model = $this->endereco_model->find($this->input->post('id'));
+                $this->endereco_model->post_to($this->input->post(), $this->endereco_model);
+                try {
+                    $this->endereco_model->update('idendereco', $this->endereco_model->idendereco);
+                    $this->session->set_flashdata(array('msg' => 'Endereço atualizado com sucesso', 'msg_status' => 'success'));
+                } catch (Exception $ex) {
+                    $this->session->set_flashdata('abrir', 'Endereço');
+                    $this->session->set_flashdata('erros', $this->endereco_model->get_erro());
+                    $this->session->set_flashdata('dados', $this->input->post());
+                    $this->session->set_flashdata(array('msg' => 'Erro ao atualizar endereco: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+                }
+            } else {
+                //Salva novo
+                $this->endereco_model->post_to($this->input->post(), $this->endereco_model);
+                $this->endereco_model->usuario_idusuario = $this->usuario_model->get_id_by_token($this->session->token);
+                try {
+                    $this->endereco_model->insert();
+                    $this->session->set_flashdata(array('msg' => 'Endereço adicionado com sucesso', 'msg_status' => 'success'));
+                } catch (Exception $ex) {
+                    $this->session->set_flashdata('abrir', 'Endereço');
+                    $this->session->set_flashdata('erros', $this->endereco_model->get_erro());
+                    $this->session->set_flashdata('dados', $this->input->post());
+                    $this->session->set_flashdata(array('msg' => 'Erro ao adicionar endereco: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+                }
             }
         }
         $this->session->set_flashdata('active', 'meus_dados');
@@ -159,7 +194,7 @@ class Candidato extends MY_Controller {
                     $this->idioma_model->update('ididioma', $this->idioma_model->ididioma);
                     $this->session->set_flashdata(array('msg' => 'Idioma atualizado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
-                    
+
                     $this->session->set_flashdata(array('msg' => 'Erro ao atualizar Experiencia: ' + $ex->getMessage(), 'msg_status' => 'danger'));
                 }
             } else {
