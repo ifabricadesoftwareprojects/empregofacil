@@ -23,4 +23,15 @@ class Candidatar_model extends MY_Model{
     public function __construct() {
         parent::__construct();
     }
+    
+    public function is_candidatado($idvaga, $idusuario)
+    {
+        $verifica =  $this->db
+                ->from('candidatar c')
+                ->where('vaga_idvaga', $idvaga)
+                ->where('candidato_usuario_idusuario', $idusuario)
+                ->get()
+                ->row(0, $this->model);
+        return (is_object($verifica) ? true : false);
+    }
 }

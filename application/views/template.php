@@ -133,6 +133,7 @@
                     <div class="modal-body">
                         <?php echo (isset($msg) ? $msg : '') ?>      
                         <form method="post" action="<?php echo base_url('entrar') ?>">
+                            <input type="hidden" name="redirect" value="<?php echo base_url(uri_string()); ?>" />
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email</label>
                                 <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">

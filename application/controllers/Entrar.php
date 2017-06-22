@@ -26,7 +26,13 @@ class Entrar extends MY_Controller {
                             'perfil' => $this->usuario_model->perfil 
                         )
                     );
-                redirect(strtolower($this->usuario_model->perfil));
+                //Pra onde redirecionar?
+                if($this->input->post('redirect') == base_url()){
+                    redirect(strtolower($this->usuario_model->perfil));
+                }
+                else{
+                    redirect($this->input->post('redirect'));
+                }
             }
             else{
                 $this->session->set_flashdata('msg', 'Email e/ou senha incorretos');
