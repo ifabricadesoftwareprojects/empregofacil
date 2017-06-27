@@ -54,7 +54,7 @@ function validar_mes($data) {
     if (strstr($data, "/")) {
         $d = explode("/", $data); 
         $rstData = "$d[1]-$d[0]"; 
-        if($d[0]>12 || $d[0]<1)
+        if($d[0]>12 || $d[0]<1 && $d[1]<date("Y"))
         {
            return '';
         }
@@ -63,7 +63,7 @@ function validar_mes($data) {
         $data = substr($data, 0, 7);
         $d = explode("-", $data);
         $rstData = "$d[1]/$d[0]";
-        if($d[0]>12 || $d[0]<1)
+        if($d[0]>12 || $d[0]<1 && $d[1]<date("Y"))
         {
            return '';
         }

@@ -41,7 +41,6 @@ class Candidato extends MY_Controller {
         $dados['experiencias'] = $this->experiencia_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         $dados['idiomas'] = $this->idioma_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         $dados['enderecos'] = $this->endereco_model->findBy('usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
-        //$dados['candidato_idiomas'] = $this->candidato_idioma_model->findBy('candidato_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
         //Define qual a aba deve vir exibida
         $dados['active'] = $this->session->flashdata('active');
 
@@ -85,7 +84,7 @@ class Candidato extends MY_Controller {
                     $this->endereco_model->update('idendereco', $this->endereco_model->idendereco);
                     $this->session->set_flashdata(array('msg' => 'Endereço atualizado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
-                    $this->session->set_flashdata('abrir', 'Endereço');
+                    $this->session->set_flashdata('abrir', 'Endereco');
                     $this->session->set_flashdata('erros', $this->endereco_model->get_erro());
                     $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao atualizar endereco: ' + $ex->getMessage(), 'msg_status' => 'danger'));
@@ -98,7 +97,7 @@ class Candidato extends MY_Controller {
                     $this->endereco_model->insert();
                     $this->session->set_flashdata(array('msg' => 'Endereço adicionado com sucesso', 'msg_status' => 'success'));
                 } catch (Exception $ex) {
-                    $this->session->set_flashdata('abrir', 'Endereço');
+                    $this->session->set_flashdata('abrir', 'Endereco');
                     $this->session->set_flashdata('erros', $this->endereco_model->get_erro());
                     $this->session->set_flashdata('dados', $this->input->post());
                     $this->session->set_flashdata(array('msg' => 'Erro ao adicionar endereco: ' + $ex->getMessage(), 'msg_status' => 'danger'));
