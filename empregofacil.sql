@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 23-Jun-2017 às 20:23
+-- Generation Time: 27-Jun-2017 às 20:12
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -63,6 +63,8 @@ CREATE TABLE IF NOT EXISTS `candidato` (
   `disponibilidade_viajar` char(3) DEFAULT NULL,
   `disponibilidade_mudar_residencia` char(3) DEFAULT NULL,
   `outras_informacoes` text,
+  `telefone` varchar(15) DEFAULT NULL,
+  `celular` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`usuario_idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -70,8 +72,9 @@ CREATE TABLE IF NOT EXISTS `candidato` (
 -- Extraindo dados da tabela `candidato`
 --
 
-INSERT INTO `candidato` (`usuario_idusuario`, `nome_social`, `data_nascimento`, `sexo`, `genero`, `estado_civil`, `cpf`, `portador_deficiencia`, `descricao_deficiencia`, `foto`, `tipo_habilitacao`, `veiculo_proprio`, `disponibilidade_viajar`, `disponibilidade_mudar_residencia`, `outras_informacoes`) VALUES
-(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `candidato` (`usuario_idusuario`, `nome_social`, `data_nascimento`, `sexo`, `genero`, `estado_civil`, `cpf`, `portador_deficiencia`, `descricao_deficiencia`, `foto`, `tipo_habilitacao`, `veiculo_proprio`, `disponibilidade_viajar`, `disponibilidade_mudar_residencia`, `outras_informacoes`, `telefone`, `celular`) VALUES
+(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -206,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `status` varchar(20) NOT NULL,
   `perfil` varchar(20) NOT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -216,7 +219,8 @@ INSERT INTO `usuario` (`idusuario`, `nome`, `email`, `senha`, `token`, `status`,
 (1, 'Empresa Junior', 'empresajunior@gmail.com', 'caff2749f2833128ee2d3fe5a61f8109', 'cc09da88aac5b4ed650140524b2c1834', 'Ativo', 'Empresa'),
 (2, 'Gol de classe', 'jabes@hotmail.com', '80a045956cf2094c90a35b1db8f2a612', '549ecda4fe77321d56c8deb030069ab3', 'Ativo', 'Empresa'),
 (3, 'IFSP Capivari', 'ifsp@ifsp.edu.br', '25f9e794323b453885f5181f1b624d0b', 'fa9fa22b95c575d2acd9ff6e0e44c5ba', 'Ativo', 'Empresa'),
-(4, 'Rafael Wendel Pinheiro', 'rafaelwendel@hotmail.com', '25f9e794323b453885f5181f1b624d0b', 'c0ea703df17425ae20cc2a487b22d6c1', 'Ativo', 'Candidato');
+(4, 'Rafael Wendel Pinheiro', 'rafaelwendel@hotmail.com', '25f9e794323b453885f5181f1b624d0b', 'c0ea703df17425ae20cc2a487b22d6c1', 'Ativo', 'Candidato'),
+(6, 'Jabes Bueno', 'jabes@outlook.com', '9d51c9f478ec62fc757f3ba2aeb39425', '6a9e63f96a6550be490c847fbc76bc0c', 'Ativo', 'Candidato');
 
 -- --------------------------------------------------------
 
