@@ -67,4 +67,13 @@ class Candidato_model extends MY_Model {
             throw new Exception('Erro ao validar os dados');
         }
     }
+    
+    public function get_candidatos()
+    {
+        return $this->db
+                        ->from('usuario u')
+                        ->join('candidato c', 'u.idusuario = c.usuario_idusuario')
+                        ->get()
+                        ->result();
+    }
 }

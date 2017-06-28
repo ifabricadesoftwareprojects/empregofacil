@@ -16,6 +16,22 @@ class Testes extends MY_Controller {
         print_r($this->usuario_model->get_attr_array('email'));
     }
     
+    public function insert_admin()
+    {
+        $this->load->model('usuario_model', 'usuario');
+        $this->usuario->nome = 'Administrador Master';
+        $this->usuario->email = 'admin@admin.com.br';
+        $this->usuario->senha = 'password';
+        $this->usuario->perfil = 'Administrador';
+        
+        try{
+            $this->usuario->insert_admin();
+            echo 'Admin has been created';
+        } catch (Exception $ex) {
+            echo 'Error =( : ' . $ex->getMessage();
+        }
+    }
+    
     public function pdf()
     {
         $this->load->model('candidato_model');

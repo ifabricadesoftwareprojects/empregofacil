@@ -58,6 +58,23 @@ class Usuario_model extends MY_Model{
         }
     }
     
+    public function insert_admin()
+    {
+        //Gera um token
+        $this->token = md5(date('YmdHis'));
+        $this->status = "Ativo";
+        
+        try{
+            $this->validar_dados();
+            //Criptografa a senha
+            $this->senha = md5($this->senha);
+            //Insere o usuario
+            parent::insert();
+        } catch (Exception $ex) {
+            throw new Exception($ex->getMessage());
+        }
+    }
+    
     public function validar_dados()
     {
         $CI =& get_instance();

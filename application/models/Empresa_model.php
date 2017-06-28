@@ -35,4 +35,13 @@ class Empresa_model extends MY_Model{
                         ->get()
                         ->row(0, $this->model);
     }
+    
+    public function get_empresas()
+    {
+        return $this->db
+                        ->from('usuario u')
+                        ->join('empresa e', 'u.idusuario = e.usuario_idusuario')
+                        ->get()
+                        ->result();
+    }
 }
