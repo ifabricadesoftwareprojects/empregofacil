@@ -8,7 +8,21 @@
                     <!-- DADOS PESSOAIS-->
                     <fieldset>
                         <legend>Dados Pessoais</legend>
-                        
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome" value="<?php echo $usuario->nome ?>">
+                            <?php echo display_erros(isset($erros['nome']) ? $erros['nome'] : null) ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="text" class="form-control input-lg"  placeholder="Email" name="email" value="<?php echo $usuario->email ?>">
+                            <?php echo display_erros(isset($erros['email']) ? $erros['email'] : null) ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="senha">Senha:</label>
+                            <input type="password" class="form-control input-lg"  placeholder="Senha" name="senha" value="<?php echo $usuario->senha ?>">
+                            <?php echo display_erros(isset($erros['Senha']) ? $erros['Senha'] : null) ?>
+                        </div>
                         
                     </fieldset></br>
                 </div>

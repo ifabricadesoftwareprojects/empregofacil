@@ -38,9 +38,9 @@ class Administrador extends MY_Controller {
         $dados['sufixo'] = '_view';
         $dados['abas'] = array('inicio', 'meus_dados', 'candidatos', 'empresas');
         
-        $dados['usuario'] = $this->usuario_model->get_id_by_token($this->session->token);
+        $dados['usuario'] = $this->usuario_model->find($this->usuario_model->get_id_by_token($this->session->token));
         $dados['empresas'] = $this->empresa_model->get_empresas();
-        $dados['candidatos'] = $this->candidato_model->findAll();
+        $dados['candidatos'] = $this->candidato_model->get_candidatos();
         
         $dados['erros'] = $this->session->flashdata('erros');
         $dados['dados'] = $this->session->flashdata('dados');
@@ -62,8 +62,18 @@ class Administrador extends MY_Controller {
         $this->view('home', $dados);
     }
     
-    public function atualizar_dados()
-    {
-        
+    public function atualizar_dados() {
+        if ($this->input->post()) {
+            $this->usuario_model = $this->usuario_model->find($this->usuario_model->get_id_by_token($this->session->token));
+            $this->usuario_model->post_to($this->input->post(), $this->usuario_model);
+            try {
+                $this->usuario_model->update('idusuario', $this->usuario_model->idusuario);
+                $this->session->set_flashdata(array('msg' => 'Dados atualizados com sucesso', 'msg_status' => 'success'));
+            } catch (Exception $ex) {
+                $this->session->set_flashdata(array('msg' => 'Erro ao atualizar dados: ' + $ex->getMessage(), 'msg_status' => 'danger'));
+            }
+        }
+        $this->session->set_flashdata('active', 'meus_dados');
+        redirect('administrador');
     }
 }
