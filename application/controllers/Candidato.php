@@ -60,10 +60,14 @@ class Candidato extends MY_Controller {
 
     public function atualizar_dados() {
         if ($this->input->post()) {
+            $this->usuario_model =  $this->usuario_model->find($this->usuario_model->get_id_by_token($this->session->token));
             $this->candidato_model = $this->candidato_model->find($this->usuario_model->get_id_by_token($this->session->token));
+            
+            $this->usuario_model->post_to($this->input->post(), $this->usuario_model);
             $this->candidato_model->post_to($this->input->post(), $this->candidato_model);
 
             try {
+                $this->usuario_model->update('idusuario', $this->usuario_model->idusuario);
                 $this->candidato_model->update('usuario_idusuario', $this->candidato_model->usuario_idusuario);
                 $this->session->set_flashdata(array('msg' => 'Dados atualizados com sucesso', 'msg_status' => 'success'));
             } catch (Exception $ex) {
