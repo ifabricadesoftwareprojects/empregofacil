@@ -69,13 +69,36 @@ class Vaga_model extends MY_Model{
         }
     }
     
-    public function get_vagas($q)
+    public function get_vagas($q, $filtros = array())
     {
-        return $this->db
+        $query = $this->db
                 ->select('v.idvaga, u.nome, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.status_vaga')
                 ->from('vaga v')
-                ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')
-                ->group_start()
+                ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario');
+        
+        if(is_array($filtros) && count($filtros) > 0){
+            //Se tem estado, faz o join na tabela endereço
+            if(isset($filtros['estado']) && count($filtros['estado']) > 0){
+                $query = $query->join('endereco e', 'u.idusuario = e.usuario_idusuario');
+                //Adiciona os filtros de estado    
+                $query = $query->group_start()
+                            ->where_in('e.estado', $filtros['estado'])
+                        ->group_end();
+            }
+        }
+        
+        if(isset($filtros['faixasalario']) && $filtros['faixasalario'] != ''){
+            $quebra = explode('-', $filtros['faixasalario']);
+            $faixa_salarial_inicio = $quebra[0];
+            $faixa_salarial_fim = ($quebra[1] == 'n' ? 999999 : $quebra[1]);
+            //Adiciona os filtros de faixa salarial
+            $query = $query->group_start()
+                        ->where('faixa_salarial_fim >= ', $faixa_salarial_inicio)
+                        ->where('faixa_salarial_fim <= ', $faixa_salarial_fim)
+                    ->group_end();
+        }
+        
+        return $query->group_start()
                     ->where('v.status_vaga', 'Ativa')
                 ->group_end()
                 ->group_start()
@@ -84,6 +107,7 @@ class Vaga_model extends MY_Model{
                 ->group_end()
                 ->get()
                 ->result();
+        //die($this->db->last_query());
     }
     
     public function get_vaga_detalhes($idvaga, $status = 'Ativa', $token = null)
