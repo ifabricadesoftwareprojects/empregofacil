@@ -41,6 +41,7 @@
                     <div class="form-group">
                         <label for="mes_ano_fim">Mês/Ano de Término:</label>
                         <input type="text" name="mes_ano_fim" class="form-control mes_ano" placeholder="Ex: 12/1994" value="<?php echo (isset($dados_curso) ? $dados_curso['mes_ano_fim'] : '') ?>">
+                        <?php echo display_erros(isset($erros['mes_ano_fim']) ? $erros['mes_ano_fim'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="status_curso">Status:</label>

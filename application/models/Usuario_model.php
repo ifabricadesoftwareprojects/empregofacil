@@ -23,6 +23,8 @@ class Usuario_model extends MY_Model{
     public $token;
     public $status;
     public $perfil;
+    public $telefone; 
+    public $celular;
     
     public function __construct() {
         parent::__construct();
