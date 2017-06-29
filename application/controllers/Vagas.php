@@ -17,7 +17,8 @@ class Vagas extends MY_Controller {
     
     public function index()
     {
-        $dados['vagas'] = $this->vaga_model->get_vagas($this->input->get('q'));
+        //die(print_r($this->input->get()));
+        $dados['vagas'] = $this->vaga_model->get_vagas($this->input->get('q'), $this->input->get());
         $this->view('vagas', $dados);
     }
     
