@@ -161,13 +161,13 @@
 
                         <div class="form-group">
                             <label for="telefone">Telefone (com DDD):</label>
-                            <input type="text" class="form-control input-lg telefone"  placeholder="Ex: (19)3333-4444" name="telefone" >
+                            <input type="text" class="form-control input-lg telefone"  placeholder="Ex: (19)3333-4444" name="telefone" value="<?php echo $candidato->telefone ?>">
                             <?php echo display_erros(isset($erros['telefone']) ? $erros['telefone'] : null) ?>
                         </div>
                         <div class="form-group">
                             <label for="celular">Celular (com DDD):</label>
-                            <input type="text" class="form-control input-lg celular"  placeholder="Ex: (19)99999-8888" name="celular">
-                            <?php echo display_erros(isset($erros['celular']) ? $erros['celualar'] : null) ?>
+                            <input type="text" class="form-control input-lg celular"  placeholder="Ex: (19)99999-8888" name="celular" value="<?php echo $candidato->celular ?>">
+                            <?php echo display_erros(isset($erros['celular']) ? $erros['celular'] : null) ?>
                         </div>
 
                     </fieldset></br>
