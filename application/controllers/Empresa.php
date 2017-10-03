@@ -57,10 +57,13 @@ class Empresa extends MY_Controller {
     public function atualizar_dados()
     {
         if ($this->input->post()) {
+            $this->usuario_model =  $this->usuario_model->find($this->usuario_model->get_id_by_token($this->session->token));
             $this->empresa_model = $this->empresa_model->find($this->usuario_model->get_id_by_token($this->session->token));
+            $this->usuario_model->post_to($this->input->post(), $this->usuario_model);      
             $this->empresa_model->post_to($this->input->post(), $this->empresa_model);
 
             try {
+                $this->usuario_model->update('idusuario', $this->usuario_model->idusuario);
                 $this->empresa_model->update('usuario_idusuario', $this->empresa_model->usuario_idusuario);
                 $this->session->set_flashdata(array('msg' => 'Dados atualizados com sucesso', 'msg_status' => 'success'));
             } catch (Exception $ex) {
