@@ -26,7 +26,7 @@
                                 <tr>
                                     <td><?php echo $candidato->nome ?></td>
                                     <td><?php echo $candidato->mensagem ?></td>
-                                    <td><a href="#" class="btn btn-primary">Ver Currículo</a></td>
+                                    <td><a href="<?php echo base_url('empresa/ver_curriculo/'.$candidato->idusuario); ?>" class="btn btn-primary">Ver Currículo</a></td>
                                 </tr>
                                 <?php endforeach; ?>
                             </tbody>

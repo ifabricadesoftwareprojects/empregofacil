@@ -132,4 +132,18 @@ class Empresa extends MY_Controller {
         
         $this->view('vaga_candidatos', $dados);
     }
+    public function ver_curriculo($idusuario = null)
+    {
+        $this->load->model('candidato_model');
+        $this->load->model('curso_model');
+        $this->load->model('experiencia_model');
+        $this->load->model('idioma_model');
+        $dados['candidato'] = $this->candidato_model->get_candidato_by_id($idusuario);
+        //Lista de cursos do candidato_usuario
+        $dados['cursos'] = $this->curso_model->findBy('candidato_usuario_idusuario', $idusuario);
+        $dados['experiencias'] = $this->experiencia_model->findBy('candidato_usuario_idusuario', $idusuario);
+        $dados['idiomas'] = $this->idioma_model->findBy('candidato_usuario_idusuario', $idusuario);
+        
+        $this->view('ver_curriculo', $dados);
+    }
 }

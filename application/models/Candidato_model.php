@@ -44,6 +44,14 @@ class Candidato_model extends MY_Model {
                         ->get()
                         ->row(0, $this->model);
     }
+    public function get_candidato_by_id($id) {
+        return $this->db
+                        ->from('usuario u')
+                        ->join('candidato c', 'u.idusuario = c.usuario_idusuario')
+                        ->where('u.idusuario', $id)
+                        ->get()
+                        ->row(0, $this->model);
+    }
     public function validar_dados() {
         $CI = & get_instance();
         $CI->load->library('data_validator');

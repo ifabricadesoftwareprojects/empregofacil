@@ -130,7 +130,7 @@ class Vaga_model extends MY_Model{
     public function get_candidatos_by_vaga($idvaga)
     {
         return $this->db
-                ->select('u.nome, c.mensagem')
+                ->select('u.idusuario, u.nome, c.mensagem')
                 ->from('candidatar c')
                 ->join('usuario u', 'c.candidato_usuario_idusuario = u.idusuario')
                 ->where('c.vaga_idvaga', $idvaga)
