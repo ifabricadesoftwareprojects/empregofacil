@@ -14,9 +14,7 @@
                 <p><strong>Benefícios:</strong><br /><?php echo $vaga->beneficios ?></p>
                 <p><strong>Data de publicação da vaga:</strong><br /><?php echo $vaga->data_publicacao ?></p>
                 <hr>
-                <h3 style="color: #384452"> Sobre <?php echo $vaga->nome ?></h3>
                 <p><?php echo $vaga->descricao_empresa ?></p>
-                <p><strong>Contato:</strong><br /><?php echo $vaga->email ?></p>
                 <hr>
                 <?php if ($logado === true) : ?>
                     <?php if ($candidatado === true) : ?>

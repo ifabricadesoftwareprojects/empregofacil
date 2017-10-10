@@ -13,7 +13,6 @@
                         <br />
                         <br><div class="info_curriculo" style="margin-left: 30px;">
                         <p><strong>Nome:</strong> <?php echo $candidato->nome ?></p>
-                        <p><strong>Email:</strong> <?php echo $candidato->email ?></p>
                         <p><strong>CPF:</strong> <?php echo $candidato->cpf ?></p>
                         <p><strong>Estado Civil:</strong> <?php echo $candidato->estado_civil ?></p>
                         <p><strong>Data de Nascimento:</strong> <?php echo converte_data($candidato->data_nascimento) ?></p>
