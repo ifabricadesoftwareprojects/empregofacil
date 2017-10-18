@@ -36,17 +36,28 @@
                         <?php echo display_erros(isset($erros['pre_requisitos']) ? $erros['pre_requisitos'] : null) ?>
                     </div>
                     <div class="form-group">
-                        <label for="tipo_contrato">Contrato:</label>
-                        <input type="text" name="tipo_contrato" class="form-control" placeholder="Tipo de contrato" value="<?php echo (isset($dados_vaga) ? $dados_vaga['tipo_contrato'] : '') ?>">
-                        <?php echo display_erros(isset($erros['tipo_contrato']) ? $erros['tipo_contrato'] : null) ?>
+                        <label for="tipo_contrato">Tipo de contratação:</label>
+                       <select name="tipo_contrato" class="form-control">
+                            <option value="Estagio"<?php echo (isset($dados_vaga) && $dados_vaga['tipo_contrato'] == 'Estagio') ? ' selected' : '' ?>>Estagio</option>
+                            <option value="Temporaria"<?php echo (isset($dados_vaga) && $dados_vaga['tipo_contrato'] == 'Temporaria') ? ' selected' : '' ?>>Temporaria</option>
+                            <option value="Permanente"<?php echo (isset($dados_vaga) && $dados_vaga['tipo_contrato'] == 'Permanente') ? ' selected' : '' ?>>Permanente</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="beneficios">Benefícios:</label>
-                        <textarea class="form-control" rows="3" name="beneficios" placeholder="Benefícios"><?php echo (isset($dados_vaga) ? $dados_vaga['beneficios'] : '') ?></textarea>
-                        <?php echo display_erros(isset($erros['beneficios']) ? $erros['beneficios'] : null) ?>
+                        <label for="beneficios">Outros incentivos:</label>
+                            <select id="beneficios" name="beneficios" class="form-control" campoextra="beneficios" compara="Outros">
+                                <option value="Nenhum"<?php echo (isset($dados_vaga) && $dados_vaga['beneficios'] == 'Nenhum') ? ' selected' : '' ?>>Nenhum</option>
+                                <option value="Vale Transporte"<?php echo (isset($dados_vaga) && $dados_vaga['beneficios'] == 'Vale Transporte') ? ' selected' : '' ?>>Vale Transporte</option>
+                                <option value="Cesta Basica"<?php echo (isset($dados_vaga) && $dados_vaga['beneficios'] == 'Cesta Basica') ? ' selected' : '' ?>>Cesta Basica</option>
+                                <option value="Outros"<?php echo (isset($dados_vaga) && $dados_vaga['beneficios'] == 'Outros') ? ' selected' : '' ?>>Outros</option>
+                            </select>
+                            <label class="form-group">
+                                <textarea class="form-control" disabled="disabled" rows="3" id ="beneficios" name="beneficios" placeholder="Benefícios"><?php echo (isset($dados_vaga) ? $dados_vaga['beneficios'] : '') ?></textarea>
+                                 <?php echo display_erros(isset($erros['beneficios']) ? $erros['beneficios'] : null) ?>
+                            </label>
                     </div>
                     <div class="form-group">
-                        <label for="numero_vagas">Numero de Vagas:</label>
+                        <label for="numero_vagas">Quantidade de Vagas:</label>
                         <input type="text" name="numero_vagas" class="form-control" placeholder="Número de Vagas" value="<?php echo (isset($dados_vaga) ? $dados_vaga['numero_vagas'] : '') ?>">
                         <?php echo display_erros(isset($erros['numero_vagas']) ? $erros['numero_vagas'] : null) ?>
                     </div>
@@ -66,7 +77,7 @@
                     </div>    
                     <div class="form-group">
                             <label for="vaga_pcd">Vaga para Deficiente:</label>
-                            <select id="vaga_pcd" name="vaga_pcd" class="form-control input-lg campoextra" campoextra="descricao_pcd" compara="Sim">
+                            <select id="vaga_pcd" name="vaga_pcd" class="form-control" campoextra="descricao_pcd" compara="Sim">
                                 <option value="Sim"<?php echo (isset($dados_vaga) && $dados_vaga['vaga_pcd'] == 'Sim') ? ' selected' : '' ?>>Sim</option>
                                 <option value="Não"<?php echo (isset($dados_vaga) && $dados_vaga['vaga_pcd'] == 'Não') ? ' selected' : '' ?>>Não</option>
                             </select>
@@ -83,7 +94,7 @@
                     </div>
                     <div class="form-group">
                         <label for="data_publicacao">Data de publicação:</label>
-                        <input type="text" name="data_publicacao" class="form-control input-lg" value="<?php echo date('d/m/Y')?>" readonly>
+                        <input type="text" name="data_publicacao" class="form-control" value="<?php echo date('d/m/Y')?>" readonly>
                     </div>
                     <div class="form-group">
                         <label for="visualizacoes">Visualizações:</label>
