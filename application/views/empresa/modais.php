@@ -46,6 +46,35 @@
                         <?php echo display_erros(isset($erros['beneficios']) ? $erros['beneficios'] : null) ?>
                     </div>
                     <div class="form-group">
+                        <label for="numero_vagas">Numero de Vagas:</label>
+                        <input type="text" name="numero_vagas" class="form-control" placeholder="Número de Vagas" value="<?php echo (isset($dados_vaga) ? $dados_vaga['numero_vagas'] : '') ?>">
+                        <?php echo display_erros(isset($erros['numero_vagas']) ? $erros['numero_vagas'] : null) ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="acesso_vaga">Visualização:</label>
+                       <select name="acesso_vaga" class="form-control">
+                            <option value="Livre"<?php echo (isset($dados_vaga) && $dados_vaga['acesso_vaga'] == 'Livre') ? ' selected' : '' ?>>Livre</option>
+                            <option value="Restrita"<?php echo (isset($dados_vaga) && $dados_vaga['acesso_vaga'] == 'Restrita') ? ' selected' : '' ?>>Restrita</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exibir_dados">Exibir Infornmações da empresa para a vaga:</label>
+                       <select name="exibir_dados" class="form-control">
+                            <option value="Sim"<?php echo (isset($dados_vaga) && $dados_vaga['acesso_vaga'] == 'Sim') ? ' selected' : '' ?>>Sim</option>
+                            <option value="Nao"<?php echo (isset($dados_vaga) && $dados_vaga['acesso_vaga'] == 'Nao') ? ' selected' : '' ?>>Não</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                            <label for="vaga_pcd">Vaga para Deficiente:</label>
+                            <select id="vaga_pcd" name="vaga_pcd" class="form-control input-lg campoextra" campoextra="descricao_pcd" compara="Sim">
+                                <option value="Sim"<?php echo (isset($dados_vaga) && $dados_vaga['vaga_pcd'] == 'Sim') ? ' selected' : '' ?>>Sim</option>
+                                <option value="Não"<?php echo (isset($dados_vaga) && $dados_vaga['vaga_pcd'] == 'Não') ? ' selected' : '' ?>>Não</option>
+                            </select>
+                            <label class="form-group">
+                                <input type="text" disabled="disabled" class="form-control"  placeholder="Descrição da deficiência" id="descricao_pcd" name="descricao_pcd">
+                            </label>
+                        </div>
+                    <div class="form-group">
                         <label for="status_vaga">Status da vaga:</label>
                        <select name="status_vaga" class="form-control">
                             <option value="Ativa"<?php echo (isset($dados_vaga) && $dados_vaga['status_vaga'] == 'Ativa') ? ' selected' : '' ?>>Ativa</option>

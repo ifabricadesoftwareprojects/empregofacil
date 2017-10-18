@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 29-Jun-2017 às 18:56
+-- Generation Time: 18-Out-2017 às 19:20
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -72,7 +72,8 @@ CREATE TABLE IF NOT EXISTS `candidato` (
 
 INSERT INTO `candidato` (`usuario_idusuario`, `nome_social`, `data_nascimento`, `sexo`, `genero`, `estado_civil`, `cpf`, `portador_deficiencia`, `descricao_deficiencia`, `foto`, `tipo_habilitacao`, `veiculo_proprio`, `disponibilidade_viajar`, `disponibilidade_mudar_residencia`, `outras_informacoes`) VALUES
 (4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -131,7 +132,8 @@ CREATE TABLE IF NOT EXISTS `empresa` (
 INSERT INTO `empresa` (`usuario_idusuario`, `razao_social`, `cnpj`, `site`, `descricao`, `ramo_atividade`) VALUES
 (1, NULL, NULL, NULL, NULL, NULL),
 (2, NULL, NULL, NULL, NULL, NULL),
-(3, NULL, NULL, NULL, NULL, NULL);
+(3, NULL, NULL, NULL, NULL, NULL),
+(8, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -209,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `telefone` varchar(14) DEFAULT NULL,
   `celular` varchar(14) DEFAULT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -220,7 +222,9 @@ INSERT INTO `usuario` (`idusuario`, `nome`, `email`, `senha`, `token`, `status`,
 (2, 'Gol de classe', 'jabes@hotmail.com', '80a045956cf2094c90a35b1db8f2a612', '549ecda4fe77321d56c8deb030069ab3', 'Ativo', 'Empresa', NULL, NULL),
 (3, 'IFSP Capivari', 'ifsp@ifsp.edu.br', '25f9e794323b453885f5181f1b624d0b', 'fa9fa22b95c575d2acd9ff6e0e44c5ba', 'Ativo', 'Empresa', NULL, NULL),
 (4, 'Rafael Wendel Pinheiro', 'rafaelwendel@hotmail.com', '25f9e794323b453885f5181f1b624d0b', 'c0ea703df17425ae20cc2a487b22d6c1', 'Ativo', 'Candidato', NULL, NULL),
-(6, 'Jabes Bueno', 'jabes@outlook.com', '9d51c9f478ec62fc757f3ba2aeb39425', '6a9e63f96a6550be490c847fbc76bc0c', 'Ativo', 'Candidato', NULL, NULL);
+(6, 'Jabes Bueno', 'jabes@outlook.com', '9d51c9f478ec62fc757f3ba2aeb39425', '6a9e63f96a6550be490c847fbc76bc0c', 'Ativo', 'Candidato', NULL, NULL),
+(7, 'Souza E CIA', 'souza@souzacia.com', '4a3a8e9a1a5ab63ed7f455bd9daf83e1', 'cb360ab38973d2df2365d28dcd1a75f5', 'Ativo', 'Candidato', NULL, NULL),
+(8, 'mmsouza', 'mmsouza@gmail.com', 'bf9d07ec2e98ff015f0efb271e5a4654', '5617fb4cba001b46e65fc70b079e49a8', 'Ativo', 'Empresa', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -240,19 +244,25 @@ CREATE TABLE IF NOT EXISTS `vaga` (
   `status_vaga` varchar(20) DEFAULT NULL,
   `data_publicacao` char(10) DEFAULT NULL,
   `visualizacoes` int(11) DEFAULT NULL,
+  `numero_vagas` int(11) NOT NULL,
+  `acesso_vaga` varchar(20) NOT NULL,
+  `exibir_dados` varchar(5) NOT NULL,
+  `vaga_pcd` varchar(5) NOT NULL,
+  `descricao_pcd` varchar(100) NOT NULL,
   `empresa_usuario_idusuario` int(11) NOT NULL,
   PRIMARY KEY (`idvaga`),
   KEY `fk_vaga_empresa1_idx` (`empresa_usuario_idusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Extraindo dados da tabela `vaga`
 --
 
-INSERT INTO `vaga` (`idvaga`, `titulo`, `descricao`, `faixa_salarial_inicio`, `faixa_salarial_fim`, `pre_requisitos`, `tipo_contrato`, `beneficios`, `status_vaga`, `data_publicacao`, `visualizacoes`, `empresa_usuario_idusuario`) VALUES
-(1, 'Programador Java EE', 'Vaga para programador Java EE', 2000, 3000, 'Ensino Superior', 'CLT', 'VR', 'Ativa', '21/06/2017', NULL, 3),
-(2, 'Programador PHP', 'Vaga para programador PHP com experiência em framework CodeIgniter', 2000, 3000, 'Ter superior completo na área', 'CLT', 'VR', 'Ativa', '22/06/2017', NULL, 3),
-(3, 'Administrador de Banco de Dados', 'Vaga para DBA para trabalhar com Oracle e SQL Server', 4000, 5000, 'Certificação Oracle 10g', 'PJ', 'VR \r\nAuxílio Transporte', 'Ativa', '22/06/2017', NULL, 3);
+INSERT INTO `vaga` (`idvaga`, `titulo`, `descricao`, `faixa_salarial_inicio`, `faixa_salarial_fim`, `pre_requisitos`, `tipo_contrato`, `beneficios`, `status_vaga`, `data_publicacao`, `visualizacoes`, `numero_vagas`, `acesso_vaga`, `exibir_dados`, `vaga_pcd`, `descricao_pcd`, `empresa_usuario_idusuario`) VALUES
+(1, 'Programador Java EE', 'Vaga para programador Java EE', 2000, 3000, 'Ensino Superior', 'CLT', 'VR', 'Ativa', '21/06/2017', NULL, 0, '0', '', '', '', 3),
+(2, 'Programador PHP', 'Vaga para programador PHP com experiência em framework CodeIgniter', 2000, 3000, 'Ter superior completo na área', 'CLT', 'VR', 'Ativa', '22/06/2017', NULL, 0, '0', '', '', '', 3),
+(3, 'Administrador de Banco de Dados', 'Vaga para DBA para trabalhar com Oracle e SQL Server', 4000, 5000, 'Certificação Oracle 10g', 'PJ', 'VR \r\nAuxílio Transporte', 'Ativa', '22/06/2017', NULL, 0, '0', '', '', '', 3),
+(4, '1', '1', 122, 1234, '1', '1', '1', 'Ativa', '18/10/2017', NULL, 2, 'Livre', 'Nao', 'Sim', 'JABES', 8);
 
 --
 -- Constraints for dumped tables

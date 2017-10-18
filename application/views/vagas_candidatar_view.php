@@ -18,6 +18,7 @@
                 <div class="form-group">
                     <textarea class="form-control" rows="5" name="mensagem" placeholder="Deixe uma mensagem"></textarea>
                 </div>
+                    
                 <button type="submit" class="btn btn-primary">Confirmar</button>
                 </form>
                 <?php endif; ?>

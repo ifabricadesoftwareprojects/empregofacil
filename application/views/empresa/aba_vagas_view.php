@@ -12,6 +12,11 @@
                     <th>Pré-requisitos</th>
                     <th>Tipo de Contrato</th>
                     <th>Benefícios</th>
+                    <th>Número de Vagas</th>
+                    <th>Exibir Dados</th>
+                    <th>Acesso Vaga</th>
+                    <th>Vaga PCD</th>
+                    <th>Descrição PCD</th>
                     <th>Status</th>
                     <th>Publicação</th>
                     <th>Visualizações</th>
@@ -29,6 +34,11 @@
                     <td><?php echo $vaga->pre_requisitos ?></td>
                     <td><?php echo $vaga->tipo_contrato ?></td>
                     <td><?php echo $vaga->beneficios ?></td>
+                    <td><?php echo $vaga->numero_vagas ?></td>
+                    <td><?php echo $vaga->acesso_vaga ?></td>
+                    <td><?php echo $vaga->exibir_dados ?></td>
+                    <td><?php echo $vaga->vaga_pcd ?></td>
+                    <td><?php echo $vaga->descricao_pcd ?></td>
                     <td><?php echo $vaga->status_vaga ?></td>
                     <td><?php echo $vaga->data_publicacao ?></td>
                     <td><?php echo $vaga->visualizacoes ?></td>
