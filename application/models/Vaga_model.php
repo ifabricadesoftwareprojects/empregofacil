@@ -27,6 +27,11 @@ class Vaga_model extends MY_Model{
     public $status_vaga;
     public $data_publicacao;
     public $visualizacoes;
+    public $numero_vagas;
+    public $acesso_vaga;
+    public $exibir_dados;
+    public $vaga_pcd;
+    public $descricao_pcd;
     public $empresa_usuario_idusuario;
 
     public function __construct() {
@@ -62,7 +67,11 @@ class Vaga_model extends MY_Model{
                 ->set('pre_requisitos', $this->pre_requisitos)->is_required()
                 ->set('tipo_contrato', $this->tipo_contrato)->is_required()
                 ->set('beneficios', $this->beneficios)->is_required()
-                ->set('status_vaga', $this->status_vaga)->is_required();
+                ->set('status_vaga', $this->status_vaga)->is_required()
+                ->set('numero_vagas', $this->numero_vagas)->is_required()
+                ->set('acesso_vaga', $this->acesso_vaga)->is_required()
+                ->set('exibir_dados', $this->exibir_dados)->is_required()
+                ->set('vaga_pcd', $this->vaga_pcd)->is_required();
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
             throw new Exception('Erro ao validar os dados');
