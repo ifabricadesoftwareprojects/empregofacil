@@ -10,6 +10,7 @@
                     <li role="presentation"<?php echo ($active == 'inicio' || $active == '' ? ' class="active"' : '') ?>><a href="#inicio" aria-controls="home" role="tab" data-toggle="tab">Início</a></li>
                     <li role="presentation"<?php echo ($active == 'meus_dados' ? ' class="active"' : '') ?>><a href="#meus_dados" aria-controls="meus_dados" role="tab" data-toggle="tab">Meus Dados</a></li>
                     <li role="presentation"<?php echo ($active == 'vagas' ? ' class="active"' : '') ?>><a href="#vagas" aria-controls="vagas" role="tab" data-toggle="tab">Vagas</a></li>
+                    <li role="presentation"<?php echo ($active == 'pesquisar_curriculo' ? ' class="active"' : '') ?>><a href="#pesquisar_curriculo" aria-controls="pesquisar_curriculo" role="tab" data-toggle="tab">Pesquisar Currículos</a></li>
                 </ul>
 
                 <!-- Tab panes -->

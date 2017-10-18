@@ -25,11 +25,16 @@ class Empresa extends MY_Controller {
     
     public function index()
     {
+        //Para quando o form de pesquisar_curriculo for submetido
+        if($this->input->get()){
+            $this->session->set_flashdata('active', 'pesquisar_curriculo');
+            $dados['candidatos'] = $this->usuario_model->pesquisar_candidato($this->input->get('nome'));
+        }
         //Configura o load dinamico das abas
         $dados['template_folder'] = $this->_template_folder;
         $dados['prefixo'] = 'aba_';
         $dados['sufixo'] = '_view';
-        $dados['abas'] = array('inicio', 'meus_dados', 'vagas');
+        $dados['abas'] = array('inicio', 'meus_dados', 'vagas', 'pesquisar_curriculo');
         
         $dados['empresa'] = $this->empresa_model->get_empresa_by_token($this->session->token);
         $dados['vagas'] = $this->vaga_model->findBy('empresa_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));

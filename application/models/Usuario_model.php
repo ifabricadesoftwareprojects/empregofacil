@@ -127,6 +127,7 @@ class Usuario_model extends MY_Model{
         return $usuario[0]->idusuario;
     }
     
+    
     public function get_attr_array($attr)
     {
         $res =  $this->db
@@ -140,5 +141,15 @@ class Usuario_model extends MY_Model{
             $retorno[] = $reg['email'];
         }            
         return $retorno;
+    }
+    
+    public function pesquisar_candidato($nome = '')
+    {
+        return $this->db
+                ->from('usuario u')
+                ->like('u.nome', $nome)
+                ->where('u.perfil', 'Candidato')
+                ->get()
+                ->result();
     }
 }

@@ -9,7 +9,7 @@
                 <div class="tab-content">
                     <br />
                         <span class="glyphicon glyphicon-arrow-left"></span>
-                        <a href="<?php echo base_url('empresa') ?>" class="btn btn-primary">Voltar para vagas</a>
+                        <a href="javascript:history.back(-1)" class="btn btn-primary">Voltar para vagas</a>
                         <br />
                         <br><div class="info_curriculo" style="margin-left: 30px;">
                         <p><strong>Nome:</strong> <?php echo $candidato->nome ?></p>
