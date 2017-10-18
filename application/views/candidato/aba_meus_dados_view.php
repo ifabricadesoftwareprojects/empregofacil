@@ -71,9 +71,6 @@
                                 <option value="Outro"<?php echo $candidato->estado_civil == 'Outro' ? ' selected' : '' ?>>Outro(a)</option>
                             </select>
                         </div>
-
-
-
                         <div class="form-group">
                             <label for="portador_deficiencia">Possui algum tipo de deficiência?:</label>
                             <select id="portador_deficiencia" name="portador_deficiencia" class="form-control input-lg campoextra" campoextra="descricao_deficiencia" compara="Sim">

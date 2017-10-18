@@ -24,6 +24,7 @@ class Vagas extends MY_Controller {
     
     public function detalhes($idvaga = null)
     {
+        
         if(is_null($idvaga)){
             redirect();
         }

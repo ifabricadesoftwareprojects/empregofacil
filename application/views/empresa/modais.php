@@ -64,6 +64,8 @@
                             <option value="Nao"<?php echo (isset($dados_vaga) && $dados_vaga['acesso_vaga'] == 'Nao') ? ' selected' : '' ?>>Não</option>
                         </select>
                     </div>
+           
+                 
                     <div class="form-group">
                             <label for="vaga_pcd">Vaga para Deficiente:</label>
                             <select id="vaga_pcd" name="vaga_pcd" class="form-control input-lg campoextra" campoextra="descricao_pcd" compara="Sim">

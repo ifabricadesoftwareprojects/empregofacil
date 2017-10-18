@@ -51,7 +51,6 @@
                             <option value="Desistência"<?php echo (isset($dados_curso) && $dados_curso['status_curso'] == 'Desistência') ? ' selected' : '' ?>>Desistência</option>
                             <option value="Trancado"<?php echo (isset($dados_curso) && $dados_curso['status_curso'] == 'Trancado') ? ' selected' : '' ?>>Trancado</option>
                         </select>
-
                     </div>
                     <button type="submit" class="btn btn-primary ">Adicionar Curso</button>          
                 </form>
