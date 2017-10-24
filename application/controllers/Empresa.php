@@ -85,7 +85,7 @@ class Empresa extends MY_Controller {
                 //Atualiza
                 $this->vaga_model = $this->vaga_model->find($this->input->post('id'));
                 $this->vaga_model->post_to($this->input->post(), $this->vaga_model);
-                
+                $this->curso_model->nivel = ($this->curso_model->nivel == 'Sim' ? $this->input->post('descricao_pcd') : $this->vaga_model->vaga_pcd);
                 try {
                     $this->vaga_model->update('idvaga', $this->vaga_model->idvaga);
                     $this->session->set_flashdata(array('msg' => 'Vaga atualizada com sucesso', 'msg_status' => 'success'));

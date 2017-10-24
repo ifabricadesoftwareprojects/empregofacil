@@ -27,7 +27,8 @@ $(document).ready(function () {
         $('#formVaga input[name="numero_vagas"').val(dados.numero_vagas);
         $('#formVaga select[name="acesso_vaga"').val(dados.acesso_vaga).change();
         $('#formVaga select[name="exibir_dados"').val(dados.exibir_dados).change();
-        $('#formVaga input[name="vaga_pcd"').val(dados.vaga_pcd).change();
+        $('#formVaga select[name="vaga_pcd"').val(dados.vaga_pcd).change();
+        $('#formVaga input[name="descricao_pcd"').val(dados.descricao_pcd);
         $('#formVaga textarea[name="beneficios"]').val(dados.beneficios);
         $('#formVaga select[name="status_vaga"').val(dados.status_vaga).change();
         $('#formVaga input[name="data_publicacao"').val(dados.data_publicacao);
@@ -37,5 +38,22 @@ $(document).ready(function () {
         $('#modalVaga').modal();
     });
 
-    
+    $('.campoextra').change(function(){
+        
+       var valor = $(this).val();
+       
+       var campo = '#' + $(this).attr('campoextra');
+       var compara = $(this).attr('compara');
+       
+       
+       if(valor === compara){
+           
+           
+           $(campo).attr("disabled", false);
+       }
+       else{
+           $(campo).val("");
+           $(campo).attr("disabled", true);
+       }
+    });
 });

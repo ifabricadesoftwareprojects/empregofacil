@@ -69,12 +69,13 @@
                     </div>    
                     <div class="form-group">
                         <label for="vaga_pcd">Vaga para Deficiente:</label>
-                        <select id="vaga_pcd" name="vaga_pcd" class="form-control" campoextra="descricao_pcd" compara="Sim">
+                        <select id="vaga_pcd" name="vaga_pcd" class="form-control campoextra" campoextra="descricao_pcd" compara="Sim">
                             <option value="Não"<?php echo (isset($dados_vaga) && $dados_vaga['vaga_pcd'] == 'Não') ? ' selected' : '' ?>>Não</option>
                             <option value="Sim"<?php echo (isset($dados_vaga) && $dados_vaga['vaga_pcd'] == 'Sim') ? ' selected' : '' ?>>Sim</option>
                         </select>
                         <label class="form-group">
-                            <input type="text" disabled="disabled" class="form-control"  placeholder="Descrição da deficiência" id="descricao_pcd" name="descricao_pcd">
+                            <input type="text"  id="descricao_pcd" name="descricao_pcd" disabled class="form-control" placeholder="Descrição da deficiência">
+                            <?php echo display_erros(isset($erros['vaga_pcd']) ? $erros['vaga_pcd'] : null) ?>
                         </label>
                     </div>
                     <div class="form-group">
