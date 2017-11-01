@@ -33,6 +33,7 @@ class Vaga_model extends MY_Model{
     public $vaga_pcd;
     public $descricao_pcd;
     public $empresa_usuario_idusuario;
+    public $experiencia_exigida;
 
     public function __construct() {
         parent::__construct();
@@ -68,10 +69,11 @@ class Vaga_model extends MY_Model{
                 ->set('tipo_contrato', $this->tipo_contrato)->is_required()
                 ->set('beneficios', $this->beneficios)->is_required()
                 ->set('status_vaga', $this->status_vaga)->is_required()
-                ->set('numero_vagas', $this->numero_vagas)->is_required()
+                ->set('numero_vagas', $this->numero_vagas)->is_required()->is_integer()
                 ->set('acesso_vaga', $this->acesso_vaga)->is_required()
                 ->set('exibir_dados', $this->exibir_dados)->is_required()
-                ->set('vaga_pcd', $this->vaga_pcd)->is_required();
+                ->set('vaga_pcd', $this->vaga_pcd)->is_required()
+                ->set('experiencia_exigida', $this->experiencia_exigida)->is_integer();
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
             throw new Exception('Erro ao validar os dados');
@@ -122,7 +124,7 @@ class Vaga_model extends MY_Model{
     public function get_vaga_detalhes($idvaga, $status = 'Ativa', $token = null)
     {
         $query =  $this->db
-                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos, e.descricao as descricao_empresa')
+                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos,v.experiencia_exigida, e.descricao as descricao_empresa')
                 ->from('vaga v')
                 ->join('empresa e', 'v.empresa_usuario_idusuario = e.usuario_idusuario')
                 ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')

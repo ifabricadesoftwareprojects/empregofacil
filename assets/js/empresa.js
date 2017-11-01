@@ -33,6 +33,7 @@ $(document).ready(function () {
         $('#formVaga select[name="status_vaga"').val(dados.status_vaga).change();
         $('#formVaga input[name="data_publicacao"').val(dados.data_publicacao);
         $('#formVaga input[name="visualizacoes"').val(dados.visualizacoes);
+        $('#formVaga input[name="experiencia_exigida"').val(dados.experiencia_exigida);
         $('#formVaga input[name="acao"]').val('editar');
 
         $('#modalVaga').modal();

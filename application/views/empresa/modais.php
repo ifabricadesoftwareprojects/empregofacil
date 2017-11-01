@@ -86,6 +86,11 @@
                         </select>
                     </div>
                     <div class="form-group">
+                        <label for="experiencia_exigida">Experiência exigida (em meses):</label>
+                        <input type="number" name="experiencia_exigida" class="form-control" value="<?php echo (isset($dados_vaga) ? $dados_vaga['experiencia_exigida'] : '') ?>">
+                        <?php echo display_erros(isset($erros['experiencia_exigida']) ? $erros['experiencia_exigida'] : null) ?>
+                    </div>
+                    <div class="form-group">
                         <label for="data_publicacao">Data de publicação:</label>
                         <input type="text" name="data_publicacao" class="form-control" value="<?php echo date('d/m/Y') ?>" readonly>
                     </div>

@@ -19,8 +19,8 @@
                     <th>Descrição PCD</th>
                     <th>Status</th>
                     <th>Publicação</th>
+                    <th>Experiência em meses exigida</th>
                     <th>Visualizações</th>
-                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -41,6 +41,7 @@
                     <td><?php echo $vaga->descricao_pcd ?></td>
                     <td><?php echo $vaga->status_vaga ?></td>
                     <td><?php echo $vaga->data_publicacao ?></td>
+                    <td><?php echo $vaga->experiencia_exigida ?></td>
                     <td><?php echo $vaga->visualizacoes ?></td>
                     <td><a href="#" data='<?php echo json_encode($vaga) ?>' class="btn btn-primary btn_editar_vaga">Editar</a></td>
                     <td><a href="<?php echo base_url('empresa/candidatos_vaga/' . $vaga->idvaga) ?>" class="btn btn-primary">Candidatos</a></td>
