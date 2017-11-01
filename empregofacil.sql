@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Nov-2017 às 12:23
+-- Generation Time: 01-Nov-2017 às 14:26
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -236,7 +236,6 @@ CREATE TABLE IF NOT EXISTS `vaga` (
   `idvaga` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(100) NOT NULL,
   `descricao` text NOT NULL,
-  `faixa_salarial_inicio` double DEFAULT NULL,
   `faixa_salarial_fim` double DEFAULT NULL,
   `pre_requisitos` text,
   `tipo_contrato` varchar(25) DEFAULT NULL,
@@ -250,21 +249,23 @@ CREATE TABLE IF NOT EXISTS `vaga` (
   `vaga_pcd` varchar(5) NOT NULL,
   `descricao_pcd` varchar(100) DEFAULT NULL,
   `empresa_usuario_idusuario` int(11) NOT NULL,
-  `experiencia_exigida` int(11) NOT NULL,
+  `horario_trabalho` varchar(15) NOT NULL,
+  `quantidade_candidato` int(11) NOT NULL,
   PRIMARY KEY (`idvaga`),
   KEY `fk_vaga_empresa1_idx` (`empresa_usuario_idusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Extraindo dados da tabela `vaga`
 --
 
-INSERT INTO `vaga` (`idvaga`, `titulo`, `descricao`, `faixa_salarial_inicio`, `faixa_salarial_fim`, `pre_requisitos`, `tipo_contrato`, `beneficios`, `status_vaga`, `data_publicacao`, `visualizacoes`, `numero_vagas`, `acesso_vaga`, `exibir_dados`, `vaga_pcd`, `descricao_pcd`, `empresa_usuario_idusuario`, `experiencia_exigida`) VALUES
-(1, 'Programador Java EE', 'Vaga para programador Java EE', 2000, 3000, 'Ensino Superior', 'CLT', 'VR', 'Ativa', '21/06/2017', NULL, 0, '0', '', '', '', 3, 0),
-(2, 'Programador PHP', 'Vaga para programador PHP com experiência em framework CodeIgniter', 2000, 3000, 'Ter superior completo na área', 'CLT', 'VR', 'Ativa', '22/06/2017', NULL, 0, '0', '', '', '', 3, 0),
-(3, 'Administrador de Banco de Dados', 'Vaga para DBA para trabalhar com Oracle e SQL Server', 4000, 5000, 'Certificação Oracle 10g', 'PJ', 'VR \r\nAuxílio Transporte', 'Ativa', '22/06/2017', NULL, 0, '0', '', '', '', 3, 0),
-(4, '1', '1', 122, 1234, '1', '1', '1', 'Ativa', '18/10/2017', NULL, 2, 'Livre', 'Nao', 'Sim', 'JABES', 8, 0),
-(5, 'Cobrador', 'Conferir e verificar as passagens da população que utiliza ônibus', 1000, 2000, 'Ter concluído o ensino médio\r\nSer de maior idade', 'Estagio', 'n/a', 'Ativa', '01/11/2017', NULL, 3, 'Livre', 'Sim', 'Não', NULL, 8, 3);
+INSERT INTO `vaga` (`idvaga`, `titulo`, `descricao`, `faixa_salarial_fim`, `pre_requisitos`, `tipo_contrato`, `beneficios`, `status_vaga`, `data_publicacao`, `visualizacoes`, `numero_vagas`, `acesso_vaga`, `exibir_dados`, `vaga_pcd`, `descricao_pcd`, `empresa_usuario_idusuario`, `horario_trabalho`, `quantidade_candidato`) VALUES
+(1, 'Programador Java EE', 'Vaga para programador Java EE', 3000, 'Ensino Superior', 'CLT', 'VR', 'Ativa', '21/06/2017', NULL, 0, '0', '', '', '', 3, '0', 0),
+(2, 'Programador PHP', 'Vaga para programador PHP com experiência em framework CodeIgniter', 3000, 'Ter superior completo na área', 'CLT', 'VR', 'Ativa', '22/06/2017', NULL, 0, '0', '', '', '', 3, '0', 0),
+(3, 'Administrador de Banco de Dados', 'Vaga para DBA para trabalhar com Oracle e SQL Server', 5000, 'Certificação Oracle 10g', 'PJ', 'VR \r\nAuxílio Transporte', 'Ativa', '22/06/2017', NULL, 0, '0', '', '', '', 3, '0', 0),
+(4, '1', '1', 1234, '1', '1', '1', 'Ativa', '18/10/2017', NULL, 2, 'Livre', 'Nao', 'Não', 'JABES', 8, 'Manhã', 0),
+(6, 'Cobrador', 'Cobrar passagens', 2000, 'Ter 6 meses de experiencia', 'Temporaria', 'n/a', 'Ativa', '01/11/2017', NULL, 3, 'Livre', 'Sim', 'Não', NULL, 8, 'Não definido', 0),
+(7, 'Cobrador', 'Cobrar passagens', 2000, 'Ter 6 meses de experiencia', 'Temporaria', 'n/a', 'Ativa', '01/11/2017', NULL, 3, 'Livre', 'Sim', 'Não', NULL, 8, 'Não definido', 11);
 
 --
 -- Constraints for dumped tables

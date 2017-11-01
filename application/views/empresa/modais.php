@@ -21,12 +21,7 @@
                         <?php echo display_erros(isset($erros['descricao']) ? $erros['descricao'] : null) ?>
                     </div>
                     <div class="form-group">
-                        <label for="faixa_salarial_inicio">Faixa salarial inícial:</label>
-                        <input type="number" name="faixa_salarial_inicio" class="form-control" placeholder="2.000" value="<?php echo (isset($dados_vaga) ? $dados_vaga['faixa_salarial_inicio'] : '') ?>">
-                        <?php echo display_erros(isset($erros['faixa_salarial_inicio']) ? $erros['faixa_salarial_inicio'] : null) ?>
-                    </div>
-                    <div class="form-group">
-                        <label for="faixa_salarial_fim">Faixa salarial final:</label>
+                        <label for="faixa_salarial_fim">Salário oferecido:</label>
                         <input type="number" name="faixa_salarial_fim" class="form-control" placeholder="2.000" value="<?php echo (isset($dados_vaga) ? $dados_vaga['faixa_salarial_fim'] : '') ?>">
                         <?php echo display_erros(isset($erros['faixa_salarial_fim']) ? $erros['faixa_salarial_fim'] : null) ?>
                     </div>
@@ -50,8 +45,13 @@
                     </div>
                     <div class="form-group">
                         <label for="numero_vagas">Quantidade de Vagas:</label>
-                        <input type="text" name="numero_vagas" class="form-control" placeholder="Número de Vagas" value="<?php echo (isset($dados_vaga) ? $dados_vaga['numero_vagas'] : '') ?>">
+                        <input type="number" name="numero_vagas" class="form-control" placeholder="Número de Vagas" value="<?php echo (isset($dados_vaga) ? $dados_vaga['numero_vagas'] : '') ?>">
                         <?php echo display_erros(isset($erros['numero_vagas']) ? $erros['numero_vagas'] : null) ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade_candidato">Quantidade de Candidatos:</label>
+                        <input type="number" name="quantidade_candidato" class="form-control" placeholder="Número de Candidatos" value="<?php echo (isset($dados_vaga) ? $dados_vaga['quantidade_candidato'] : '') ?>">
+                        <?php echo display_erros(isset($erros['quantidade_candidato']) ? $erros['quantidade_candidato'] : null) ?>
                     </div>
                     <div class="form-group">
                         <label for="acesso_vaga">Visualização:</label>
@@ -86,9 +86,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="experiencia_exigida">Experiência exigida (em meses):</label>
-                        <input type="number" name="experiencia_exigida" class="form-control" value="<?php echo (isset($dados_vaga) ? $dados_vaga['experiencia_exigida'] : '') ?>">
-                        <?php echo display_erros(isset($erros['experiencia_exigida']) ? $erros['experiencia_exigida'] : null) ?>
+                        <label for="horario_trabalho">Horário de trabalho:</label>
+                        <select name="horario_trabalho" class="form-control">
+                            <option value="Não definido"<?php echo (isset($dados_vaga) && $dados_vaga['horario_trabalho'] == 'Não definido') ? ' selected' : '' ?>>Não definido</option>
+                            <option value="Manhã"<?php echo (isset($dados_vaga) && $dados_vaga['horario_trabalho'] == 'Manhã') ? ' selected' : '' ?>>Manhã</option>
+                            <option value="Tarde"<?php echo (isset($dados_vaga) && $dados_vaga['horario_trabalho'] == 'Tarde') ? ' selected' : '' ?>>Tarde</option>
+                            <option value="Noite"<?php echo (isset($dados_vaga) && $dados_vaga['horario_trabalho'] == 'Noite') ? ' selected' : '' ?>>Noite</option>
+                            <option value="Madrugada"<?php echo (isset($dados_vaga) && $dados_vaga['horario_trabalho'] == 'Madrugada') ? ' selected' : '' ?>>Madrugada</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="data_publicacao">Data de publicação:</label>

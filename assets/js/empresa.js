@@ -20,7 +20,6 @@ $(document).ready(function () {
         $('#formVaga input[name="id"').val(dados.idvaga);
         $('#formVaga input[name="titulo"').val(dados.titulo);
         $('#formVaga textarea[name="descricao"]').val(dados.descricao);
-        $('#formVaga input[name="faixa_salarial_inicio"').val(dados.faixa_salarial_inicio);
         $('#formVaga input[name="faixa_salarial_fim"').val(dados.faixa_salarial_fim);
         $('#formVaga textarea[name="pre_requisitos"]').val(dados.pre_requisitos);
         $('#formVaga select[name="tipo_contrato"').val(dados.tipo_contrato).change();
@@ -33,7 +32,8 @@ $(document).ready(function () {
         $('#formVaga select[name="status_vaga"').val(dados.status_vaga).change();
         $('#formVaga input[name="data_publicacao"').val(dados.data_publicacao);
         $('#formVaga input[name="visualizacoes"').val(dados.visualizacoes);
-        $('#formVaga input[name="experiencia_exigida"').val(dados.experiencia_exigida);
+        $('#formVaga select[name="horario_trabalho"').val(dados.horario_trabalho).change();
+        $('#formVaga input[name="quantidade_candidato"').val(dados.quantidade_candidato);
         $('#formVaga input[name="acao"]').val('editar');
 
         $('#modalVaga').modal();

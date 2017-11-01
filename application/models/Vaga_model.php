@@ -19,7 +19,6 @@ class Vaga_model extends MY_Model{
     public $idvaga;
     public $titulo;
     public $descricao;
-    public $faixa_salarial_inicio;
     public $faixa_salarial_fim;
     public $pre_requisitos;
     public $tipo_contrato;
@@ -33,7 +32,8 @@ class Vaga_model extends MY_Model{
     public $vaga_pcd;
     public $descricao_pcd;
     public $empresa_usuario_idusuario;
-    public $experiencia_exigida;
+    public $horario_trabalho;
+    public $quantidade_candidato;
 
     public function __construct() {
         parent::__construct();
@@ -63,7 +63,6 @@ class Vaga_model extends MY_Model{
         
         $validate->set('titulo', $this->titulo)->is_required()
                 ->set('descricao', $this->descricao)->is_required()
-                ->set('faixa_salarial_inicio', $this->faixa_salarial_inicio)->is_positive()->is_required()
                 ->set('faixa_salarial_fim', $this->faixa_salarial_fim)->is_positive()->min_value($this->faixa_salarial_inicio-1)->is_required()
                 ->set('pre_requisitos', $this->pre_requisitos)->is_required()
                 ->set('tipo_contrato', $this->tipo_contrato)->is_required()
@@ -73,7 +72,8 @@ class Vaga_model extends MY_Model{
                 ->set('acesso_vaga', $this->acesso_vaga)->is_required()
                 ->set('exibir_dados', $this->exibir_dados)->is_required()
                 ->set('vaga_pcd', $this->vaga_pcd)->is_required()
-                ->set('experiencia_exigida', $this->experiencia_exigida)->is_integer();
+                ->set('horario_trabalho', $this->horario_trabalho)
+                ->set('quantidade_candidato', $this->quantidade_candidato)->is_required()->is_integer();
         if($validate->validate() === false){
             $this->erro = $validate->get_errors();
             throw new Exception('Erro ao validar os dados');
@@ -124,7 +124,7 @@ class Vaga_model extends MY_Model{
     public function get_vaga_detalhes($idvaga, $status = 'Ativa', $token = null)
     {
         $query =  $this->db
-                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos,v.experiencia_exigida, e.descricao as descricao_empresa')
+                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos,v.horario_trabalho,v.quantidade_candidato e.descricao as descricao_empresa')
                 ->from('vaga v')
                 ->join('empresa e', 'v.empresa_usuario_idusuario = e.usuario_idusuario')
                 ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')
