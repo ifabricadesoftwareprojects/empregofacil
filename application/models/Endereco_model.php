@@ -25,6 +25,7 @@ class Endereco_model extends MY_Model{
     public $cidade;
     public $estado;
     public $usuario_idusuario;
+    public $zona_moradia;
     
     public function __construct() {
         parent::__construct();
@@ -54,7 +55,8 @@ class Endereco_model extends MY_Model{
         $validate = $CI->data_validator;
 
 
-        $validate->set('rua', $this->rua)->is_required()
+        $validate->set('zona_moradia', $this->zona_moradia)->is_required()
+                ->set('rua', $this->rua)->is_required()
                 ->set('numero', $this->numero)->is_required()
                 ->set('bairro', $this->bairro)->is_required()
                 ->set('cep', $this->cep)->is_required()

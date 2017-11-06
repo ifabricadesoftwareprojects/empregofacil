@@ -265,6 +265,13 @@
                     <input type="hidden" name="id" />
                     <input type="hidden" name="acao" value="" />
                     <div class="form-group">
+                        <label for="zona_moradia">Zona de moradia:</label>
+                        <select name="zona_moradia" class="form-control">
+                            <option value="Urbana"<?php echo (isset($dados_endereco) && $dados_endereco['zona_moradia'] == 'Urbana') ? ' selected' : '' ?>>Urbana</option> 
+                            <option value="Rural"<?php echo (isset($dados_endereco) && $dados_endereco['zona_moradia'] == 'Rural') ? ' selected' : '' ?>>Rural</option> 
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="rua">Rua: </label>
                         <input type="text" name="rua" class="form-control" placeholder="Nome da rua onde mora" value="<?php echo (isset($dados_endereco) ? $dados_endereco['rua'] : '') ?>">
                         <?php echo display_erros(isset($erros['rua']) ? $erros['rua'] : null) ?>

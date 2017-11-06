@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Nov-2017 às 14:26
+-- Generation Time: 06-Nov-2017 às 10:54
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -63,6 +63,10 @@ CREATE TABLE IF NOT EXISTS `candidato` (
   `disponibilidade_viajar` char(3) DEFAULT NULL,
   `disponibilidade_mudar_residencia` char(3) DEFAULT NULL,
   `outras_informacoes` text,
+  `nome_pai` varchar(50) DEFAULT NULL,
+  `nome_mae` varchar(50) DEFAULT NULL,
+  `raca` varchar(20) DEFAULT NULL,
+  `nacionalidade` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`usuario_idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -70,10 +74,11 @@ CREATE TABLE IF NOT EXISTS `candidato` (
 -- Extraindo dados da tabela `candidato`
 --
 
-INSERT INTO `candidato` (`usuario_idusuario`, `nome_social`, `data_nascimento`, `sexo`, `genero`, `estado_civil`, `cpf`, `portador_deficiencia`, `descricao_deficiencia`, `foto`, `tipo_habilitacao`, `veiculo_proprio`, `disponibilidade_viajar`, `disponibilidade_mudar_residencia`, `outras_informacoes`) VALUES
-(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `candidato` (`usuario_idusuario`, `nome_social`, `data_nascimento`, `sexo`, `genero`, `estado_civil`, `cpf`, `portador_deficiencia`, `descricao_deficiencia`, `foto`, `tipo_habilitacao`, `veiculo_proprio`, `disponibilidade_viajar`, `disponibilidade_mudar_residencia`, `outras_informacoes`, `nome_pai`, `nome_mae`, `raca`, `nacionalidade`) VALUES
+(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', ''),
+(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', ''),
+(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', ''),
+(10, '', '', 'Masculino', 'Heterossexual', 'Solteiro', '', 'Nao', NULL, NULL, 'N', 'Sim', 'Sim', 'Sim', '', 'Gelson Bueno do Livramento Neto', 'Aparecida Fatima Moraes Livramento', 'Branca', 'Brasil');
 
 -- --------------------------------------------------------
 
@@ -151,9 +156,17 @@ CREATE TABLE IF NOT EXISTS `endereco` (
   `cidade` varchar(45) NOT NULL,
   `estado` char(2) NOT NULL,
   `usuario_idusuario` int(11) NOT NULL,
+  `zona_moradia` varchar(20) NOT NULL,
   PRIMARY KEY (`idendereco`),
   KEY `fk_endereco_usuario1_idx` (`usuario_idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Extraindo dados da tabela `endereco`
+--
+
+INSERT INTO `endereco` (`idendereco`, `rua`, `numero`, `complemento`, `bairro`, `cep`, `cidade`, `estado`, `usuario_idusuario`, `zona_moradia`) VALUES
+(1, '1', '1', '', '1', '11.111-111', '1', 'RJ', 10, 'Rural');
 
 -- --------------------------------------------------------
 
@@ -211,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `telefone` varchar(14) DEFAULT NULL,
   `celular` varchar(14) DEFAULT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Extraindo dados da tabela `usuario`
@@ -224,7 +237,8 @@ INSERT INTO `usuario` (`idusuario`, `nome`, `email`, `senha`, `token`, `status`,
 (4, 'Rafael Wendel Pinheiro', 'rafaelwendel@hotmail.com', '25f9e794323b453885f5181f1b624d0b', 'c0ea703df17425ae20cc2a487b22d6c1', 'Ativo', 'Candidato', NULL, NULL),
 (6, 'Jabes Bueno', 'jabes@outlook.com', '9d51c9f478ec62fc757f3ba2aeb39425', '6a9e63f96a6550be490c847fbc76bc0c', 'Ativo', 'Candidato', NULL, NULL),
 (7, 'Souza E CIA', 'souza@souzacia.com', '4a3a8e9a1a5ab63ed7f455bd9daf83e1', 'cb360ab38973d2df2365d28dcd1a75f5', 'Ativo', 'Candidato', NULL, NULL),
-(8, 'mmsouza', 'mmsouza@gmail.com', 'bf9d07ec2e98ff015f0efb271e5a4654', '5617fb4cba001b46e65fc70b079e49a8', 'Ativo', 'Empresa', NULL, NULL);
+(8, 'mmsouza', 'mmsouza@gmail.com', 'bf9d07ec2e98ff015f0efb271e5a4654', '5617fb4cba001b46e65fc70b079e49a8', 'Ativo', 'Empresa', NULL, NULL),
+(10, 'Jabes Bueno', 'jabes@gmail.com', '9d51c9f478ec62fc757f3ba2aeb39425', '747d6403ce40c6270e4453e030b09cd5', 'Ativo', 'Candidato', '', '');
 
 -- --------------------------------------------------------
 

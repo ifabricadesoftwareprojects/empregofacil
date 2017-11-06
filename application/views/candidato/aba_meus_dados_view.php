@@ -28,6 +28,19 @@
                             <input type="text" class="form-control input-lg cpf"  placeholder="Ex: 111.111.111-11" name="cpf" value="<?php echo $candidato->cpf ?>">
                             <?php echo display_erros(isset($erros['cpf']) ? $erros['cpf'] : null) ?>
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="nome_pai">Nome do pai:</label>
+                            <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome_pai" value="<?php echo $candidato->nome_pai ?>">
+                            <?php echo display_erros(isset($erros['nome_pai']) ? $erros['nome_pai'] : null) ?>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="nome_mae">Nome da mãe:</label>
+                            <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome_mae" value="<?php echo $candidato->nome_mae ?>">
+                            <?php echo display_erros(isset($erros['nome_mae']) ? $erros['nome_mae'] : null) ?>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Email" name="email" value="<?php echo $candidato->email ?>">
@@ -38,6 +51,23 @@
                             <label for="data_nascimento">Nascimento:</label>
                             <input type="date" name="data_nascimento" value="<?php echo $candidato->data_nascimento ?>" class="form-control input-lg" placeholder="Ex: 01/01/2001"> 
                             <?php echo display_erros(isset($erros['data_nascimento']) ? $erros['data_nascimento'] : null) ?>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="nacionalidade">Nacionalidade:</label>
+                            <input type="text" name="nacionalidade" value="<?php echo $candidato->nacionalidade ?>" class="form-control input-lg"> 
+                            <?php echo display_erros(isset($erros['nacionalidade']) ? $erros['nacionalidade'] : null) ?>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="raca">Cor/Raça:</label>
+                            <select name="raca" class="form-control input-lg">
+                                <option value="Branca"<?php echo $candidato->raca == 'Branca' ? ' selected' : '' ?>>Branca</option>
+                                <option value="Amarela"<?php echo $candidato->raca == 'Amarela' ? ' selected' : '' ?>>Amarela</option>
+                                <option value="Indígena"<?php echo $candidato->raca == 'Indígena' ? ' selected' : '' ?>>Indígena</option>
+                                <option value="Negra"<?php echo $candidato->raca == 'Negra' ? ' selected' : '' ?>>Negra</option>
+                                <option value="Prefiro não declarar"<?php echo $candidato->raca == 'Prefiro não declarar' ? ' selected' : '' ?>>Prefiro não declarar</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -126,6 +156,7 @@
                         <table class="table table-hover">
                             <thead thead-default>
                                 <tr>
+                                    <th>Zona de moradia</th>
                                     <th>Rua</th>
                                     <th>Numero</th>
                                     <th>Complemento</th>
@@ -138,6 +169,7 @@
                             <tbody>
                                 <?php foreach ($enderecos as $endereco) : ?>
                                     <tr>
+                                        <td><?php echo $endereco->zona_moradia ?></td>
                                         <td><?php echo $endereco->rua ?></td>
                                         <td><?php echo $endereco->numero ?></td>
                                         <td><?php echo $endereco->complemento ?></td>

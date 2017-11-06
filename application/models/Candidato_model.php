@@ -31,6 +31,10 @@ class Candidato_model extends MY_Model {
     public $disponibilidade_viajar;
     public $disponibilidade_mudar_residencia;
     public $outras_informacoes;
+    public $nome_pai;
+    public $nome_mae;
+    public $raca;
+    public $nacionalidade;
 
     public function __construct() {
         parent::__construct();
@@ -60,7 +64,10 @@ class Candidato_model extends MY_Model {
         $validate->set('nome', $this->nome)->is_required()->min_length(5)->max_length(75)->is_alpha_num()
                 ->set('email', $this->email)->is_required()->is_email()
                 ->set('data_nascimento', $this->data_nascimento)->is_date()
-                ->set('cpf', $this->cpf)->is_cpf();
+                ->set('cpf', $this->cpf)->is_cpf()
+                ->set('nome_pai', $this->nome_pai)->is_required()
+                ->set('nome_mae', $this->nome_mae)->is_required()
+                ->set('nacionalidade', $this->nacionalidade)->is_required();
                 
         if($this->portador_deficiencia == 'Sim'){
             $validate->set('descricao_deficiencia', $this->descricao_deficiencia)->is_required()->min_length(3);
