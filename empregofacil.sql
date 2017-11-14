@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 06-Nov-2017 às 10:54
+-- Generation Time: 14-Nov-2017 às 11:55
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -67,6 +67,10 @@ CREATE TABLE IF NOT EXISTS `candidato` (
   `nome_mae` varchar(50) DEFAULT NULL,
   `raca` varchar(20) DEFAULT NULL,
   `nacionalidade` varchar(20) DEFAULT NULL,
+  `numero` char(11) DEFAULT NULL,
+  `serie` varchar(10) DEFAULT NULL,
+  `uf` varchar(3) DEFAULT NULL,
+  `dt_emissao` char(10) DEFAULT NULL,
   PRIMARY KEY (`usuario_idusuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -74,11 +78,11 @@ CREATE TABLE IF NOT EXISTS `candidato` (
 -- Extraindo dados da tabela `candidato`
 --
 
-INSERT INTO `candidato` (`usuario_idusuario`, `nome_social`, `data_nascimento`, `sexo`, `genero`, `estado_civil`, `cpf`, `portador_deficiencia`, `descricao_deficiencia`, `foto`, `tipo_habilitacao`, `veiculo_proprio`, `disponibilidade_viajar`, `disponibilidade_mudar_residencia`, `outras_informacoes`, `nome_pai`, `nome_mae`, `raca`, `nacionalidade`) VALUES
-(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', ''),
-(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', ''),
-(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', ''),
-(10, '', '', 'Masculino', 'Heterossexual', 'Solteiro', '', 'Nao', NULL, NULL, 'N', 'Sim', 'Sim', 'Sim', '', 'Gelson Bueno do Livramento Neto', 'Aparecida Fatima Moraes Livramento', 'Branca', 'Brasil');
+INSERT INTO `candidato` (`usuario_idusuario`, `nome_social`, `data_nascimento`, `sexo`, `genero`, `estado_civil`, `cpf`, `portador_deficiencia`, `descricao_deficiencia`, `foto`, `tipo_habilitacao`, `veiculo_proprio`, `disponibilidade_viajar`, `disponibilidade_mudar_residencia`, `outras_informacoes`, `nome_pai`, `nome_mae`, `raca`, `nacionalidade`, `numero`, `serie`, `uf`, `dt_emissao`) VALUES
+(4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '0', '', '', '0000-00-00'),
+(6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '0', '', '', '0000-00-00'),
+(7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '0', '', '', '0000-00-00'),
+(10, '', '', 'Masculino', 'Heterossexual', 'Solteiro', '', 'Nao', NULL, NULL, 'N', 'Sim', 'Sim', 'Sim', '', 'Gelson Bueno do Livramento Neto', 'Aparecida Fatima Moraes Livramento', 'Branca', 'Brasil', '0', '', '', '0000-00-00');
 
 -- --------------------------------------------------------
 

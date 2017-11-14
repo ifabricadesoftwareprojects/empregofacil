@@ -28,19 +28,19 @@
                             <input type="text" class="form-control input-lg cpf"  placeholder="Ex: 111.111.111-11" name="cpf" value="<?php echo $candidato->cpf ?>">
                             <?php echo display_erros(isset($erros['cpf']) ? $erros['cpf'] : null) ?>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="nome_pai">Nome do pai:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome_pai" value="<?php echo $candidato->nome_pai ?>">
                             <?php echo display_erros(isset($erros['nome_pai']) ? $erros['nome_pai'] : null) ?>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="nome_mae">Nome da mãe:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Nome" name="nome_mae" value="<?php echo $candidato->nome_mae ?>">
                             <?php echo display_erros(isset($erros['nome_mae']) ? $erros['nome_mae'] : null) ?>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email:</label>
                             <input type="text" class="form-control input-lg"  placeholder="Email" name="email" value="<?php echo $candidato->email ?>">
@@ -52,13 +52,13 @@
                             <input type="date" name="data_nascimento" value="<?php echo $candidato->data_nascimento ?>" class="form-control input-lg" placeholder="Ex: 01/01/2001"> 
                             <?php echo display_erros(isset($erros['data_nascimento']) ? $erros['data_nascimento'] : null) ?>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="nacionalidade">Nacionalidade:</label>
                             <input type="text" name="nacionalidade" value="<?php echo $candidato->nacionalidade ?>" class="form-control input-lg"> 
                             <?php echo display_erros(isset($erros['nacionalidade']) ? $erros['nacionalidade'] : null) ?>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="raca">Cor/Raça:</label>
                             <select name="raca" class="form-control input-lg">
@@ -148,7 +148,58 @@
                             </select>
                         </div>
                     </fieldset>
+                    <!--Carteira de trabalho-->
+                    <legend>Carteira de trabalho</legend>
+                    <div class="form-group">
+                        <label for="numero">Numero:</label>
+                        <input type="text" class="form-control input-lg numero" name="numero" value="<?php echo $candidato->numero ?>">
+                        <?php echo display_erros(isset($erros['numero']) ? $erros['numero'] : null) ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="serie">Série:</label>
+                        <input type="text" class="form-control input-lg serie" name="serie" value="<?php echo $candidato->serie ?>">
+                        <?php echo display_erros(isset($erros['serie']) ? $erros['serie'] : null) ?>
+                    </div>
+                    <div class="form-group">
+                        <label for="uf">U.F.:</label>
+                        <select name="uf" class="form-control">
+                            <option value="U.F.">Selecione o U.F.</option> 
+                            <option value="AC"<?php echo $candidato->uf == 'AC' ? ' selected' : '' ?>>AC</option> 
+                            <option value="AL"<?php echo $candidato->uf == 'AL' ? ' selected' : '' ?>>AL</option> 
+                            <option value="AM"<?php echo $candidato->uf == 'AM' ? ' selected' : '' ?>>AM</option> 
+                            <option value="AP"<?php echo $candidato->uf == 'AP' ? ' selected' : '' ?>>AP</option> 
+                            <option value="BA"<?php echo $candidato->uf == 'BA' ? ' selected' : '' ?>>BA</option> 
+                            <option value="CE"<?php echo $candidato->uf == 'CE' ? ' selected' : '' ?>>CE</option> 
+                            <option value="DF"<?php echo $candidato->uf == 'DF' ? ' selected' : '' ?>>DF</option> 
+                            <option value="ES"<?php echo $candidato->uf == 'ES' ? ' selected' : '' ?>>ES</option> 
+                            <option value="GO"<?php echo $candidato->uf == 'GO' ? ' selected' : '' ?>>GO</option> 
+                            <option value="MA"<?php echo $candidato->uf == 'MA' ? ' selected' : '' ?>>MA</option> 
+                            <option value="MT"<?php echo $candidato->uf == 'MT' ? ' selected' : '' ?>>MT</option> 
+                            <option value="MS"<?php echo $candidato->uf == 'MS' ? ' selected' : '' ?>>MS</option> 
+                            <option value="MG"<?php echo $candidato->uf == 'MG' ? ' selected' : '' ?>>MG</option> 
+                            <option value="PA"<?php echo $candidato->uf == 'PA' ? ' selected' : '' ?>>PA</option> 
+                            <option value="PB"<?php echo $candidato->uf == 'PB' ? ' selected' : '' ?>>PB</option> 
+                            <option value="PR"<?php echo $candidato->uf == 'PR' ? ' selected' : '' ?>>PR</option> 
+                            <option value="PE"<?php echo $candidato->uf == 'PE' ? ' selected' : '' ?>>PE</option> 
+                            <option value="PI"<?php echo $candidato->uf == 'PI' ? ' selected' : '' ?>>PI</option> 
+                            <option value="RJ"<?php echo $candidato->uf == 'RJ' ? ' selected' : '' ?>>RJ</option> 
+                            <option value="RN"<?php echo $candidato->uf == 'RN' ? ' selected' : '' ?>>RN</option> 
+                            <option value="RO"<?php echo $candidato->uf == 'RO' ? ' selected' : '' ?>>RO</option> 
+                            <option value="RS"<?php echo $candidato->uf == 'RS' ? ' selected' : '' ?>>RS</option> 
+                            <option value="RR"<?php echo $candidato->uf == 'RR' ? ' selected' : '' ?>>RR</option> 
+                            <option value="SC"<?php echo $candidato->uf == 'SC' ? ' selected' : '' ?>>SC</option> 
+                            <option value="SE"<?php echo $candidato->uf == 'SE' ? ' selected' : '' ?>>SE</option> 
+                            <option value="SP"<?php echo $candidato->uf == 'SP' ? ' selected' : '' ?>>SP</option> 
+                            <option value="TO"<?php echo $candidato->uf == 'TO' ? ' selected' : '' ?>>TO</option> 
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dt_emissao">Data de emissão:</label>
+                        <input type="date" name="dt_emissao" value="<?php echo $candidato->dt_emissao ?>" class="form-control input-lg" placeholder="Ex: 01/01/2001"> 
+                        <?php echo display_erros(isset($erros['dt_emissao']) ? $erros['dt_emissao'] : null) ?>
+                    </div>
                     <!-- ENDEREÇO -->
+                    <legend>Endereço</legend>
                     <div role="tabpanel" class="tab-pane<?php echo ($active == 'enderecos' ? ' active' : '') ?>" id="enderecos" align="left">
                         </br>
                         <?php echo $msg ?>
@@ -191,12 +242,12 @@
                         <div class="form-group">
                             <label for="telefone">Telefone (com DDD):</label>
                             <input type="text" class="form-control input-lg telefone"  placeholder="Ex: (19)3333-4444" name="telefone" value="<?php echo $candidato->telefone ?>">
-                            
+
                         </div>
                         <div class="form-group">
                             <label for="celular">Celular (com DDD):</label>
                             <input type="text" class="form-control input-lg celular"  placeholder="Ex: (19)99999-8888" name="celular" value="<?php echo $candidato->celular ?>">
-                            
+
                         </div>
 
                     </fieldset></br>

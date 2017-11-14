@@ -35,6 +35,10 @@ class Candidato_model extends MY_Model {
     public $nome_mae;
     public $raca;
     public $nacionalidade;
+    public $numero;
+    public $serie;
+    public $uf;
+    public $dt_emissao;
 
     public function __construct() {
         parent::__construct();
@@ -67,7 +71,10 @@ class Candidato_model extends MY_Model {
                 ->set('cpf', $this->cpf)->is_cpf()
                 ->set('nome_pai', $this->nome_pai)->is_required()
                 ->set('nome_mae', $this->nome_mae)->is_required()
-                ->set('nacionalidade', $this->nacionalidade)->is_required();
+                ->set('nacionalidade', $this->nacionalidade)->is_required()
+                ->set('numero', $this->numero)->is_max_length(7)->is_min_length(7)
+                ->set('serie', $this->serie)->is_max_length(7)->is_min_length(7)
+                ->set('dt_emissao', $this->dt_emissao)->is_date();
                 
         if($this->portador_deficiencia == 'Sim'){
             $validate->set('descricao_deficiencia', $this->descricao_deficiencia)->is_required()->min_length(3);
