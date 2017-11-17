@@ -63,7 +63,6 @@ class Vaga_model extends MY_Model{
         
         $validate->set('titulo', $this->titulo)->is_required()
                 ->set('descricao', $this->descricao)->is_required()
-                ->set('faixa_salarial_fim', $this->faixa_salarial_fim)->is_positive()->min_value($this->faixa_salarial_inicio-1)->is_required()
                 ->set('pre_requisitos', $this->pre_requisitos)->is_required()
                 ->set('tipo_contrato', $this->tipo_contrato)->is_required()
                 ->set('beneficios', $this->beneficios)->is_required()
@@ -83,7 +82,7 @@ class Vaga_model extends MY_Model{
     public function get_vagas($q, $filtros = array())
     {
         $query = $this->db
-                ->select('v.idvaga, u.nome, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.status_vaga')
+                ->select('v.idvaga, u.nome, v.titulo, v.descricao, v.faixa_salarial_fim, v.tipo_contrato, v.status_vaga')
                 ->from('vaga v')
                 ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario');
         
@@ -100,11 +99,9 @@ class Vaga_model extends MY_Model{
         
         if(isset($filtros['faixasalario']) && $filtros['faixasalario'] != ''){
             $quebra = explode('-', $filtros['faixasalario']);
-            $faixa_salarial_inicio = $quebra[0];
             $faixa_salarial_fim = ($quebra[1] == 'n' ? 999999 : $quebra[1]);
             //Adiciona os filtros de faixa salarial
             $query = $query->group_start()
-                        ->where('faixa_salarial_fim >= ', $faixa_salarial_inicio)
                         ->where('faixa_salarial_fim <= ', $faixa_salarial_fim)
                     ->group_end();
         }
@@ -124,7 +121,7 @@ class Vaga_model extends MY_Model{
     public function get_vaga_detalhes($idvaga, $status = 'Ativa', $token = null)
     {
         $query =  $this->db
-                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_inicio, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos,v.horario_trabalho,v.quantidade_candidato e.descricao as descricao_empresa')
+                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos,v.horario_trabalho,v.quantidade_candidato e.descricao as descricao_empresa')
                 ->from('vaga v')
                 ->join('empresa e', 'v.empresa_usuario_idusuario = e.usuario_idusuario')
                 ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')

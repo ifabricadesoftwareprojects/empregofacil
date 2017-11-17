@@ -10,7 +10,7 @@
                 <?php foreach ($vagas as $vaga) : ?>
                 <h3 style="color: #384452"> <?php echo $vaga->titulo ?></h3>
                 <p><strong>Descrição:</strong> <?php echo $vaga->descricao ?></p>
-                <p><strong>Faixa salarial:</strong> <?php echo 'R$' . $vaga->faixa_salarial_inicio ?> à <?php echo 'R$' . $vaga->faixa_salarial_fim ?></p>
+                <p><strong>Salário oferecido:</strong> <?php echo 'R$' . $vaga->faixa_salarial_fim ?></p>
                 <p><strong>Tipo de Contrato:</strong> <?php echo $vaga->tipo_contrato ?></p>
                 <p><a href="<?php echo base_url('vagas/detalhes/' . $vaga->idvaga) ?>" class="btn btn-default">Mais detalhes</a></p>
                 <hr>
