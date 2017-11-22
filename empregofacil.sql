@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 14-Nov-2017 às 11:55
+-- Generation Time: 22-Nov-2017 às 12:36
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `candidato` (
   `sexo` varchar(20) DEFAULT NULL,
   `genero` varchar(20) DEFAULT NULL,
   `estado_civil` varchar(20) DEFAULT NULL,
-  `cpf` char(11) DEFAULT NULL,
+  `cpf` char(14) DEFAULT NULL,
   `portador_deficiencia` char(3) DEFAULT NULL,
   `descricao_deficiencia` varchar(75) DEFAULT NULL,
   `foto` varchar(150) DEFAULT NULL,
@@ -82,7 +82,7 @@ INSERT INTO `candidato` (`usuario_idusuario`, `nome_social`, `data_nascimento`, 
 (4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '0', '', '', '0000-00-00'),
 (6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '0', '', '', '0000-00-00'),
 (7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', '0', '', '', '0000-00-00'),
-(10, '', '', 'Masculino', 'Heterossexual', 'Solteiro', '', 'Nao', NULL, NULL, 'N', 'Sim', 'Sim', 'Sim', '', 'Gelson Bueno do Livramento Neto', 'Aparecida Fatima Moraes Livramento', 'Branca', 'Brasil', '0', '', '', '0000-00-00');
+(10, 'Livramento', '1999-03-11', 'Masculino', 'Heterossexual', 'Solteiro', '466.447.998-09', 'Nao', NULL, NULL, 'N', 'Nao', 'Nao', 'Nao', '', 'Gelson Bueno do Livramento Neto', 'Aparecida Fatima Moraes Livramento', '', 'Brasil', '0', '', 'U.F', '');
 
 -- --------------------------------------------------------
 
@@ -170,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `endereco` (
 --
 
 INSERT INTO `endereco` (`idendereco`, `rua`, `numero`, `complemento`, `bairro`, `cep`, `cidade`, `estado`, `usuario_idusuario`, `zona_moradia`) VALUES
-(1, '1', '1', '', '1', '11.111-111', '1', 'RJ', 10, 'Rural');
+(1, 'Rua Vitório Roggerie', '355', '', 'Alto Castelani', '13.360-000', 'Capivari', 'SP', 10, 'Urbana');
 
 -- --------------------------------------------------------
 
@@ -242,7 +242,7 @@ INSERT INTO `usuario` (`idusuario`, `nome`, `email`, `senha`, `token`, `status`,
 (6, 'Jabes Bueno', 'jabes@outlook.com', '9d51c9f478ec62fc757f3ba2aeb39425', '6a9e63f96a6550be490c847fbc76bc0c', 'Ativo', 'Candidato', NULL, NULL),
 (7, 'Souza E CIA', 'souza@souzacia.com', '4a3a8e9a1a5ab63ed7f455bd9daf83e1', 'cb360ab38973d2df2365d28dcd1a75f5', 'Ativo', 'Candidato', NULL, NULL),
 (8, 'mmsouza', 'mmsouza@gmail.com', 'bf9d07ec2e98ff015f0efb271e5a4654', '5617fb4cba001b46e65fc70b079e49a8', 'Ativo', 'Empresa', NULL, NULL),
-(10, 'Jabes Bueno', 'jabes@gmail.com', '9d51c9f478ec62fc757f3ba2aeb39425', '747d6403ce40c6270e4453e030b09cd5', 'Ativo', 'Candidato', '', '');
+(10, 'Jabes Bueno do Livramento', 'jabes@gmail.com', '9d51c9f478ec62fc757f3ba2aeb39425', '747d6403ce40c6270e4453e030b09cd5', 'Ativo', 'Candidato', '', '');
 
 -- --------------------------------------------------------
 

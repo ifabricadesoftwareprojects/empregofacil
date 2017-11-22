@@ -62,6 +62,7 @@
                         <div class="form-group">
                             <label for="raca">Cor/Raça:</label>
                             <select name="raca" class="form-control input-lg">
+                                <option value=""<?php echo $candidato->raca == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="Branca"<?php echo $candidato->raca == 'Branca' ? ' selected' : '' ?>>Branca</option>
                                 <option value="Amarela"<?php echo $candidato->raca == 'Amarela' ? ' selected' : '' ?>>Amarela</option>
                                 <option value="Indígena"<?php echo $candidato->raca == 'Indígena' ? ' selected' : '' ?>>Indígena</option>
@@ -73,6 +74,7 @@
                         <div class="form-group">
                             <label for="sexo">Sexo:</label>
                             <select name="sexo" class="form-control input-lg">
+                                <option value=""<?php echo $candidato->sexo == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="Masculino"<?php echo $candidato->sexo == 'Masculino' ? ' selected' : '' ?>>Masculino</option>
                                 <option value="Feminino"<?php echo $candidato->sexo == 'Feminino' ? ' selected' : '' ?>>Feminino</option>
                             </select>
@@ -81,6 +83,7 @@
                         <div class="form-group">
                             <label for="genero">Gênero:</label>
                             <select name="genero" class="form-control input-lg">
+                                <option value=""<?php echo $candidato->genero == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="Heterossexual"<?php echo $candidato->genero == 'Heterossexual' ? ' selected' : '' ?>>Heterossexual</option>
                                 <option value="Homossexual"<?php echo $candidato->genero == 'Homossexual' ? ' selected' : '' ?>>Homossexual</option>
                                 <option value="Bissexual"<?php echo $candidato->genero == 'Bissexual' ? ' selected' : '' ?>>Bissexual</option>
@@ -94,6 +97,7 @@
                         <div class="form-group">
                             <label for="estado_civil">Estado Civil:</label>
                             <select name="estado_civil" class="form-control input-lg">
+                                <option value=""<?php echo $candidato->estado_civil == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="Solteiro"<?php echo $candidato->estado_civil == 'Solteiro' ? ' selected' : '' ?>>Solteiro(a)</option>
                                 <option value="Casado"<?php echo $candidato->estado_civil == 'Casado' ? ' selected' : '' ?>>Casado(a)</option>
                                 <option value="Divorciado"<?php echo $candidato->estado_civil == 'Divorciado' ? ' selected' : '' ?>>Divorciado(a)</option>
@@ -104,8 +108,9 @@
                         <div class="form-group">
                             <label for="portador_deficiencia">Possui algum tipo de deficiência?:</label>
                             <select id="portador_deficiencia" name="portador_deficiencia" class="form-control input-lg campoextra" campoextra="descricao_deficiencia" compara="Sim">
+                                <option value=""<?php echo $candidato->portador_deficiencia == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="Sim"<?php echo $candidato->portador_deficiencia == 'Sim' ? ' selected' : '' ?>>Sim</option>
-                                <option value="Nao"<?php echo $candidato->portador_deficiencia == 'Nao' ? ' selected' : '' ?> selected="selected">Não</option>
+                                <option value="Nao"<?php echo $candidato->portador_deficiencia == 'Nao' ? ' selected' : '' ?>>Não</option>
                             </select>
                             <label class="form-group">
                                 <input type="text" disabled="disabled" class="form-control"  placeholder="Descrição da deficiência" id="descricao_deficiencia" name="descricao_deficiencia">
@@ -115,6 +120,7 @@
                         <div class="form-group">
                             <label for="tipo_habilitacao">Tipo Habilitação (CNH): </label>
                             <select name="tipo_habilitacao" class="form-control input-lg">
+                                <option value=""<?php echo $candidato->tipo_habilitacao == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="N"<?php echo $candidato->tipo_habilitacao == 'N' ? ' selected' : '' ?>>Não possuo habilitação</option>
                                 <option value="A"<?php echo $candidato->tipo_habilitacao == 'A' ? ' selected' : '' ?>>A</option>
                                 <option value="B"<?php echo $candidato->tipo_habilitacao == 'B' ? ' selected' : '' ?>>B</option>
@@ -127,6 +133,7 @@
                         <div class="form-group">
                             <label for="veiculo_proprio">Possui veículo próprio?:</label>
                             <select name="veiculo_proprio" class="form-control input-lg">
+                                <option value=""<?php echo $candidato->veiculo_proprio == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="Sim"<?php echo $candidato->veiculo_proprio == 'Sim' ? ' selected' : '' ?>>Sim</option>
                                 <option value="Nao"<?php echo $candidato->veiculo_proprio == 'Nao' ? ' selected' : '' ?>>Não</option>
                             </select>
@@ -135,6 +142,7 @@
                         <div class="form-group">
                             <label for="disponibilidade_viajar">Possui disponibilidade para viajar?:</label>
                             <select name="disponibilidade_viajar" class="form-control input-lg">
+                                <option value=""<?php echo $candidato->disponibilidade_viajar == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="Sim"<?php echo $candidato->disponibilidade_viajar == 'Sim' ? ' selected' : '' ?>>Sim</option>
                                 <option value="Nao"<?php echo $candidato->disponibilidade_viajar == 'Nao' ? ' selected' : '' ?>>Não</option>
                             </select>
@@ -143,6 +151,7 @@
                         <div class="form-group">
                             <label for="disponibilidade_mudar_residencia">Possui disponibilidade de mudar de residencia?:</label>
                             <select name="disponibilidade_mudar_residencia" class="form-control input-lg">
+                                <option value=""<?php echo $candidato->disponibilidade_mudar_residencia == '' ? ' selected' : '' ?>>Selecione</option>
                                 <option value="Sim"<?php echo $candidato->disponibilidade_mudar_residencia == 'Sim' ? ' selected' : '' ?>>Sim</option>
                                 <option value="Nao"<?php echo $candidato->disponibilidade_mudar_residencia == 'Nao' ? ' selected' : '' ?>>Não</option>
                             </select>
@@ -162,8 +171,8 @@
                     </div>
                     <div class="form-group">
                         <label for="uf">U.F.:</label>
-                        <select name="uf" class="form-control">
-                            <option value="U.F.">Selecione o U.F.</option> 
+                        <select name="uf" class="form-control input-lg">
+                            <option value="">Selecione</option> 
                             <option value="AC"<?php echo $candidato->uf == 'AC' ? ' selected' : '' ?>>AC</option> 
                             <option value="AL"<?php echo $candidato->uf == 'AL' ? ' selected' : '' ?>>AL</option> 
                             <option value="AM"<?php echo $candidato->uf == 'AM' ? ' selected' : '' ?>>AM</option> 

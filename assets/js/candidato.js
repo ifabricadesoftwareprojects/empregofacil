@@ -64,6 +64,7 @@ $(document).ready(function(){
         var dados = $.parseJSON($(this).attr('data'));
         
         $('#formEndereco input[name="id"').val(dados.idendereco);
+        $('#formEndereco select[name="zona_moradia"]').val(dados.zona_moradia).change();
         $('#formEndereco input[name="rua"]').val(dados.rua);
         $('#formEndereco input[name="numero"]').val(dados.numero);
         $('#formEndereco input[name="complemento"]').val(dados.complemento);
