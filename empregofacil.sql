@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Dez-2017 às 04:08
+-- Generation Time: 01-Dez-2017 às 04:11
 -- Versão do servidor: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `curso` (
 --
 
 INSERT INTO `curso` (`idcurso`, `descricao_curso`, `instituicao`, `nivel`, `mes_ano_inicio`, `mes_ano_fim`, `status_curso`, `candidato_usuario_idusuario`) VALUES
-(1, 'Técnico em Informática Integrado ao Ensino Médio ', 'IFSP Campus Capivari', 'Técnico', '02/2014', '12/2016', 'Concluído', 10),
+(1, 'Informática Integrado ao Ensino Médio ', 'IFSP Campus Capivari', 'Técnico', '02/2014', '12/2016', 'Concluído', 10),
 (2, 'Tecnólogo em Analise e Desenvolvimento de Sistemas', 'IFSP Campus Capivari', 'Superior', '02/2017', '', 'Em Andamento', 10);
 
 -- --------------------------------------------------------
