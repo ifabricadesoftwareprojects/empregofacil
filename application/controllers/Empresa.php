@@ -38,7 +38,7 @@ class Empresa extends MY_Controller {
         
         $dados['empresa'] = $this->empresa_model->get_empresa_by_token($this->session->token);
         $dados['vagas'] = $this->vaga_model->findBy('empresa_usuario_idusuario', $this->usuario_model->get_id_by_token($this->session->token));
-        
+        //die(print_r($dados['vagas']));
         $dados['erros'] = $this->session->flashdata('erros');
         $dados['dados'] = $this->session->flashdata('dados');
         $dados['abrir'] = $this->session->flashdata('abrir');

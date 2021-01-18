@@ -8,7 +8,7 @@
             <div class="col-md-9" style="text-align: left;">
                 <h1 style="color: #384452"> <?php echo $vaga->titulo ?></h1>
                 <p><strong>Descrição:</strong><br /><?php echo $vaga->descricao ?></p>
-                <p><strong>Faixa salarial:</strong><br /><?php echo 'R$' . $vaga->faixa_salarial_inicio ?> à <?php echo 'R$' . $vaga->faixa_salarial_fim ?></p>
+                <p><strong>Faixa salarial:</strong><br /><?php echo 'R$' . $vaga->faixa_salarial_inicial ?> à <?php echo 'R$' . $vaga->faixa_salarial_fim ?></p>
                 <p><strong>Tipo de Contrato:</strong><br /><?php echo $vaga->tipo_contrato ?></p>
                 <p><strong>Requisitos:</strong><br /><?php echo $vaga->pre_requisitos ?></p>
                 <p><strong>Benefícios:</strong><br /><?php echo $vaga->beneficios ?></p>

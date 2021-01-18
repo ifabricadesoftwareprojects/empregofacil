@@ -1,7 +1,7 @@
         <!-- *****************************************************************************************************************
          HEADERWRAP
          ***************************************************************************************************************** -->
-        <div id="headerwrap" style="background-image: url('<?php echo base_url() ?>assets/img/business.jpg'); background-position: center;">
+        <div id="headerwrap" style="background-image: url('<?php echo base_url() ?>assets/img/business.jpg'); background-position: center; background-repeat: no-repeat; background-size: 100%; width: 100%; height: auto;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">

@@ -19,6 +19,7 @@ class Vaga_model extends MY_Model{
     public $idvaga;
     public $titulo;
     public $descricao;
+    public $faixa_salarial_inicial;
     public $faixa_salarial_fim;
     public $pre_requisitos;
     public $tipo_contrato;
@@ -121,7 +122,7 @@ class Vaga_model extends MY_Model{
     public function get_vaga_detalhes($idvaga, $status = 'Ativa', $token = null)
     {
         $query =  $this->db
-                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos,v.horario_trabalho,v.quantidade_candidato e.descricao as descricao_empresa')
+                ->select('v.idvaga, u.nome, u.email, v.titulo, v.descricao, v.faixa_salarial_inicial, v.faixa_salarial_fim, v.tipo_contrato, v.beneficios, v.data_publicacao, v.pre_requisitos,v.horario_trabalho, v.quantidade_candidato, e.descricao as descricao_empresa')
                 ->from('vaga v')
                 ->join('empresa e', 'v.empresa_usuario_idusuario = e.usuario_idusuario')
                 ->join('usuario u', 'v.empresa_usuario_idusuario = u.idusuario')
